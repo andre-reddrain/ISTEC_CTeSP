@@ -1,0 +1,74 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\andre\\Desktop\\CTeSP\\IP - Introdu\u00E7\u00E3o Programa\u00E7\u00E3o\\Projetos IP\\Exercicios_matrizes\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{09F14591-5F89-4AAE-A615-4FA6FF693803}|Exercicios_matrizes.vcxproj|C:\\Users\\andre\\Desktop\\CTeSP\\IP - Introdu\u00E7\u00E3o Programa\u00E7\u00E3o\\Projetos IP\\Exercicios_matrizes\\Exercicios_matrizes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{09F14591-5F89-4AAE-A615-4FA6FF693803}|Exercicios_matrizes.vcxproj|solutionrelative:Exercicios_matrizes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\Desktop\\CTeSP\\IP - Introdu\u00E7\u00E3o Programa\u00E7\u00E3o\\Projetos IP\\Exercicios_array\\Exercicios_array.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\andre\\Downloads\\3b.arrayBi (1).cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 347,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Exercicios_array.cpp",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\CTeSP\\IP - Introdu\u00E7\u00E3o Programa\u00E7\u00E3o\\Projetos IP\\Exercicios_array\\Exercicios_array.cpp",
+              "RelativeDocumentMoniker": "..\\Exercicios_array\\Exercicios_array.cpp",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\CTeSP\\IP - Introdu\u00E7\u00E3o Programa\u00E7\u00E3o\\Projetos IP\\Exercicios_array\\Exercicios_array.cpp",
+              "RelativeToolTip": "..\\Exercicios_array\\Exercicios_array.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-07T20:39:37.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "3b.arrayBi (1).cpp",
+              "DocumentMoniker": "C:\\Users\\andre\\Downloads\\3b.arrayBi (1).cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Downloads\\3b.arrayBi (1).cpp",
+              "ToolTip": "C:\\Users\\andre\\Downloads\\3b.arrayBi (1).cpp",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Downloads\\3b.arrayBi (1).cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-07T20:49:54.793Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 469,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Exercicios_matrizes.cpp",
+              "DocumentMoniker": "C:\\Users\\andre\\Desktop\\CTeSP\\IP - Introdu\u00E7\u00E3o Programa\u00E7\u00E3o\\Projetos IP\\Exercicios_matrizes\\Exercicios_matrizes.cpp",
+              "RelativeDocumentMoniker": "Exercicios_matrizes.cpp",
+              "ToolTip": "C:\\Users\\andre\\Desktop\\CTeSP\\IP - Introdu\u00E7\u00E3o Programa\u00E7\u00E3o\\Projetos IP\\Exercicios_matrizes\\Exercicios_matrizes.cpp",
+              "RelativeToolTip": "Exercicios_matrizes.cpp",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAAEwAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-07T20:38:23.15Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

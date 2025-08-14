@@ -1,0 +1,58 @@
+Parte I
+A Internet desempenha cada vez mais um papel importante no mundo das comunicações.
+
+1.1 - Quais as principais características das redes que constituem a internet, usando o modelo OSI como referência?
+R : (Desenho do modelo OSI)
+    Origem                                  Destino           
+|   7 - Aplicação                           7 - Aplicação     |
+|   7 - Apresentação                        6 - Apresentação  |
+|   5 - Sessão                              5 - Sessão        |
+|   4 - Transporte - TCP / UDP              4 - Transporte    |
+|   3 - Rede - Prot. UP                     3 - Rede          |
+|   2 - Ligação Dados                       2 - Ligação Dados |
+|   1 - Física                              1 - Física        |
+--------->---------------->---------------->------------------
+
+1.2 - Quais os meios de transmissão que podem ser utilizados numa rede de comunicação de dados?
+    R: Cabos duplo fio / coaxial / fibra-ótica / wireless
+    - Quais as vantagens de se escolher o meio de transmissão sem fios?
+    R: Escalabilidade mais barata, maior cobertura ou distância com menores custos.
+       Suporte à mobilidade, instalação mais fácil e mais barata.
+       Maior facilidade em criar instalações temporárias.
+
+
+Parte II
+Os protocolos são regras de comunicação caracterizadas por diversas funcionalidades/atributos.
+
+2.1 - Indique e descreva os motivos para que nas redes de comunicação a comutação de pacotes seja atualmente mais usada do que a comutação de circuitos?
+    R: Maior flexibilidade e mais simples, suporta redes os tipos de serviços, implementação de mecanismos de QoS, permite melhor ocupação dos recursos das redes, possibilidade de caminhos alternativos. Mais económica e simples, utilização de equipamentos mais económicos (Router) e capacidade do uso da internet, rede com comutação de pacotes.
+
+
+2.2 - Indique o objetivo e descreva o funcionamento do protocolo RTP (Real Time Protocol)?
+
+
+
+
+Parte III
+As redes Wi-Fi (Wireless Fidelity) são um tipo de rede de acesso semm fios de cobertura local.
+
+3.1 - Descreva de forma resumida a arquitetura (elementos de rede) e o funcionamento (comunicação entre elementos de rede) das redes Wi-Fi estruturadas?
+
+Celula: Area de cobertura de sinais radio do AP
+
+Terminais móveis que usam o meio de comunicação definido pelo AP <=> Canal c/ determinada frequencia de comunicação
+
+Funcionamento:
+    - Todas as comunicações de/para terminais na celula via AP
+    - Partilhado um mesmo canal de comunicação por todos os terminais e AP => Ser necessário usar método de acesso a meio de transmissão partilhado = CSMA/CA
+
+
+3.2 - Descreva o problema do terminal escondido e o modo como o protocolo de acesso CSMA/CA (Carrier Sense Multiple Access / Collision Avoidance) consegue resolver o mesmo nas redes Wi-Fi?
+
+TB pertende transmitir e como não ouve mensagens do terminal TA => Considera que o meio está livre. TA está escondido de TB
+
+CSMA/CA:
+    1 - TB deteta meio de transmissão livre
+    2 - TB vai perguntar a AP se confirma meio livre
+    3a - AP confirma meio livre => TB pode transmitir
+    3b - AP não confirma meio livre => TB não pode transmitir. Existe um terminal escondido a ocupar o meio

@@ -1,0 +1,145 @@
+Internet - Conjunto de redes e respetivos terminais. Redes heterogénias, inteligadas entre si, independentes de tecnologia e meio físico de transmissão. Utilizam protocolo IP, TCP ou UDP
+
+QoS - Quality of Service - Definição da prioridade para processamento e encaminhamento de mensagens na rede.
+Controlo de erros - Deteção da eventual existência de erros nas mensagens transportadas ao longo da rede que levam à sua retransmissão
+Controlo de fluxo - Possibilidade do recetor informar o emissor da quantidade de dados que pode receber deste, num dado instante
+
+Circuit Switch - "Conquistar" troços dedicados da rede, desde o emissor ao recetor, até estabelecer um circuito dedicado. Ex: Voz / telefone tradicional
+Packet Switch - Mensagens de diferentes ligações e utilizadores partilham recursos da rede. Ex: Redes IP multi-serviços
+Linha Comutada - Ligação dedicada estabelecida apenas durante o intervalo de tempo necessário para a transmissão de informação entre 2 entidades. Ex: Utilizadores de serviço telefónico
+Linha alugada/dedicada - Circuito permanente com ocupação permanente de recursos. Ex: empresas
+
+Redes fiáveis - Tolerância a falhas, escabilidade, QoS, Segurança
+
+Modelo OSI
+7 - Aplicação
+6 - Apresentação
+5 - Sessão
+4 - Transporte
+3 - Rede
+2 - Ligação de dados
+1 - Física
+
+TOPOLOGIAS DE REDE
+Full Mesh - Todos os nós estão ligados entre si
+Malha incompleta - Apenas alguns nós estão ligados diretamente entre si
+Estrela - Todos os nós estão ligados a um nó central
+Árvore - Cascata de estrelas ligadas entre si
+Bus - Todos os nós estão ligados a um meio de transmissão comum
+Anel - Cada nó está ligado a outros dois nós, num circuito fechado
+
+CSMA - Carrier Sense Multiple Access - Processo de transmissão de mensagens em meio de transmissão partilhado
+1 - Nó emissor de mensagens escuta se meio de transmissão está livre
+2 - Se estiver ocupado - Espera que o meio fique livre para transmitir
+3 - Quando estiver livre - Transmite mensagem
+4 - Se necessário, retransmissão de mensagem
+
+Token Ring - Controlo de acesso por passagem de testemunho (token)
+Token - Padrão especial de bits que circula de nó para nó. Cada nó pode transmitir/receber uma mensagem quando receber testemunho
+
+CSMA/CA - Problema do terminal escondido
+- Ambas as estações conseguem transmitir/receber sinais para/do AP no centro da célula
+- Pelo menos uma das estações não consegue ouvir os sinais da outra
+- Mecanismo em que estações antes de transmitirem as suas mensagens devem perguntar ao AP se meio de transmissão está livre
+- Apenas o AP consegue escutar e controlar toda a célula
+
+Protocolos Camada 4 - Transporte
+TCP - Transmission Control Protocol
+- Comunicação síncrona - Necessário pré-estabelecimento de conexão entre terminais emissor/recetor antes de iniciar a comunicação
+- Controlo de erros - Utilização de parâmetros e temporizadores para controlo de erros
+    - Protocolo de janela deslizante para retransmissão de dados com erros ou não-confirmados
+- Controlo de fluxo - Janela deslizante para controlo de quantidade máxima de dados que o recetor consegue receber num determinado instante
+- Um único fluxo de dados - Mensagens TCP podem transportar dados de diferentes aplicações
+    - Sem comutação, QoS
+
+UDP - User Datagram Protocol
+- Alternativo a TCP, porque não podem correr juntos
+- Não efetua controlo de erros e fluxo de dados
+- Comunicação assíncrona
+- Apropriado para aplicações onde a prontidão ou simplicidade são mais importantes que exactidão. Ex: Voz
+
+RTP - Real Time Transport Protocol
+- Fluxo de dados + informação com temporização de pacotes (timestamp nos cabeçalhos)
+- Identifica o tipo de informação transportada
+- Numera e controla pacotes transmitidos
+- Complementa UDP
+
+SCTP - Stream Control Transmission Protocol
+- Evolução do TCP:
+    - Orientado á ligação com 4 way hand-shaking para maior segurança - Servidor só aloca recursos para pedido de ligação ao cliente quando este confirmar a sua existência/identidade com uma 2ª mensagem
+    - Controlo de multi-streams - Gestão individual de fluxos de dados de diversas aplicações entre 2 entidades termninais SCTP
+    - Multi-homing - A cada extremo de uma ligação SCTP, pode ser atribuido mais do que um endereço IP - + tolerância a falhas
+- Pacote SCTP é encapsulado em pacote IP
+
+IP - Internet Protocol - C3 OSI
+- Encaminhamento de pacotes entre redes heterogéneas
+- Comutação de pacotes
+- Não orientado à ligação
+- Não fiável
+- Não garante QoS -> Best Effort
+
+Endereços IP - IPv4 - 32 bits, divididos em 3 campos
+    - Identificador de classe de endereço
+    - Número de identificação de Rede
+    - Número de identificação de Host
+Classes:
+    A - 126 redes com 16.7 milhões de terminais cada
+    B - 16 mil redes com 65 mil terminais cada
+    C - 2 milhões de redes com 254 terminais cada
+    D - Multicasting
+    E - Reservado para uso futuro
+Problemas
+    - Crescimento de redes - Redução da quantidade de endereços disponíveis
+    - Utilização de classes não optimiza o uso de endereços IP
+    - Tabelas de routing com dimensão limitada
+Soluções temporárias
+    - Routing sem classes
+        - Subnets - Segmentação de terminais em sub-redes para facilitar gestão interna de redes
+        - Supernets - Agregação de endereços classe C contínuos
+        - Endereços privados/NAT
+
+Subnets 
+Objetivo - Possibilitar melhor gestão, desempenho e segurança dos serviços
+- Separação/redução de tráfego por subnet 
+- Segmentação do campo terminal em: Subnet + Terminais por Subnet
+- Invisível para o exterior
+
+Protocolos auxiliares do IP
+- ICMP - Internet Control Message Protocol
+    - Protocolo de controlo e testes
+        - Gestão da rede
+        - Teste de acessibilidade de destinos (redes ou terminais)
+        - Transporte de alterações de tabelas de routing
+Ex: Ping
+- ARP - Address Resolution Protocol
+    - Usado para obter endereço C2 (MAC) a partir do endereço IP -> MAC Address é necessário para switches conseguirem encaminhar mensagens entre terminais da mesma LAN
+- MPLS - MultiProtocol Label Switching - Interior da rede para acelarar o transporte de tráfego
+    - Disponibiliza mecanismos de garantia de QoS em redes IP
+    - Mapea cabeçalho IP em cabeçalho mais simples de comprimento fixo
+        - Routing com base em labels. + simples e rápido do que IP - Não necessita de consultar tabelas de routing
+        - Labels - Campo de cabeçalho que define caminho com base em classe QoS
+            - Corresponde a endereço de encaminhamento
+            - Atribuidas no inicio da comunicação para definição de caminho de pacotes em função do seu QoS
+- DiffServer - Periferia da rede para diferenciar tráfego por mais níveis de prioridade
+    - Classificador - Identifica requisito QoS de pacotes
+    - Marcador - Marcar os pacotes em função da sua classificação
+    - Condicionador - Faz verificação de características de tráfego de entrada
+- IPSec - Autenticação e encriptação na camada de rede - Invisível para aplicações e users
+    - Funcionalidades
+        - Segurança - Possibilitar autenticação e controlo de integridade de pacotes IP: Cabeçalho AH / ESP
+            - AH - Autenthication Header - Garante autenticidade e integridade de pacotes IP com base em MAC
+            - ESP - Encapsulation Security Payload - Garante confidencialidade e integridade de pacotes IP
+
+DNS - Domain Name System
+    - Recursos ligados à rede possam ser identificadas por um nome (além do IP) -> + fácil gestão de nomes para utilizadores
+        - Ex: www.istec.pt -> 195.22.24.82
+
+VPN - Virtual Private Network - Possibilita interligação de terminais e redes privadas através de canais de comunicação seguros e virtualmente dedicados de redes públicas
+    - Redução de custos
+    - Tirar partido da evolução da internet - Possibilidade de usar diferentes terminais e redes de acesso
+    - Contornar restrições locais de acessos remotos
+
+IPv6 - 128 bits
+    - Cabeçalho mais simples e de tamanho constante - routing + rápido + simplifica incorporação de informação opcional
+    - Auto-configuração - Utilização de prefixo rede + MAC estendido em campo terminal
+    - Suporta mais mecanismos de QoS com novo campo "label de fluxo"

@@ -1,0 +1,37 @@
+- Enviar Email para a secretaria com Foto, CV e Boletim de Vacinas
+
+- Dar catch-up na matéria:
+    - AED
+        - Aula 4 - Vetores
+    - AS 
+        - Aula 3
+    - BDSQL **$\checkmark$**
+        - Atualmente na sessão 10
+    - CIG
+        - 6 - Design para Web
+        - Trabalhos:
+            - A partir de hoje (10.1.25), os trabalhos vão ser individuais (Grupo 18)
+    - FDS
+        - Tudo! (tmb n é mt)
+        - Passar tudo para .md
+    - IP **$\checkmark$**
+        - Atualmente na aula 5.4 (17 Dez)
+        - Concluir Ex 2.1
+        - Falta Ex 5.1
+        - Falta Ex 5.4
+    - IRD
+        - Capítulo 5 - Sumário ??
+        - Passar tudo para .md
+    - LI
+        - Tudo (n é mt)
+        - Passar tudo para .md
+        - Trabalhos
+            - Library Management System - <span style="color:red">Did not deliver - A fazer
+            - Cold Email Pitch - <span style="color:yellow">10/20
+            - CV - <span style="color:green">20/20
+            - 1 minute pitch - <span style="color:green">16/20
+    - LP
+        - Tudo (n é mt)
+        - Passar tudo para .md
+    - MAT
+        - Modificar o ficheiro Aula 1 - Lógica em .md

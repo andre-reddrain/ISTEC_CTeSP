@@ -1,0 +1,154 @@
+(Sumario aula 7/10)
+
+2.1 - Introdução aos Protocolos
+
+Protocolos:
+    - Regras para possibilitar a comunicação entre diferentes elementos de rede
+    - Objetivos:
+        - Possibilitar a comunicação entre diferentes terminais/elementos de rede
+        - Características:
+            - Modularidade
+                - Funcionalidades da rede são distribuidas por camadas
+                    - Cada camada tem funcionalidades específicas
+                    - Upgrade de uma funcionalidade apenas deve ter impacto na respetiva camada
+                - Facilitar gestão de funcionalidades da rede
+            - Abstração
+                - Users apenas têm que saber interagir com aplicação
+                - Users não têm que se preocupar com os mecanismos de transporte de dados na rede
+            - Hierarquização
+                - Cada camada interage apenas com as camadas vizinhas
+                    - Cada camada requisita serviços à camada inferior (inputs) e fornece serviços à camada superior (outputs)
+                    - Número de camadas pode variar por protocolo
+                - Camadas iguais em diferentes elementos de rede comunicam entre si através de um protocolo igual ou semelhante
+                - Transporte de dados ocorre sempre ao nível da camada mais baixa (física)
+
+2.2 - Estrutura de mensagens de protocolos
+
+Terminal Origem (A) efetua segmentação de informação + adição de cabeçalhos de camada inferiores.
+Terminal Destinatário (B) efetua reagrupamento de informação dividida na Origem (A) + remoção de cabeçalhos de camadas inferiores.
+
+Objetivos da segmentação de dados em pacotes mais pequenos:
+    - Redução dos atrasos de tempo de transmissão
+    - Redução da ocupação de recursos da rede
+    - Adaptação a formato de protocolos de camadas inferiores
+    - Possibilidade de intermediar pacotes de diferentes utilizadores
+    - Cumprir requisitos de dimensão máxima de mensagens nas redes (MTU: Maximum Transmission Unit)
+
+Cabeçalhos:
+    - Campo c/informação de controlo de protocolos anexada a campos dados
+    - Necessários para novos pacotes após divisão de dados na origem
+    - Maior complexidade => introdução de mais informação de controlo
+        - Menor tamanho de pacotes => + % de informação de controlo (cabeçalho)
+
+Fluxo de mensagens com dados e cabeçalhos por camada/protocolo entre terminais Origem e Destino:
+    Application Process -> Data
+    7: Application Layer -> |Data| -> Interface entre utilizador e aplicação da rede
+    6: Presentation Layer -> ||Data|| -> Representação de dados
+    5: Session Layer -> |||Data||| -> Controlo de ligações
+    4: Transport Layer -> ||||Data|||| -> Transporte fiável extremo-a-extremo
+    3: Network Layer -> |||||Data||||| -> Encaminhamento de informação entre terminais e redes
+    2: Datalink Layer -> ||||||Data|||||| -> Controlo de acessos e de erros e fluxo de dados ponto-a-ponto
+    1: Physical Layer -> |||||||Data||||||| -> Interface com meio físico de transmissão
+
+2.3 - O Modelo OSI (Open Systems Interconnection)
+
+- Proposto pelo ISO (International Standards Organization)
+- Objetivos:
+    - Normalização de interligação de sistemas abertos
+    - Sistemas modulares independentes de fabricantes
+        - Incentivar a concorrência entre diferentes fabricantes
+    - Utilização de 7 camadas com diferentes funções:
+        - Camada Superior - Aplicação
+        - Camada Inferior - Interface com meio físico de transmissão
+
+- Fluxo de Mensagens Terminal A -> Router -> Terminal B
+    Terminal A - 7 -> 6 -> 5 -> 4 -> 3 -> 2 -> 1 -> Meio físico de transmissão ->
+    -> Router -> Rede -> Ligação de Dados -> Física -> Meio físico de transmissão ->
+    -> Terminal B - 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
+
+- Camada 1 - Física
+    - Define interface com o meio físico de transmissão dos dados de comunicação
+        - Define características físicas do transporte de bits no canal de comunicação
+    - Não processa conteúdo das mensagens (não sabe ler cabeçalhos)
+    - Pode aparecer dividida em 2 sub-camadas:
+        - PHY (PHysical Protocol)
+            - Independente do meio físico
+                - Define o formato dos sinais eletricos do lado do terminal
+        - PMD (Physical Medium Dependent)
+            - Específica do meio de transporte
+                - Define o formato dos sinais do lado do meio de transmissão
+
+- Camada 2 - Ligação de Dados
+    - Processa conteúdo das mensagens
+        - Sabe ler cabeçalhos de protocolos da sua camada
+    - Faz controlo de erros e de fluxo de dados ponto-a-ponto (entre todos os pares de elementos de rede do caminho da mensagem)
+    - Dados a transmitir/receber convertidos e manipulados em mensagens da camada 2
+    - Nas LANs aparece dividida em 2 sub-camadas
+        - LLC (Logical Link Control) - Controlo de fluxo, erros e sequência
+        - MAC (Medium Access Control) - Determina quando o computador pode efetuar transmissão de mensagens em redes com meio de transmissão partilhado
+    - Camada 1 e 2 definem tecnologia específica da rede
+
+- Camada 3 - Rede
+    - Garante interligação entre terminais e redes diferentes
+        - Com base no processamento de endereços públicos de significado universal, contidos nos cabeçalhos das mensagens (ex: Pacotes IP)
+    - Encaminhamento de informação (routing)
+        - Baseados em mecanismos e protocolos específicos (ex: IP)
+        - Mensagens da camada 3: Pacotes
+            - Encaminhamento feito por routers com base em análise do endereço destino de pacote
+            - Utilização de tabelas de encaminhamento em routers
+                - Estáticas: Caminho invariável
+                - Dinâmicas: Caminho variável em função do estado da rede
+
+- Camada 4 - Transporte
+    - Garante comunicação fiável "extremidade-a-extremidade" (ex: TCP)
+        - Comunicação entre terminais independente do tipo e qualidade das redes de transporte utilizadas
+        - Controlo de erros e de fluxo
+
+- Camada 5 - Sessão
+    - Controlo de estabelecimento, gestão e terminação de sessões
+        - Sessão - associação duradoura entre os dois terminais comunicantes
+        - Sessão é estabelecida antes de se iniciar a comunicação de dados
+    - Uma sessão pode ter múltiplas ligações entre os mesmos terminais (ex: audio, video, dados), sendo caracterizada por um conjunto de parâmetros que se aplicam a todas as ligações dessa sessão
+        - Evitar necessidade de negociar/especificar parâmetros para cada ligação separada
+
+- Camada 6 - Apresentação
+    - Garante normalização de representação de dados transmitidos entre diferentes terminais
+        - Possibilita comunicação entre terminais que utilizam formatos específicos do seu fabricante
+        - Conversão de formatos específicos em formato standard da rede: ASN.1 (Abstract Syntax Notaion One)
+
+- Camada 7 - Aplicação
+    - Interface entre utilizador de serviço/aplicação e rede
+        - O que o user tem que saber para usar e interagir com o serviço
+        - Ex: Serviço de browsing usa protocolo de aplicação HTTP
+
+2.4 - O Modelo TCP/IP
+
+- Usado em redes IP externa (internet) ou internas (intranet)
+    - Cama 7,6,5 de OSI concentradas numa única camada de aplicação
+
+- Camada de Aplicação
+    - O modelo TCP/IP não sentiu necessidade de existir camadas 5 e 6.
+    - Exemplos de protocolos de aplicação que ocorrem sobre TCP/IP
+        - Telnet - Suporte de ligação a terminal remoto/virtual
+        - FTP (File Transfer Protocol) - Transferência de ficheiros
+        - SMTP (Simple Mail Transfer Protocol) - Email
+        - HTTP (HyperText Transfer Protocol) - Transferência de dados em formato hipertexto / hipermédia
+        - SNMP (Simple Network Management Protocol) - Suporte de aplicações de gestão de rede
+        - NFS (Network File System) - Suporte e partilha e acesso a ficheiros remotos
+        - SIP (Session Initiation Protocol) - Controlo de estabelecimento, gestão e terminação de sessões MM (Multimedia) peer-to-peer
+
+2.5 - Os Standards IEEE
+
+    2.5.1 - Os Standards IEEE / Ethernet
+
+    - Ethernet
+        - Define tecnologia inicialmente mais utilizada em LANs
+            - Efetua controlo de erros e acesso a meio de transmissão (MAC)
+            - Suporta diferentes topologias e meios de transmissão
+            - Baixo custo
+            - Fácil de implementar e gerir
+        - Flexível - Evoluiu para também suportar outras topologias, redes maiores e meios de transmissão mais rápidos
+            - Topologias Estrela
+            - Redes MANs e WANs
+            - Meios de transmissão fibra ótica
+        - Usa CSMA (Carrier  Sense Multiple Access) / CD (Collision Detection) para controlo de acesso a rede
