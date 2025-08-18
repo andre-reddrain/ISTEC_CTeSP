@@ -177,13 +177,18 @@ $\begin{bmatrix}
 \end{bmatrix} = a_{11}a_{22} - a_{12}a_{21}$
 
 **Matriz quadrada de ordem 3**: Regra de Sarrus
-(Adicionar imagem do slide 22)
+![image](Imagens/regra_sarrus.png)
 
 **Teorema de Laplace**: O determinante de uma matriz quadrada A de ordem $n \ge 2$ é dado pela soma dos produtos dos elementos de uma fila (linha ou coluna), pelos seus respetivos cofatores. **Sugestão**: *Escolher a fila com o maior número de zeros.*
-
-(Fazer exs do slide 23 e 25)
 
 ## Matriz Inversa
 Dada uma matriz A, **quadrada**, de ordem n, se existir uma matriz $A^{-1}$, da mesma ordem, tal que $AA^{-1} = A^{-1}A = In$, então $A^{-1}$ é a matriz inversa de A. Representamos a matriz inversa de A por **$A^{-1}$**.
 
 Nem toda a matriz tem inversa. Para uma matriz A ser invertível, será necessário que o seu determinante seja diferente de 0.
+
+**Propriedades**:
+- **$A^{-1}$** é única.
+- **$(A^{-1})^{-1}$** = **$A$**
+- **$(A^{t})^{-1}$** = **$(A^{-1})^{t}$**
+- **$(A . B)^{-1}$** = **$B^{-1} . A^{-1}$**
+- **$(A + B)^{-1}$** = **$A^{-1} + B^{-1}$**
