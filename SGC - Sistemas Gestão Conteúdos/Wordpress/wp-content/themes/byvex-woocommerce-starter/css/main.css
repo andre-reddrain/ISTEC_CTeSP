@@ -1,0 +1,47 @@
+.entry-content figure {
+    max-width: 100%;
+}
+
+.bi, .si {
+    display: inline-block;
+    height: 1.1em;
+    width: 1.1em;
+    vertical-align: middle;
+    position: relative;
+    top: -0.0625em;
+    text-align: center;
+    stroke-width: 0;
+    overflow: visible;
+}
+
+.transition-all {
+    transition: all 350ms ease-in-out;
+}
+
+/* to top btn start */
+#to-top-btn {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(45px);
+}
+#to-top-btn.top-top-btn-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+/* to top btn end */
+
+
+/* screen reader text start */
+.sr-only {
+    position:absolute !important;
+    width:1px !important;
+    height:1px !important;
+    padding:0 !important;
+    margin:-1px !important;
+    overflow:hidden !important;
+    clip:rect(0,0,0,0) !important;
+    white-space:nowrap !important;
+    border:0 !important;
+}
+/* screen reader text end */
