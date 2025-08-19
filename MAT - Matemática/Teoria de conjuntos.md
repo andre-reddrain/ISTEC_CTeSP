@@ -140,5 +140,3 @@
     -
 
     - $\overline {[- \dfrac {3}{2}, +\infin[}$ = $]-\infin ,- \dfrac {3}{2}[ $ - Intervalo fechado fica aberto! $+\infin$ troca para $-\infin$!
-
-    - A\B É IMPORTANTE! Fazer um resumo de "keywords" para decorar!
