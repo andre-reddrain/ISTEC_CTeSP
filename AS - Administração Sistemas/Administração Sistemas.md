@@ -398,3 +398,47 @@ Por defeito, as GPOs são atualizadas a cada 90 minutos para máquinas e utiliza
 
 ### Registos estáticos
 - Não expiram e são criados manualmente por um administrador.
+
+# File share, DFS, FSRM e FTP
+
+## File Share
+- A partilha de ficheiros permite a várias pessoas utilizarem os mesmos dados de ficheiros.
+- Dependendo das permissões, alguns utilizadores podem criar e modificar ficheiros, enquanto outros podem apenas ter acesso de leitura ou até mesmo nenhum acesso.
+<table>
+<tr><th>Vantagens<th>Desvantagens</tr>
+<tr><td>Poupa tempo<td>Potenciais problemas de dados proprietários/plágio</tr>
+<tr><td>Elimina as múltiplas versões de ficheiros<td>Requer velocidades de rede/largura de banda suficientes</tr>
+<tr><td>Poupa dinheiro<td>Maior risco dos ficheiros serem partilhados publicamente</tr>
+<tr><td>Evita a perda de dados<td>Maior risco dos ficheiros serem infectados</tr>
+<tr><td>As permissões de ficheiros limitam o acesso<td></tr>
+</table>
+
+## Hidden Share
+- Consiste numa pasta partilhada, semelhante a todas as outras, contudo o utilizador terá de, explicitamente, digitar o caminho completo para a pasta.
+- Tem exatamente as mesmas características de uma partilha normal, contudo não é visível.
+
+## DFS - Distributed File System
+- DFS é um sistema baseado em múltiplas camadas que permite controlar centralmente todos os recursos de partilha.
+- Podemos ter múltiplos servidores a partilhar dados, de um mesmo universo, por exemplo, um departamento.
+- Os utilizadores teriam de saber o caminho para cada uma das partilhas de cada um dos servidores.
+- Com DFS, a procura é feita num único caminho sendo depois redirecionado para as pastas que necessitam ser acedidas.
+- Pode replicar ficheiros.
+- Através da replicação, podem ser feitas cópias de segurança dos ficheiros ou recolher ficheiros de um determinado escritório, entre outras potencialidades.
+
+## FSRM - File Services Resource Manager
+- Serviço do Windows Server que permite gerir e classificar dados armazenados em servidores de ficheiros.
+- Pode ser usado para classificar automaticamente ficheiros, executar tarefas com base nessas classificações, definir cotas em pastas e criar relatórios para monitorização do uso do armazenamento.
+- FSRM inclui as seguintes funcionalidades:
+    - **Gestão de quotas** - Limitar o espaço que é permitido para um volume ou pasta.
+    - **Infraestrutura de classificação de ficheiros** - É possivel classificar ficheiros e aplicar políticas com base nessa classificação. Ex: Controle de acesso dinâmico para restringir o acesso a ficheiros, encriptação de ficheiros e expiração de ficheiros.
+    - **Tarefas de gestão de ficheiros** - Capacidade de aplicar uma política ou ação condicional a ficheiros com base na sua classificação. As ações que uma tarefa de gestão de ficheiros pode realizar incluem a capacidade de expirar ficheiros, encriptar ficheiros ou executar um comando personalizado.
+    - **Gestão do rastreio de ficheiros** - Controla os tipos de ficheiros que o utilizador pode armazenar num servidor de ficheiros. Ex: pode cirar um file screening que não permita que ficheiros com uma extensão MP3 sejam armazenados em pastas partilhadas num servidor de ficheiros.
+    - **Relatórios de armazenamento** - Ajudam a identificar tendências na utilização do disco e na forma como os dados são classificados. Também é possível monitorizar um grupo de utilizadores e as tentativas de guardar ficheiros não autorizados.
+
+## FTP - File Transfer Protocol
+- FTP pode ser **Ativo** ou *Passivo**. Funcionam de forma ligeiramente diferente, mas ambos têm as mesmas funcionalidades.
+- Quando uma ligação FTP é iniciada, é estabelecida uma ligação de controlo.
+- A ligação de controlo define os parâmetros da ligação a ser iniciada - onde é estabelecida a ligação passiva vs ativa, juntamente com muitas outras definições.
+- No modo passivo, o servidor FTP aguarda que o cliente FTP lhe envie uma porta e um endereço IP para se ligar.
+- No modo ativo, o servidor atribui uma porta, e o endereço IP será o mesmo do cliente FTP que faz o pedido.
+- O modo passivo permite que o cliente defina a porta a ser utilizada, e o modo ativo permite que o servidor defina essa porta.
