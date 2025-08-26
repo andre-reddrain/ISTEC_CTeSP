@@ -9,9 +9,6 @@ Lista de Cadeiras:
 
 ☐ AS
     - Concluir o resumo da matéria
-    - Colocar os laboratórios dentro da pasta
-    - Colocar o projeto dentro da pasta
-    - Talvez colocar as VMs dentro da pasta?
 
 ☐ BDSQL
     - Concluir o resumo da matéria
@@ -73,4 +70,4 @@ Lista de Cadeiras:
 
 Colocar tmb as notas das cadeiras.
 
-git submodule??
+git submodule??clearc

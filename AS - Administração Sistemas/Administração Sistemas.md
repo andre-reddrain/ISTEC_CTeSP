@@ -1,3 +1,5 @@
+# AS - Administração Sistemas
+
 # Tabela de Conteúdos
 1. [Virtualização](#virtualizacao)
 2. [Florestas, Árvores e Domínios](#florestas)
@@ -204,4 +206,239 @@
     - Não é recomendada a criação de novos grupos locais nos computadores de Domínio.
     - Na maioria dos casos, os grupos Utilizadores e Administradores são os dois únicos grupos locais a serem geridos.
 
-TODO Slide 29 Aula 3
+- **Universal Group Caching**
+    - Quando um utilizador tenta iniciar sessão pela 1ª vez, o Domain Controller obtém a associação, desse utilizador, aos Universal Groups a partir de um **Global Catalog**.
+    - Estas informações são colocadas em cache nesse DC para esse site indefinidamente e são atualizadas periodicamente a cada 8 horas.
+    - Podem ser atualizados até 500 membros de *Universal Groups* de cada vez.
+    - Vantagens:
+        - Tempos de início de sessão mais rápidos.
+        - Não é necessária a atualização de hardware para suportal o Global Catalog.
+        - Baixo consumo de largura de banda da rede.
+
+## gMSAs - Group Managed Service Accounts
+- O Active Directory faz a gestão da conta trocando a password nos ciclos definidos e os serviço, desde que estejam preparados para esse cenário, serão configurados de forma transparente.
+- As gMSAs não podem ser criadas graficamente, pelo que, só podem ser criadas via Powershell
+```powershell
+Add-KdsRootKey
+Add-KdsRootKey -EffectiveImmediately
+Add-KdsRootKey -EffectiveTime ((get-date).AddHours(-10))
+```
+- O comando foi desenvolvido pensando em infraestruturas de grandes dimensões e espalhadas por áreas geográficas alargadas, por isso leva 10 horas a estar disponível, garantindo a total replicação.
+- **-EffectiveImmediately** - permite ficar disponível no DC onde foi executado mas leva as memas 10 horas para estar em toda a infraestrutura.
+- **-EffectiveTime ((get-date).AddHours(-10))** - permite dar a volta ao período de espera de 10 horas, tendo efeito imediatamente. **SÓ DEVE SER USADO EM LABORATÓRIO/TESTE**.
+
+No Domain Controller onde foi criada a Managed Service Account, a mesma está pronta a ser utilizada.
+```powershell
+New-ADServiceAccount -Name TestgMSA -DNSHostName testgmsa.mydomain.com -PrincipalsAllowedToDelegateToAccount "Grupo de Máquinas"
+```
+- **New-ADServiceAccount** - Comando para criar uma nova Managed Service Account.
+- **-Name** - Nome da conta.
+- **-DNSHostName** - Nome para ser criada uma entrada de DNS para a conta.
+- **-PrincipalsAllowedToDelegateToAccount** - Nome do grupo cujas máquinas vão poder utilizar a Managed Service Account.
+
+Nos Member Servers onde é necessário utilizar a Managed Service Account, a mesma tem de ser instalada.
+```powershell
+Add-WindowsFeature rsat-ad-powershell
+Import-Module ActiveDirectory
+Install-ADServiceAccount -Identity testgmsa
+```
+- **Add-WindowsFeature rsat-ad-powershell** - Adicionar as ferramentas de administração de domínio no powershell.
+- **Import-Module ActiveDirectory** - Importar os comandos de configuração do Active Directory.
+- **Install-ADServiceAccount -Identity testgmsa** - Instalar a Managed Service Account definida na própria Máquina.
+
+# GPO - Group Policy Object
+- É um conjunto de definições que define o aspeto de um sistema e o seu comportamento para um grupo definido de utilizadores ou dispositivos.
+- A Microsoft fornece um programa que permite utilizar a *Group Policy Management Console* (GPMC).
+- As GPOs podem estar associadas a Sites, Domínios ou Unidades Orginazacionais (OUs).
+- Através do GPMC podemos criar GPOs que definem políticas baseadas no registo, opções de segurança, opções de instalação e manutenção de software, opções de scripts e opções de redirecionamento de pastas, por exemplo.
+- Usamos GPOs para criar configurações de máquina ou de utilizador e aplicamo-las individualmente ou a grupos de objetos.
+- Existem 3 tipos de GPO:
+    - **Local Group Policy Objects**:
+        - Coleção de GPOs que se aplicam apenas ao computador local e aos utilizadores que iniciam sessão nesse computador.
+        - São usadas quando as configurações são aplicadas a um único computador ou utilizador do Windows.
+        - Existem por defeito em todas as instalações do Windows.
+    - **Non-local Group Policy Objects**:
+        - Utilizadas quando as definições têm de ser aplicadas a um ou mais computadores ou utilizadores.
+        - Aplicam-se a computadores ou utilizadores quando estes estão ligados a objetos do Active Directory, tais como Sites, Domínios ou Unidades Organizacionais (OUs).
+    - **Starter Group Policy Objects**:
+        - Introduzidas no Windows Server 2008.
+        - Funcionam como modelos de GPOs.
+        - Permitem criar e ter um grupo pré-configurado de definições que representam uma baseline para qualquer GPO a ser criada.
+        - Estas definições estão pré-configuradas, sempre que se criar uma GPO usando uma *starter* como modelo.
+
+**Benefícios**:
+    - Mais segurança (ex: Limitar o acesso ao Painel de Controlo).
+    - Gestão mais eficiente.
+    - Facilidade de administração e atualização.
+    - Melhor e mais eficiente aplicação de políticas de passwords.
+    - Configuração do redirecionamento de pastas.
+
+**Limitações**:
+    - São executadas sequencialmente - podem levar a delays pois seguem uma ordem.
+    - Flexibilidade é limitadas - Só podem ser aplicados a utilizadores ou computadores.
+    - Limitação de Ativadores - Só podem ser aplicados no arranque, no início de sessão ou em intervalos definidos. Não podem "reagir" a alterações.
+    - Difícil de manter - não existe uma opção de pesquisa ou filtro incorporada para encontrar uma definição específica numa GPO.
+    - Sem controlo de versão - se for efetuada uma alteração incorreta, é impossível saber qual foi a alteração ou quem a efetuou.
+
+**Ordem de Processamento**:
+    - A ordem de processamento das GPOs afeta as definições que são aplicadas ao computador ou ao utilizador final.
+    - Esta ordem de processamento é conhecida como **LSDOU: Local, Site, Domain, Organizational Unit**.
+    - Em primeiro lugar, é processada a política do computador local, seguida das políticas do Active Directory do Site, depois do Domínio, e em seguida, para as OUs.
+    - As GPOs em OUs aninhadas aplicam-se primeiro a partir da OU mais próxima da raiz e continuam a partir daí.
+    - Se existirem conflitos, a última política aplicada vai prevalecer.
+
+**Ordem de Prioridade** - OU -> Domain -> Site -> Local
+
+Por defeito, as GPOs são atualizadas a cada 90 minutos para máquinas e utilizadores, e a cada 5 minutos para os *Domain Controllers*.
+É possível forçar esta atualização, a qualquer momento, através da linha de comandos (*gpupdate /force*)
+
+# Endereçamento IP
+
+## Endereço IP
+- IPv4 é um endereço de 32 bits representado, normalmente, no formato de 4 valores decimais separados por um ponto - x.x.x.x
+- Cada valor decimal, adota o nome do octeto por ser a representação decimal de uma sequência e oito bits binários. Cada valor decimal pode variar entre 0 e 255.
+
+## Máscara de sub-rede
+- Uma sub-rede é utilizada para facilitar a manutenção da rede.
+- Embora tenha muitos benefícios, a sub-rede requer hardware adicional (ex: routers), o que pode implicar custos adicionais de implementação.
+
+**Benefícios**:
+    - Manutenção mais fácil.
+    - Segurança de rede avançada para que uma sub-rede não possa aceder a outra.
+    - Tráfego de rede reduzido.
+    - Ao usarmos sub-redes, não precisamos de adquirir endereços IP adicionais aos ISPs.
+
+## DHCP - Dynamic Host Configuration Protocol
+- Existem 2 formas de obter um IP:
+    - **Estático** - Definido manualmente, permanecendo inalterado.
+    - **Dinâmico** - Atribuido automaticamente como resposta a um pedido que é feito pelo dispositivo que necessita de um IP. É feita pelo DHCP.
+
+### Instalação DHCP
+- Para configurar o serviço de DHCP, necessitamos de instalar o role **DHCP Server**, contudo existem pré-requisitos:
+    - Um computador a correr uma versão suportada do Windows Server.
+    - IP estático definido no servidor.
+    - Um intervalo de IPs para serem atribuídos.
+    - Uma conta que seja membro do grupo dos Administradores ou equivalente.
+- Autorizar o servidor DHCP no Active Directory
+    - Servidores DHCP não autorizados que estão instalados em domínios do Active Directory podem não funcionar corretamente e não condererem endereços IP a clientes DHCP.
+    - Desativação automática de servidores DHCP não autorizados é uma funcionalidade de segurança que impede que servidores DHCP não autorizados atribuam endereços IP incorretos a clientes na rede.
+
+### Configuração DHCP
+- Gerir Reservas de DHCP
+    - Com as reservas de DHCP, podemos reservar um endereço IP para utilização permanentes por um cliente.
+    - As reservas são armazenadas utilizando o MAC Address de uma placa de rede e asseguram que o servidor DHCP "aluga" exclusivamente um endereço IP específico a um MAC Address específico.
+- Gerir Exclusões
+    - Exclusão de DHCP é uma configuração através da qual, um único endereço IP ou um intervalo de endereços IP, são excluídos de serem atribuídos automaticamente aos clientes DHCP.
+- Lease Duration
+    - A duração da atribuição do IP, ou o período de tempo durante o qual o endereço IP pode ser utilizado antes de ser necessária uma renovação da atribuição.
+
+### DHCP Failover
+- Failover do DHCP fornece um método para que dois servidores DHCP comuniquem entre si.
+- Dependendo da configuração, o failover DHCP pode fornecer redundância e balanceamento de carga, partilhando um ou mais pools entre dois ou mais servidores DHCP.
+- Os servidores são conhecidos como **failover peers**.
+
+# DNS - Domain Naming System
+- É um serviço responsável por mapear nomes e endereços IP.
+- É uma das peças fundamentais e centrais de todo o *Active Directory*.
+- É uma base de dados **hierárquica** e **distribuída** composta principalmente por pares de noms de computadores e endereços IP.
+- **Distribuída** significa que não existe uma base de dados única que contenha todos os dados. **Hierárquica** significa que não existe uma estrutura para a forma como as informações são armazenadas e acedidas na base de dados.
+- Uma pesquisa de DNS requer frequentemente várias consultas a uma hierarquia de servidores DNS.
+- Pode ser descrito como uma estrutura em árvore invertida.
+- Toda a árvore DNS tem o nome **DNS namespace**.
+- Cada domínio tem um ou mais servidores que são autoritativos para esse domínio.
+- Os servidores de raiz (*root*) mantêm uma base de dados de endereços de outros servidores DNS que gerem nomes de domínio de topo, denominados **TLD - Top-Level Domain**.
+
+## Base de dados do DNS
+- Uma **zona** é um agrupamento de informações DNS que representa um ou mais domínios e possíveis subdomínios.
+- As zonas contêm uma variedade de tipos de registos denominados **registos de recursos**, que contêm informações sobre recursos de rede.
+- Os registos DNS podem ser adicionados e alterados através de:
+    - Atualizações estáticas - O administrador introduz manualmente as informações do registo DNS
+    - Atualizações dinâmicas - **DNS Dinâmico (DDNS)**
+
+## Processo de pesquisa de DNS
+- Podem ser efetuados 2 tipos de pesquisa de DNS:
+    - **Consulta iterativa** - Um servidor DNS responderá com a melhor informação que tiver para satisfazer a consulta, ou poderá dar uma resposta de referência.
+    - **Consulta recursiva** - Um servidor DNS processa a consulta até responder com um endereço que satisfaça a consulta ou com uma mensagem "Não sei".
+
+## Funções do servidor DNS
+- Os servidores DNS podem desempenhar uma ou mais das seguintes funções para uma zona:
+    - **Authoritative Server** - detém uma cópia completa dos registos de recursos de uma zona.
+    - **Forwarder** - um servidor DNS para o qual outros servidores DNS enviam pedidos que eles próprios não conseguem resolver.
+    - **Conditional forwarder** - um servidor DNS para o qual outros servidores DNS enviam pedidos direcionados para um domínio específico.
+    - **Caching-Only Server** - não possui zonas e a sua função é responder a consultas DNS, efetuar pesquisas recursivas em servidores de raiz ou enviar pedidos para reencaminhadores e, em seguida, colocar os resultados em cache.
+
+## Instalação do DNS
+- Começa com a instalação da Role **DNS Server** através do *Server Manager* ou do *PowerShell*.
+- Se o DNS Server se destinar a gerir serviços de nomes de domínio para o *Active Directory*, a função DNS Server deve ser instalada num *Domain Controller*.
+- O Windows deteta automaticamente se o servidor está ou não configurado como um *Domain Controller* e, em seguida, integra as zonas DNS com o *Active Directory*.
+
+## Criação de zonas DNS
+- Poderá ser necessário criar uma zona manualmente no DNS Manager se:
+    - Não instalar o DNS na instalação do *Active Directory*.
+    - Instalar o DNS num servidor que não seja um Domain Controller.
+    - Criar uma zona *stub*.
+    - Criar uma zona secundária para uma zona primária.
+    - Criar uma zona primária ou secundária para um domínio da internet.
+
+## Forward e Reverse Lookup Zones
+- Antes de criar uma zona, é necessário decidir se se trata de uma *Forward Lookup Zone* ou de uma *Reverse Lookup Zone*:
+    - ***Forward Lookup Zone (FLZ)*** - contém registos que traduzem nomes em endereços IP, tais como registos A, AAAA e MX.
+    - ***Reverse Lookup Zone (RLZ)*** - contém registos PTR que mapeiam endereços IP para nomes e tem o nome do endereço de rede IP (IPv4 ou IPv6) dos computadores cujos registos contém.
+
+## Criação de registos de DNS em zonas
+- Os registos de recursos podem ser criados dinamicamente ou como registos estáticos
+- Os registos dinâmicos são criados pelo recurso ou com um servidor DHCP.
+- Os registos estáticos são criados manualmente por um administrador ou automaticamente pelo Windows.
+
+### Registos dinâmicos
+- São criados e atualizados pelo recurso ou pelo servidor DHCP quando um endereço IP é atribuido ou renovado.
+- Sempre que um registo dinâmico é criado ou atualizado, são adicionados ao registo um valor de tempo de vida (TTL) e um carimbo de data e hora.
+- TTL especifica o tempo que o registo deve permanecer na base de dados do DNS.
+- Se o registo expirar, é eliminado da base de dados.
+
+### Registos estáticos
+- Não expiram e são criados manualmente por um administrador.
+
+# File share, DFS, FSRM e FTP
+
+## File Share
+- A partilha de ficheiros permite a várias pessoas utilizarem os mesmos dados de ficheiros.
+- Dependendo das permissões, alguns utilizadores podem criar e modificar ficheiros, enquanto outros podem apenas ter acesso de leitura ou até mesmo nenhum acesso.
+<table>
+<tr><th>Vantagens<th>Desvantagens</tr>
+<tr><td>Poupa tempo<td>Potenciais problemas de dados proprietários/plágio</tr>
+<tr><td>Elimina as múltiplas versões de ficheiros<td>Requer velocidades de rede/largura de banda suficientes</tr>
+<tr><td>Poupa dinheiro<td>Maior risco dos ficheiros serem partilhados publicamente</tr>
+<tr><td>Evita a perda de dados<td>Maior risco dos ficheiros serem infectados</tr>
+<tr><td>As permissões de ficheiros limitam o acesso<td></tr>
+</table>
+
+## Hidden Share
+- Consiste numa pasta partilhada, semelhante a todas as outras, contudo o utilizador terá de, explicitamente, digitar o caminho completo para a pasta.
+- Tem exatamente as mesmas características de uma partilha normal, contudo não é visível.
+
+## DFS - Distributed File System
+- DFS é um sistema baseado em múltiplas camadas que permite controlar centralmente todos os recursos de partilha.
+- Podemos ter múltiplos servidores a partilhar dados, de um mesmo universo, por exemplo, um departamento.
+- Os utilizadores teriam de saber o caminho para cada uma das partilhas de cada um dos servidores.
+- Com DFS, a procura é feita num único caminho sendo depois redirecionado para as pastas que necessitam ser acedidas.
+- Pode replicar ficheiros.
+- Através da replicação, podem ser feitas cópias de segurança dos ficheiros ou recolher ficheiros de um determinado escritório, entre outras potencialidades.
+
+## FSRM - File Services Resource Manager
+- Serviço do Windows Server que permite gerir e classificar dados armazenados em servidores de ficheiros.
+- Pode ser usado para classificar automaticamente ficheiros, executar tarefas com base nessas classificações, definir cotas em pastas e criar relatórios para monitorização do uso do armazenamento.
+- FSRM inclui as seguintes funcionalidades:
+    - **Gestão de quotas** - Limitar o espaço que é permitido para um volume ou pasta.
+    - **Infraestrutura de classificação de ficheiros** - É possivel classificar ficheiros e aplicar políticas com base nessa classificação. Ex: Controle de acesso dinâmico para restringir o acesso a ficheiros, encriptação de ficheiros e expiração de ficheiros.
+    - **Tarefas de gestão de ficheiros** - Capacidade de aplicar uma política ou ação condicional a ficheiros com base na sua classificação. As ações que uma tarefa de gestão de ficheiros pode realizar incluem a capacidade de expirar ficheiros, encriptar ficheiros ou executar um comando personalizado.
+    - **Gestão do rastreio de ficheiros** - Controla os tipos de ficheiros que o utilizador pode armazenar num servidor de ficheiros. Ex: pode cirar um file screening que não permita que ficheiros com uma extensão MP3 sejam armazenados em pastas partilhadas num servidor de ficheiros.
+    - **Relatórios de armazenamento** - Ajudam a identificar tendências na utilização do disco e na forma como os dados são classificados. Também é possível monitorizar um grupo de utilizadores e as tentativas de guardar ficheiros não autorizados.
+
+## FTP - File Transfer Protocol
+- FTP pode ser **Ativo** ou *Passivo**. Funcionam de forma ligeiramente diferente, mas ambos têm as mesmas funcionalidades.
+- Quando uma ligação FTP é iniciada, é estabelecida uma ligação de controlo.
+- A ligação de controlo define os parâmetros da ligação a ser iniciada - onde é estabelecida a ligação passiva vs ativa, juntamente com muitas outras definições.
+- No modo passivo, o servidor FTP aguarda que o cliente FTP lhe envie uma porta e um endereço IP para se ligar.
+- No modo ativo, o servidor atribui uma porta, e o endereço IP será o mesmo do cliente FTP que faz o pedido.
+- O modo passivo permite que o cliente defina a porta a ser utilizada, e o modo ativo permite que o servidor defina essa porta.
