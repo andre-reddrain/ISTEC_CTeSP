@@ -338,5 +338,63 @@ Por defeito, as GPOs são atualizadas a cada 90 minutos para máquinas e utiliza
 - Os servidores são conhecidos como **failover peers**.
 
 # DNS - Domain Naming System
+- É um serviço responsável por mapear nomes e endereços IP.
+- É uma das peças fundamentais e centrais de todo o *Active Directory*.
+- É uma base de dados **hierárquica** e **distribuída** composta principalmente por pares de noms de computadores e endereços IP.
+- **Distribuída** significa que não existe uma base de dados única que contenha todos os dados. **Hierárquica** significa que não existe uma estrutura para a forma como as informações são armazenadas e acedidas na base de dados.
+- Uma pesquisa de DNS requer frequentemente várias consultas a uma hierarquia de servidores DNS.
+- Pode ser descrito como uma estrutura em árvore invertida.
+- Toda a árvore DNS tem o nome **DNS namespace**.
+- Cada domínio tem um ou mais servidores que são autoritativos para esse domínio.
+- Os servidores de raiz (*root*) mantêm uma base de dados de endereços de outros servidores DNS que gerem nomes de domínio de topo, denominados **TLD - Top-Level Domain**.
 
-TODO Aula 6 Slide 2
+## Base de dados do DNS
+- Uma **zona** é um agrupamento de informações DNS que representa um ou mais domínios e possíveis subdomínios.
+- As zonas contêm uma variedade de tipos de registos denominados **registos de recursos**, que contêm informações sobre recursos de rede.
+- Os registos DNS podem ser adicionados e alterados através de:
+    - Atualizações estáticas - O administrador introduz manualmente as informações do registo DNS
+    - Atualizações dinâmicas - **DNS Dinâmico (DDNS)**
+
+## Processo de pesquisa de DNS
+- Podem ser efetuados 2 tipos de pesquisa de DNS:
+    - **Consulta iterativa** - Um servidor DNS responderá com a melhor informação que tiver para satisfazer a consulta, ou poderá dar uma resposta de referência.
+    - **Consulta recursiva** - Um servidor DNS processa a consulta até responder com um endereço que satisfaça a consulta ou com uma mensagem "Não sei".
+
+## Funções do servidor DNS
+- Os servidores DNS podem desempenhar uma ou mais das seguintes funções para uma zona:
+    - **Authoritative Server** - detém uma cópia completa dos registos de recursos de uma zona.
+    - **Forwarder** - um servidor DNS para o qual outros servidores DNS enviam pedidos que eles próprios não conseguem resolver.
+    - **Conditional forwarder** - um servidor DNS para o qual outros servidores DNS enviam pedidos direcionados para um domínio específico.
+    - **Caching-Only Server** - não possui zonas e a sua função é responder a consultas DNS, efetuar pesquisas recursivas em servidores de raiz ou enviar pedidos para reencaminhadores e, em seguida, colocar os resultados em cache.
+
+## Instalação do DNS
+- Começa com a instalação da Role **DNS Server** através do *Server Manager* ou do *PowerShell*.
+- Se o DNS Server se destinar a gerir serviços de nomes de domínio para o *Active Directory*, a função DNS Server deve ser instalada num *Domain Controller*.
+- O Windows deteta automaticamente se o servidor está ou não configurado como um *Domain Controller* e, em seguida, integra as zonas DNS com o *Active Directory*.
+
+## Criação de zonas DNS
+- Poderá ser necessário criar uma zona manualmente no DNS Manager se:
+    - Não instalar o DNS na instalação do *Active Directory*.
+    - Instalar o DNS num servidor que não seja um Domain Controller.
+    - Criar uma zona *stub*.
+    - Criar uma zona secundária para uma zona primária.
+    - Criar uma zona primária ou secundária para um domínio da internet.
+
+## Forward e Reverse Lookup Zones
+- Antes de criar uma zona, é necessário decidir se se trata de uma *Forward Lookup Zone* ou de uma *Reverse Lookup Zone*:
+    - ***Forward Lookup Zone (FLZ)*** - contém registos que traduzem nomes em endereços IP, tais como registos A, AAAA e MX.
+    - ***Reverse Lookup Zone (RLZ)*** - contém registos PTR que mapeiam endereços IP para nomes e tem o nome do endereço de rede IP (IPv4 ou IPv6) dos computadores cujos registos contém.
+
+## Criação de registos de DNS em zonas
+- Os registos de recursos podem ser criados dinamicamente ou como registos estáticos
+- Os registos dinâmicos são criados pelo recurso ou com um servidor DHCP.
+- Os registos estáticos são criados manualmente por um administrador ou automaticamente pelo Windows.
+
+### Registos dinâmicos
+- São criados e atualizados pelo recurso ou pelo servidor DHCP quando um endereço IP é atribuido ou renovado.
+- Sempre que um registo dinâmico é criado ou atualizado, são adicionados ao registo um valor de tempo de vida (TTL) e um carimbo de data e hora.
+- TTL especifica o tempo que o registo deve permanecer na base de dados do DNS.
+- Se o registo expirar, é eliminado da base de dados.
+
+### Registos estáticos
+- Não expiram e são criados manualmente por um administrador.
