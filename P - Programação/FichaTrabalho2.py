@@ -86,4 +86,3 @@ while True:
         ex6Output = 62.1 * ex6Altura - 44.7
         break
 print(f'6) Género: {ex6Genero} / Altura: {ex6Altura} / Peso Ideal: {ex6Output}')
-
