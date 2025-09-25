@@ -7,8 +7,7 @@ Lista de Cadeiras:
     - Concluir o resumo da matéria
     - Talvez concluir os exercícios?
 
-☐ AS
-    - Concluir o resumo da matéria
+☑ AS - Merged
 
 ☐ BDSQL
     - Concluir o resumo da matéria
@@ -48,15 +47,10 @@ Lista de Cadeiras:
 ☐ LP
     - ???
 
-☐ MAT
-    - Concluir modificação da Lógica
-    - Concluir resumo da matéria.
-    - Colocar projeto final na pasta.
-    - Adicionar resolução de exercícios?
+☑ MAT - Merged
 
-☐ P
-    - Concluir resumo da matéria
-    - Concluir fichas de trabalho
+☑ P - Merged
+    - Concluir fichas de trabalho (1,7,8)
 
 ☐ PSW
     - Rever tudo!
@@ -64,9 +58,7 @@ Lista de Cadeiras:
 ☐ PWS
     - Fazer resumo da matéria (wpp)
 
-☐ SGC
-    - Colocar projeto final na pasta
-    - Colocar apresentação na pasta
+☑ SGC
 
 Colocar tmb as notas das cadeiras.
 
