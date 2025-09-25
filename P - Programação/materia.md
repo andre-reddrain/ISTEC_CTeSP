@@ -477,7 +477,100 @@ lista   # [2, 4, 6]
 ```
 
 ## Dicionários
-TODO Aula 4 Slide 37
+Dicionário é uma coleção não ordenada, de **pares de objetos**, de comprimento variável, *heterogénea*, mutável, em que o **acesso se faz por chave** e não por posição.
+
+```python
+dictionary = {'porto':'azul', 'sporting':'verde','benfica':'vermelho'}  # Dicionário simples
+dictionary = {} # Dicionário vazio
+dictionary = {'bolo_red': {'farinha':2, 'ovos':6, 'passas':0.5}}    # Dicionário com Dicionários
+dictionary = {1:'a', 'b':3.0+4j}    # Dicionário heterogéneo
+dictionary = dict(zip(['praxe','lagartos',[0,5]]))  # Outra forma de construir
+
+d_1 = dict()    # {}
+d_2 = dict.fromkeys([1,2,3])    # {1: None, 2: None, 3: None}
+d_3 = dict(nome = 'ernesto', idade = 60)    # {'idade': 60, 'nome': 'ernesto'}
+d_4 = dict(zip([1,2,3], ['a','b','c'])) # {1: 'a', 2: 'b', 3: 'c'}
+d_5 = dict.fromkeys([1,2,3],0)  # {1: 0, 2: 0, 3: 0}
+```
+
+<table>
+<tr><th>Nome<th>Operador<th>Significado
+<tr><td>Indexação<td>[< chave >]<td>Acede
+<tr><td>Pertença<td>in, not in<td>Testa
+<tr><td>Comprimento<td>len<td>Quantifica
+<tr><td>Elimina<td>del dict[key]<td>Retira o item associado a key
+</table>
+
+- Comparando com as listas, notar que o acesso nos dicionários se faz por chave, que a pertença tem uma operação própria.
+- Não existe a operação de fatiamento, pois os dicionários não têm ordem.
+- Num dicionário os valores podem ser de qualquer tipo. O mesmo já não acontece com as chaves que têm que ser de tipo imutável.
+
+```python
+d = {'A': 'Adenina', 'T': 'Timina'}
+d['A']      # 'Adenina'
+d['C']      # KeyError: 'C'
+'A' in d    # True
+len(d)      # 2
+del d['T']
+d           # {'A': 'Adenina'}
+```
+
+### Métodos
+<table>
+<tr><th>Método<th>Operação
+<tr><td><b>Não modificam
+<tr><td>dict.copy()<td>Devolve uma cópia do dict
+<tr><td>dict.items()<td>Devolve um iterável de pares (chave,valor) de dict
+<tr><td>dct.keys()<td>Devolve um iterável chaves de dict
+<tr><td>dict.values()<td>Devolve um iterável de valores de dict
+<tr><td>dict.get(key.default=None)<td>Devolve o valor caso exista senão devolve default
+<tr><td><b>Modificam
+<tr><td>dict.clear()<td>Retira todos os elementos de dict
+<tr><td>dict.pop(key.default=None)<td>Retira e devolve o elemento de key
+<tr><td>dict.popitem()<td>Retira aleatoriamente e devolve um par
+<tr><td>dict.update(dict2)<td>Adiciona os pares (chave,valor) de dict2 a dict
+<tr><td>dict.setdefault(key.default=None)<td>Como get, mas atualiza o par com key:default
+</table>
+
+As repetições sobre dicionários podem ser controladas pelas chaves, pelos valores ou pelos elementos. Nunca pela ordem!
+```python
+for elem in dicio:
+    print(elem) # Imprime o elem (key)
+
+for c in dicio.keys():
+    print(c)    # Imrpime c (key)
+
+for v in dicio.values():
+    print(v)    # Imprime v (value)
+
+for c,v in dicio.items():
+    print ('d[',c,'] = ',v) # Imprime key e value
+```
+
+## Sets
+**Sets** (conjuntos) são uma coleção não ordenada sem elementos duplicados.
+Para criar sets são utilizadas {} ou a função **set()**
+Um set vazio tem de ser criado com **set()** e não com {}, dado que as chavetas criam um dicionário vazio.
+
+```python
+basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+print(basket)   # As repetições foram removidas
+'orange' in basket  # True
+'crabgrass' in basket   # False
+
+a = set('abracadabra')
+b = set('alacazam')
+a       # {'a', 'b', 'c', 'r', 'd'} - Letras em a (sem repetições)
+a-b     # {'r', 'd', 'b'} - Letras em a mas não em b
+a | b   # {'m', 'l', 'a', 'b', 'c', 'r', 'z', 'd'} - Letras em a ou em b ou em ambos
+a & b   # {'a', 'c'} - Letras em a e em b
+a^b     # {'m', 'l', 'b', 'r', 'z', 'd'} - Letras em a ou b mas não em ambos
+
+# Criar sets por compreensão
+a = {x for x in 'abracadabra' if x not in 'abc'}
+a               # {'r', 'd'}
+print(type(a))  # <class 'set>
+```
 
 ## Comentários
 ```python
