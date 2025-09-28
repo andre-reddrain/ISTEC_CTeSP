@@ -7,6 +7,8 @@
         4. **Voltar ao 1º passo até** encontrarmos o valor de A. **A = V[indiceMeio]**
         5. **Se indiceMin > indiceMax, A não foi encontrado no vetor V**
 
+![image](Imagens/exemplo_pesquisa_binaria.png)
+
 - **Ordenação - Método dos Mínimos Sucessivos**
     - Dado um vetor V, obtém-se um novo vetor V1, ordenado de forma crescente
         1. Detetar o **Máximo de V**
@@ -15,12 +17,18 @@
         4. **Substituir o valor de V[indiceMinimo] pelo Máximo de V**
         5. **Repetir passos 2, 3 e 4 até V1 estar completamente preenchido**
 
+![image](Imagens/exemplo_ordenacao_minimos.png)      
+
 - **Ordenação - Método dos Máximos Sucessivos**
     - Consiste em encontrar o valor máximo e trocar este valor com o elemento do fim
     - Repetir a ação mas com a dimensão n-1, enquanto n <> 1.
 
+![image](Imagens/exemplo_ordenacao_maximos.png)
+
 - **Ordenação de um vetor pelo Método de Bolhas**
     - Na pesquisa do Máximo se há valores fora de ordem, executa a sua troca imediata.
+
+![image](Imagens/exemplo_ordenacao_bolhas.png)
 
 - **Quadros (Matrizes)**
     - **Um quadro é uma estrutura em tabela multidimensional nxm** usada para conter dados estruturados, **composta por linhas e colunas**.
@@ -29,5 +37,3 @@
     - Os dados armazenados podem ser numéricos ou alfanuméricos de várias dimensões. Uma vez criado um quadro de dados, podemos aplicar várias operações de quadro de dados.
     - **A dimensão e a ordem de um quadro revelam por completo a sua estrutura**.
     - Uma matriz de duas dimensões está sempre a fazer referência a linhas e colunas e é representada pelo seu nome e pela sua dimensão.
-
-TODO Adicionar fotos para cada um dos métodos
