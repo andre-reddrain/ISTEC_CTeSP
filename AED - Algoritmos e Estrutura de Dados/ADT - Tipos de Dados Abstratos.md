@@ -17,8 +17,8 @@
 
 ### Lista encadeada
 Uma lista encadeada é uma estrutura física de dados dinâmica e é composta por nós onde cada nó tem duas partes:
-    1 - A **informação de dados** reais que devem ser armazenados na lista.
-    2 - O **ponteiro/apontador (pointer/link)** é uma referência para o próximo nó da lista.
+1. A **informação de dados** reais que devem ser armazenados na lista.
+2. O **ponteiro/apontador (pointer/link)** é uma referência para o próximo nó da lista.
 Com uma **estrutura de dados dinâmica** pode-se alocar a memória necessária enquanto o programa está a ser executado, podendo ser expandida ou reduzida durante o tempo de execução.
 
 #### Diferenças entre uma lista encadeada e vetores
@@ -84,8 +84,8 @@ A inserção de um nó numa lista pode ser feita:
 
 #### Inserção de um nó no início da lista
 **Lista de procedimentos**:
-1 - Copiamos o link do cabeçalho para o nó a introduzir, neste caso o nó **temp**
-2 - Colocamos o cabeçalho da lista a apontar para o nó que foi inserido no início da lista
+1. Copiamos o link do cabeçalho para o nó a introduzir, neste caso o nó **temp**
+2. Colocamos o cabeçalho da lista a apontar para o nó que foi inserido no início da lista
 Com isto, o nó temp passa a ser o primeiro da lista e o que era o primeiro nó da lista (start) passa a ser o segundo da lista.
 ```csharp
 Node start = new(0);    // start.info == 0; start.link == null
@@ -93,6 +93,8 @@ Node start = new(0);    // start.info == 0; start.link == null
 temp.link = start;      // O elemento a seguir ao temp vai ser o start
 start = temp;           // 1º elemento vai ser temp, e o elemento a seguir (2º) é o start
 ```
+
+![image](Imagens/listas_simples_insercao_inicio.png)
 
 #### Inserção de um nó numa lista vazia
 Depois da inserção, o cabeçalho da lista aponta para temp e **temp é o primeiro e o último da lista**, visto que temp.link = null
@@ -116,15 +118,19 @@ while (p.link != null)
 p.link = temp;      // O último elemento vai apontar para o nó temp
 ```
 
+![image](Imagens/listas_simples_insercao_fim.png)
+
 #### Inserção de um nó no meio da lista
 **Lista de procedimentos**:
-1 - O link do nó a inserir no meio da lista (temp) vai ficar igual ao link de *p*.
-2 - O link do nó *p* vai apontar para o link de temp. Se o nó *p* for o último da lista, o link de *temp* seria null.
+1. O link do nó a inserir no meio da lista (temp) vai ficar igual ao link de *p*.
+2. O link do nó *p* vai apontar para o link de temp. Se o nó *p* for o último da lista, o link de *temp* seria null.
 ```csharp
 temp.link = p.link;
 
 p.link = temp;
 ```
+
+![image](Imagens/listas_simples_insercao_meio.png)
 
 #### Inserção de um nó no meio da lista, a seguir do nó que contém um valor x
 Vai procurar, nó a nó, e vai validar o valor do nó a ser verificado. Se o nó tem o valor pretendido, vai-se inserir o nó *temp* no meio.
@@ -142,6 +148,8 @@ temp.link = p.link;
 p.link = temp;
 ```
 
+![image](Imagens/listas_simples_insercao_meio_depois_x.png)
+
 #### Inserção de um nó no meio da lista, antes do nó que contém um valor x
 Vai procurar, nó a nó, e vai validar o valor do nó a ser verificado. Se o nó tem o valor pretendido, vai-se inserir o nó *temp* no meio.
 ```csharp
@@ -158,8 +166,11 @@ temp.link = p.link;
 p.link = temp;
 ```
 
+![image](Imagens/listas_simples_insercao_meio_antes_x.png)
+
 #### Inserção de um nó numa lista, numa determinada posição
-//TODO Slide 10 - Testar se o código funciona corretamente, e dps escrever uma breve descrição
+//TODO Slide 10 - Testar se o código funciona corretamente
+O novo nó irá tomar a nova posição da lista e todos os NÓS que se seguem passarão a estar na sua posição inicial da lista + 1.
 ```csharp
 p = start;
 int i = 1;  // Ao percorrer todos os nós, vamos usar uma variável para representar a posição.
@@ -177,6 +188,8 @@ temp.link = p.link;
 p.link = temp;
 ```
 
+![image](Imagens/listas_simples_insercao_posicao.png)
+
 ### Remoção
 A remoção de um nó numa lista pode ser feita:
 - Na sua 1ª posição
@@ -191,6 +204,8 @@ O que era o 2º nó passou a ser o 1º.
 start = start.link;
 ```
 
+![image](Imagens/listas_simples_remocao_inicio.png)
+
 #### Remoção do único nó da lista
 A lista fica vazia.
 ```csharp
@@ -203,11 +218,15 @@ O nó é eliminado, o link do nó anterior a ele passa a conter o link do link d
 p.link = p.link.link;
 ```
 
+![image](Imagens/listas_simples_remocao_meio.png)
+
 #### Remoção de um nó no final da lista
 O nó é eliminado, ficando o que se lhe antecede a apontar para nulo.
 ```csharp
 p.link = null;
 ```
+
+![image](Imagens/listas_simples_remocao_fim.png)
 
 ### Reverting
 Reverting é reverter a lista.
@@ -228,10 +247,12 @@ while (p != null) {
 start = null;
 ```
 
+![image](Imagens/listas_simples_reverting.png)
+
 ## Listas encadeadas duplas
 
 ### Criação de um nó
-É uma lista em que cada NÓ contém 2 apontadores, um apontador esquerdo(prev) e um apontador direito(next).
+É uma lista em que cada NÓ contém 2 apontadores, um apontador esquerdo(*prev*) e um apontador direito(*next*).
 **Vantagens**:
 - Pode ser percorrido em ambas direções
 - A implementação de algumas operações pode ser mais fácil
@@ -258,19 +279,23 @@ Node class Constructor
 }
 ```
 
-### Inserção de um nó numa lista vazia
+### Inserção
+
+#### Inserção de um nó numa lista vazia
 O nó *temp* é o primeiro e o último da lista. Os seus links são null.
 ```csharp
 start = temp;
 ```
 
-### Inserção de um nó no início da lista
+![image](Imagens/listas_duplas_insercao_vazia.png)
+
+#### Inserção de um nó no início da lista
 Lista de procedimentos:
 
-1 - Copiamos o link do cabeçalho para o NÓ a introduzir (temp.next = start)
-2 - Colocamos o NÓ prévio da lista a apontar para o NÓ que foi inserido no início da lista (start.prev = temp)
-3 - Colocamos o cabeçalho da lista a apontar para o NÓ que foi inserido no inicio da lista (start = temp)
-//TODO Este código deve estar mal. Slide 5
+1 - Copiamos o link do cabeçalho para o NÓ a introduzir (*temp.next = start*)
+2 - Colocamos o NÓ prévio da lista a apontar para o NÓ que foi inserido no início da lista (*start.prev = temp*)
+3 - Colocamos o cabeçalho da lista a apontar para o NÓ que foi inserido no inicio da lista (*start = temp*)
+//TODO Este código deve estar mal.
 ```csharp
 p = start;
 
@@ -281,16 +306,196 @@ while (p.link != null) {
 p.link = temp;
 ```
 
-### Inserção de um nó no fim da lista
-Lista de procedimentos:
-1 - O "anterior" último da NÓ vai ficar a apontar para o NÓ a inserir (p.next == temp)
-2 - Então NÓ a inserir não vai ficar a apontar para outro NÓ prévio de um lado (temp.prev = p)
-3 - O NÓ a inserir, como fica na última posição, vai ter o link do "próximo node" igual a nulo. 
+![image](Imagens/listas_duplas_insercao_inicio.png)
+
+#### Inserção de um nó no fim da lista
+**Lista de procedimentos**:
+1. O "anterior" último da NÓ vai ficar a apontar para o NÓ a inserir (*p.next == temp*)
+2. Então NÓ a inserir não vai ficar a apontar para outro NÓ prévio de um lado (*temp.prev = p*)
+3. O NÓ a inserir, como fica na última posição, vai ter o link do "próximo node" igual a nulo. 
 ```csharp
 p.next = temp;
 
 temp.prev = p;
 ```
 
-### Inserção de um nó no meio da lista, após a NODE
-//TODO Slide 7
+![image](Imagens/listas_duplas_insercao_fim.png)
+
+#### Inserção de um nó no meio da lista, após a NODE
+Lista de procedimentos:
+1 - O Link do NÓ a inserir *temp* vai ficar no meio de 2 NODES e apontar para ambos (*temp.prev = p.prev; temp.next = p*)
+2 - O NÓ *p* passará a apontar para o NÓ *temp*
+3 - O NÓ *p.next* vai apontar para o NÓ *temp* (*p.next = temp*)
+```csharp
+temp.prev = p;
+temp.next = p.next;
+
+p.prev.next = temp;
+p.prev = temp;
+```
+
+![image](Imagens/listas_duplas_insercao_meio_apos.png)
+
+#### Inserção de um nó no meio da lista, antes a NODE
+Lista de procedimentos:
+1 - O Link do NÓ a inserir *temp* vai ficar no meio de 2 NODES e apontar para ambos (*temp.prev = p.prev; temp.next = p.next*)
+2 - O NÓ *p* passará a pontar para o NÓ *temp* (*p.next.prev = temp*)
+3 - O NÓ *p.next* vai apontar para o NÓ *temp* (*p.next = temp*)
+```csharp
+temp.prev = p;
+temp.next = p.next;
+p.prev.next = temp;
+p.prev = temp;
+```
+
+![image](Imagens/listas_duplas_insercao_meio_antes.png)
+
+### Remoção
+
+#### Remoção de um nó no início da lista
+O primeiro NÓ deixa de fazer parte da lista.
+O que era o segundo NÓ passou a ser o primeiro.
+```csharp
+start = start.next;
+```
+
+![image](Imagens/listas_duplas_remocao_inicio.png)
+
+#### Remoção do único NÓ da lista
+A lista fica vazia.
+```csharp
+start = null;
+```
+
+#### Remoção de um nó no meio de 2 NÓs
+O NÓ é eliminado, o link do NÓ anterior a ele passa a conter o link do link que se lhe segue.
+```csharp
+p.prev.next = p.next;
+p.next.prev = p.prev;
+```
+
+![image](Imagens/listas_duplas_remocao_meio.png)
+
+#### Remoção de um nó no fim da lista
+O NÓ é eliminado, o link do NÓ anterior a ele passa a conter o link do link que se lhe segue.
+```csharp
+p.prev.next = null;
+```
+
+![image](Imagens/listas_duplas_remocao_fim.png)
+
+## Listas encadeadas circulares
+Uma lista encadeada circular é do tipo de uma lista encadeada simples, mas circular.
+Numa lista circular todos os NÓS têm um sucessor e o último NÓ aponta para o primeiro.
+Não há necessidade do registo NULL.
+A sua implementação deve ser cuidadosa, para não terminar num loop sem fim.
+- Uma lista encadeada circular pode ser utilizada na gestão de recursos de um computador.
+- Pilhas e Filas são implementadas recorrendo ao uso destas listas.
+- Também é utilizada em redes computacionais para o agendamento de Tokens.
+
+Numa lista circular:
+- Não existe o ponteiro null
+- Referência para o primeiro NÓ da lista (start)
+- Referência para o último NÓ da lista (list)
+- last.link - Aponta para o primeiro NÓ da lista.
+- Uso da lista circular é utilizada na implementação das filas (QUEUE)
+
+```csharp
+namespace CircularList
+{
+    class Node
+    {
+        public int info;
+        public Node link;
+
+        public Node(int i)
+        {
+            info = i;
+            link = null;
+        }
+    }
+}
+```
+
+![image](Imagens/listas_encadeadas_circulares.png)
+
+### Inserção
+
+#### Inserção de um nó numa lista vazia.
+
+```csharp
+last = temp;
+last.link = last;
+```
+
+#### Inserção de um nó no início de uma lista
+**Lista de procedimentos**:
+1. Associa-se o novo NÓ ao primeiro NÓ da lista.
+2. Altera-se o link do último NÓ para o novo NÓ da lista.
+
+```csharp
+temp.link = last.link;
+last.link = temp;
+```
+
+![image](Imagens/listas_encadeadas_circulares_insercao_inicio.png)
+
+#### Inserção de um nó no fim de uma lista
+**Lista de procedimentos**:
+1. Associa-se o novo NÓ ao primeiro NÓ da lista.
+2. Altera-se o link do último NÓ para o novo NÓ da lista.
+3. last fica a apontar para o novo NÓ, agora último da lista.
+
+```csharp
+temp.link = last.link;
+last.link = temp;
+last = temp;
+```
+
+![image](Imagens/listas_encadeadas_circulares_insercao_fim.png)
+
+### Remoção
+
+#### Remoção de um único nó de uma lista
+A lista fica vazia.
+```csharp
+last = null;
+```
+
+#### Remoção de um nó no início de uma lista
+**Lista de procedimentos**:
+1. Associa-se o último NÓ da lista ao segundo NÓ da lista inicial.
+2. Remove-se o link do primeiro link para o segundo link da inicial.
+
+```csharp
+last.link = last.link.link;
+last.link = temp;
+```
+
+![image](Imagens/listas_encadeadas_circulares_remocao_inicio.png)
+
+#### Remoção de um nó no fim de uma lista
+**Lista de procedimentos**:
+1. O penúltimo NÓ da lista inicial, *p*, passa a ser o último da lista.
+2. Então *p* vai apontar para o primeiro NÓ da lista eliminando deste modo a ligação da lista ao fim da lista (*last*)
+3. *last* fica a apontar para o último elemento do NÓ.
+
+```csharp
+p.link = last.link;
+last = p;
+```
+
+![image](Imagens/listas_encadeadas_circulares_remocao_fim.png)
+
+#### Remoção de um nó no meio de uma lista
+**Lista de procedimentos**:
+1. *p* aponta para o antecessor do NÓ a ser eliminado.
+2. *p* passa a apontar para o elemento que o NÓ aponta.
+3. Ligação de e para o elemento a ser removido deixa de existir.
+
+```csharp
+p.link = p.link.link;
+last = p;
+```
+
+![image](Imagens/listas_encadeadas_circulares_remocao_meio.png)
