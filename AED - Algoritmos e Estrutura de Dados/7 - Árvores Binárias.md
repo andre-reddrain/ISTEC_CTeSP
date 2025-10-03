@@ -103,7 +103,43 @@ Neste exemplo, vamos inserir o elemento *"gene"*. Para fazer isto, relembrar que
 5. Como *"jane"* não contêm um left child, *"gene"* vai ser inserido.
 
 ### Remover numa BST
-//TODO Aula dia 20 Árvores 2 Slide 17-24
+Existem 3 casos para fazer um delete de uma BST:
+1. Node não tem filhos - É um **leaf node**.
+2. Node tem **1 filho**.
+3. Node tem **2 filhos**.
+
+Para referência:
+**P - Node a apagar**
+**PAR - Pai do node a apagar**
+**CH - Filho do node a apagar**
+
+#### Caso 1 - Leaf Node
+Como o node a apagar é um **Leaf Node** (não tem filhos), não existem complicações.
+![image](Imagens/Árvores/arvores_bst_delete_leaf.png)
+
+#### Caso 2 - 1 Filho
+Como o node a apagar tem 1 filho, o filho vai substituir o pai.
+
+Se P for filho esquerdo do PAR, CH vai tornar-se no filho esquerdo do PAR.
+Se P for filho direito do PAR, CH vai tornar-se no filho direito do PAR.
+![image](Imagens/Árvores/arvores_bst_delete_1.png)
+
+#### Caso 3 - 2 Filhos
+Para apagar um node com 2 filhos, temos que:
+1. Encontrar o sucessor inorder da node a apagar.
+2. Copiar a data do sucessor.
+3. Apagar o sucessor, usando o caso 1 ou 2.
+
+Para referência:
+**PS - Parent Sucessor**
+**S - Sucessor**
+
+![image](Imagens/Árvores/arvores_bst_delete_2.png)
+**Lista de Procedimentos**:
+1. Node a apagar: 60. Tem 2 filhos.
+2. Encontrar o sucessor inorder: 10 23 29 34 39 42 44 45 55 57 60 **69** 77 79 83
+3. Copiar a data do sucessor para o node a apagar.
+4. Apagar o sucessor (tem 0 filhos - Caso 1).
 
 ## Métodos C#
 ### PreOrder
