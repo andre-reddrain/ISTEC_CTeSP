@@ -1,6 +1,0 @@
-﻿  Exercicios_for.cpp
-C:\Users\andre\Desktop\CTeSP\IP - Introdução Programação\Projetos IP\Exercicios_for\Exercicios_for.cpp(105,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\andre\Desktop\CTeSP\IP - Introdução Programação\Projetos IP\Exercicios_for\Exercicios_for.cpp(106,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\andre\Desktop\CTeSP\IP - Introdução Programação\Projetos IP\Exercicios_for\Exercicios_for.cpp(134,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\andre\Desktop\CTeSP\IP - Introdução Programação\Projetos IP\Exercicios_for\Exercicios_for.cpp(135,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Exercicios_for.vcxproj -> C:\Users\andre\Desktop\CTeSP\IP - Introdução Programação\Projetos IP\Exercicios_for\x64\Debug\Exercicios_for.exe
