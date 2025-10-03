@@ -3,9 +3,7 @@
 ☑☐
 
 Lista de Cadeiras:
-☐ AED
-    - Concluir o resumo da matéria
-    - Talvez concluir os exercícios?
+☑ AED - Merged
 
 ☑ AS - Merged
 
