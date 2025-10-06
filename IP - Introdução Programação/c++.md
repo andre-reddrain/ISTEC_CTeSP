@@ -320,6 +320,53 @@ for (int i = 0; i < 3; i++) {
 */
 ```
 
+## Arrays como parâmetros de funções
+* Para se fazer a passagem de um array como parâmentro, é necessário:
+	* Passar o array:
+		* É sempre passado por referência de endereço. Assim, as alterações feitas dentro da função são reconhecidas no exterio (I/O param)
+		* Se pretendermos usar um array dentro de uma função e impedir que o seu conteúdo seja alterado, podemos adicionar "const" antes do tipo.
+	* Passar a dimensão do array:
+		* Por default, a função não conhece a dimensão do array. Temos que passar a dimensão como parâmetro.
+		* Dim pode ser um int, é preferível usar o tipo apropriado size_t.
+
+```c++
+// Passagem de um array por referência (I/O Param)
+// A função não conhece a dimensão do array (não está associada ao parâmetro)
+void listar (int arr[], int dim) {
+	for (int i=0; i<dim; i++) {
+		cout << "Idade " << i+1 << ": " << arr[i] << endl;
+	}
+	// for (auto el: arr) - Dá erro!
+}
+
+void teste (const int ida[], size_t dim) {
+	int soma=0;
+
+	for(size_t i=0; i<dim; i++) {
+		soma += ida[i];
+	}
+
+	cout << "É possível aceder ao conteúdo.\n"
+		 << "Soma dos elementos: " << soma << endl;
+
+	// ida[0] = 999; - Erro!
+}
+```
+
+* Outra forma é declarar a função como **template**. Deixa de ser preciso especificar a dimensão do array.
+* Desta forma, pode-se usar o ":" no for, pois a função conhece a dimensão do array.
+
+```c++
+template <typename T, size_t N>
+void listar( T (&arr)[N] ) {
+	size_t i=1;
+
+	for (auto el : arr) {
+		cout << "Idade " << i++ << ": " << el << endl;
+	}
+}
+``` 
+
 # Pedaços de Código <a id="pedacosCodigo"></a>
 
 ## Comparar 3 valores <a id="comparar3valores"></a>
