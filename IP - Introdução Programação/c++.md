@@ -13,8 +13,11 @@
 		1. [Funções por Valor](#funcoesValor)
 		2. [Funções por Referência](#funcoesReferencia)
 		3. [Funções por Pointers](#funcoesPointers) (Ainda falta)
-	11. [Arrays simples](#arrays)
-	12. [Arrays bidimensionais](#arraysbi)
+	11. [Arrays](#arrays)
+		1. [Arrays simples](#arrayuni)
+		2. [Arrays bidimensionais](#arraysbi)
+		3. [Arrays como parâmetros de funções](#arraysparam)
+	12. [Strings](#strings)
 2. [Pedaços de Código](#pedacosCodigo)
 	1. [Comparar 3 Valores](#comparar3valores)
 	2. [Ordenar 3 Valores](#ordenar3valores)
@@ -260,6 +263,8 @@ int main(int argc, char** argv) {
 ```
 
 ## Arrays simples <a id="arrays"></a>
+
+### Arrays simples <a id ="arraysuni"></a>
 * Um array é um conjunto de espaços todos do mesmo tipo
 * O array só tem UM nome que indica TODOS os espaços
 	* Ex: Em vez de criar 10 variáveis, cria-se um array para conter os 10 elementos
@@ -297,7 +302,7 @@ for(int el : notas){
 }
 ```
 
-## Arrays bidimensionais <a id="arraysbi"></a>
+### Arrays bidimensionais <a id="arraysbi"></a>
 * Um array bidimensional é uma **matriz** (x, y)
 
 ```c++
@@ -320,7 +325,7 @@ for (int i = 0; i < 3; i++) {
 */
 ```
 
-## Arrays como parâmetros de funções
+### Arrays como parâmetros de funções <a id="arraysparam"></a>
 * Para se fazer a passagem de um array como parâmentro, é necessário:
 	* Passar o array:
 		* É sempre passado por referência de endereço. Assim, as alterações feitas dentro da função são reconhecidas no exterio (I/O param)
@@ -366,6 +371,58 @@ void listar( T (&arr)[N] ) {
 	}
 }
 ``` 
+
+## Strings <a id="strings"></a>
+* Strings podem ser usadas como:
+	* No formato de array de caracteres.
+	* No formato string (objeto).
+* Para copiar strings:
+	* Não se podem fazer atribuições tal como se fazem para os tipos simples.
+	* Podemos usar a função strcpy(destino, origem).
+	* Com o objeto string, podem-se fazer atribuições usando o =, tal como se faz para os outros tipos.
+
+```c++
+int main(int argc, char** argv) {
+	// Array de chars
+	char nome[20], apelido[20], nomeCompleto[40];
+
+	// Para ler, deve-se usar a função cin.getLine()
+	cin.getline(nome, 20);	// É obrigatório especificar a dimensão do array
+	cin.getline(apelido, 20);
+
+	// Percorrer uma string, char a char
+	for(int i =0; i < strlen(nome): i++) {
+		cout << nome[i];
+	}
+
+	for(int i = 0; nome[i] != '\0'; i++) {
+		cout << nome[i];
+	}
+
+	// Copiar Strings
+	strcpy(nomeCompleto, nome);~
+
+	// Concatenar Strings
+	strcat(nomeCompleto, " ");
+	strcat(nomeCompleto, apelido);
+
+	// Objeto string
+	string nome2, apelido2, nomeCompleto2;
+
+	getline(cin, nome2);	// Função para ler strings
+	nome2
+
+	// Percorrer uma string
+	// Também se pode usar .length()
+	// Não se deve usar o teste "nome2[i] != '\0', como se faz no array de char
+	for (int i = 0; i < nome2.size(); i++) {
+		cout << nome2[i];	// Escrever a string, char a char
+	}
+
+	// Copiar e/ou juntar strings
+	nomeCompleto2 = nome2 + ' ' + apelido2;
+}
+```
 
 # Pedaços de Código <a id="pedacosCodigo"></a>
 
