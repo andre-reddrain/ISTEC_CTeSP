@@ -18,6 +18,7 @@
 		2. [Arrays bidimensionais](#arraysbi)
 		3. [Arrays como parâmetros de funções](#arraysparam)
 	12. [Strings](#strings)
+	13. [Alocação dinâmica de memória](#dinamicaMemoria)
 2. [Pedaços de Código](#pedacosCodigo)
 	1. [Comparar 3 Valores](#comparar3valores)
 	2. [Ordenar 3 Valores](#ordenar3valores)
@@ -423,6 +424,8 @@ int main(int argc, char** argv) {
 	nomeCompleto2 = nome2 + ' ' + apelido2;
 }
 ```
+
+## Alocação dinâmica de memória <a id ="dinamicaMemoria">
 
 # Pedaços de Código <a id="pedacosCodigo"></a>
 
