@@ -9,21 +9,21 @@
 	7. [Switch](#switch)
 	8. [Repetições (While, Do While, For)](#repeticoes)
 	9. [Formatação Números](#formatacaoNumeros)
-	10. [Funções](#funcoes)
+	10. [Pointers](#pointers)
+	11. [Funções](#funcoes)
 		1. [Funções por Valor](#funcoesValor)
 		2. [Funções por Referência](#funcoesReferencia)
-		3. [Funções por Pointers](#funcoesPointers) (Ainda falta)
-	11. [Arrays](#arrays)
+		3. [Funções por Pointers](#funcoesPointers)
+	12. [Arrays](#arrays)
 		1. [Arrays simples](#arrayuni)
 		2. [Arrays bidimensionais](#arraysbi)
 		3. [Arrays como parâmetros de funções](#arraysparam)
-	12. [Strings](#strings)
-	13. [Alocação dinâmica de memória](#dinamicaMemoria)
+	13. [Strings](#strings)
+	14. [Alocação dinâmica de memória](#dinamicaMemoria)
+	15. [Estruturas](#estruturas)
 2. [Pedaços de Código](#pedacosCodigo)
 	1. [Comparar 3 Valores](#comparar3valores)
 	2. [Ordenar 3 Valores](#ordenar3valores)
-
-Atualmente na aula 5.4, dia 17 Dezembro!
 
 # Noções Básicas <a id="basico"></a>
 
@@ -213,6 +213,39 @@ cout << 123.4 << endl;				//123
 cout << 1.23 << endl;				//1.23
 ```
 
+## Pointers <a id="pointers"></a>
+
+```c++
+int main(int argc, char** argv) {
+	int idade;	 	 // Criar uma variável para conter um inteiro
+	int *pIdade; 	 // Criar uma variável do tipo "pointer" (apontador)
+				 	 // que aponta para um inteiro
+	
+	idade = 78;  	 // colocar 78 dentro da idade
+    cout << "Idade = ";
+	cout << idade; 	 // Escreve 78 no ecrã
+	
+	pIdade = &idade; // pIdade fica com o endereço da variável idade
+					 // & lê-se "endereço de" (address of)
+					 // Diz-se que pIdade aponta para a idade
+					 
+	cout << "\nEndereco da idade = ";
+    cout << pIdade;  // Escreve o endereço da variável idade
+	cout << "\nOutra maneira de escrever o mesmo = ";
+	cout << &idade;  // Outra maneira de escrever o mesmo
+	
+    cout << "\nEndereco de pIdade = ";
+	cout << &pIdade; // Escreve o endereço da variável pIdade
+	
+    cout << "\nValor da idade, mas usando o pointer = ";
+	cout << *pIdade; // Escreve o conteúdo do que está apontado pela pIdade
+					 // ou seja, escreve o valor da idade, mas sem fazer
+					 // uso da variável idade em si
+	
+	return 0;
+}
+```
+
 ## Funções <a id="funcoes"></a>
 * Utilização de funções:
 	* Passagem de parâmetros por **valor** (**Entrada só**)
@@ -258,9 +291,26 @@ int main(int argc, char** argv) {
 }
 ```
 
-### Funções por Pointers <a id="funcoesPointers"></a> (WIP)
+### Funções por Pointers <a id="funcoesPointers"></a>
 ```c++
-// Ainda não foi dado...
+void soma(int num1, int num2, int *res){
+	*res = num1 + num2; // O apontado por "res" recebe o resultado
+}
+
+int main(int argc, char** argv) {
+	int val1, val2, total;
+	
+	val1 = 10;
+	val2 = 29;
+	
+	// Chamada da função
+	// Passa-se o endereço do local onde queremos guardar o resultado
+	soma(val1, val2, &total);
+	
+	cout << "Resultado da soma = " << total << endl;
+	
+	return 0;
+}
 ```
 
 ## Arrays simples <a id="arrays"></a>
@@ -426,6 +476,74 @@ int main(int argc, char** argv) {
 ```
 
 ## Alocação dinâmica de memória <a id ="dinamicaMemoria">
+* Para utilização dinâmica de memória, há 2 instruções:
+	* new - Pedir memória ao PC
+	* delete - Libertar a memória
+* As variáveis são criadas em **runtime**.
+* Na altura em que se escreve o código, ainda não se sabe qual a dimensão que se pretende para as variáveis. (ex: Arrays)
+
+```c++
+int main(int argc, char** argv) {
+	// Criar um pointer para um inteiro
+	int *pNum = nullptr;
+	
+	// 1. Alocar memória para guardar o número
+	pNum = new (nothrow) int;
+	// Devolve um pointer "tipado" para o espaço alocado
+	// nothrow serve para que não seja lançada uma exceção em caso de erro
+	
+	// 2. testar se conseguiu alocar a memória
+	if( !pNum ) return 8; 
+	// DOS error code 8 = insufficient memory
+	// pNum fica com o endereço da memória alocada (se estiver tudo OK)
+	// pNum fica vazio (com zero) se o sistema não conseguiu alocar memória
+	
+	// 3. Ler o número
+	cout << "Escreva o valor: ";
+	cin >> *pNum;
+	
+	// 4. Somar-lhe 4
+	*pNum += 4;
+	
+	// 5. Escrever o resultado
+	cout << "Resultado depois de somar 4: " << *pNum << endl;
+	
+	// 6. Libertar o espaço alocado
+	delete pNum;
+	
+	// Pode-se usar o new para criar arrays.
+	// Basta indicar o nº de elementos (5, neste caso) do array
+
+	int *pArr = nullptr; // Criar o pointer para o array
+	int *pAux = nullptr; // Criar o pointer auxiliar
+
+	// Alocar memória para os 5 int
+	pArr = new (nothrow) int[5]; 
+
+	// Memória insuficiente
+	if( !pArr ) return 8;
+
+	// Preencher o array
+	for(int i=0; i<5; i++) 
+		pArr[i] = i+10;
+	
+	pAux = pArr;
+
+	// Listar o array
+	for(int i=0; i<5; i++) 
+		cout << *pAux++ << ' ';
+		
+	delete[] pArr;
+	// Atenção aos [] a seguir ao delete
+	// Não há necessidade de especificar a dimensão do array
+	// porque o C++ controla a dimensão do bloco que alocou
+
+	return 0;
+}
+```
+## Estruturas <a id="estruturas"></a>
+
+//TODO Aula 10 Dia 21/02
 
 # Pedaços de Código <a id="pedacosCodigo"></a>
 
