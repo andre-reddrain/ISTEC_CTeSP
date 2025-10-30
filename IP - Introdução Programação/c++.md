@@ -25,9 +25,18 @@
 		1. [Estruturas passadas por valor](#estruturasValor)
 		2. [Estruturas passadas por referência de endereço](#estruturasRef)
 		3. [Estruturas passadas por pointer](#estruturasPointer)
+	16. [Ficheiros - Leitura e escrita](#ficheiros)
+		1. [Ficheiros de Texto](#ficheirosTexto)
+			1. [Leitura de ficheiros de texto](#ficheirosTextoLeitura)
+			2. [Escrita em ficheiros de texto](#ficheirosTextoEscrita)
+		2. [Ficheiros binários](#ficheirosBinarios)
+			1. [Leitura de ficheiros binários](#ficheirosBinariosLeitura)
+			2. [Escrita em ficheiros binários](#ficheirosBinariosEscrita)
+		3. [Modos de abertura](#modosAbertura)
 2. [Pedaços de Código](#pedacosCodigo)
 	1. [Comparar 3 Valores](#comparar3valores)
 	2. [Ordenar 3 Valores](#ordenar3valores)
+	3. [Leitura e escrita de ficheiros com estruturas](#lerEscreverEstruturas)
 
 # Noções Básicas <a id="basico"></a>
 
@@ -694,6 +703,120 @@ alteraMesmoPointer(&pessoa);
 listar(pessoa);
 ```
 
+## Ficheiros - Leitura e escrita <a id="ficheiros"></a>
+* O acesso a ficheiros é realizado usando a biblioteca padrão do C++, que inclui classes como **ifstream**, **ofstream** e **fstream**. Estas classes permitem trabalhar com ficheiros de texto e ficheiros binários.
+* **Verificação de erros**: Verificar sempre se o ficheiro foi aberto corretamente, usando o método **is_open()** ou verificando o próprio objeto.
+* **Fechar ficheiros**: Embora os ficheiros sejam fechados automáticamente ao sair do âmbito, é boa prática fechá-los explicitamente com o método **close()**.
+* **Manipulação de exceções**: Pode usar exceções com **std::ios::exception** para tratar erros mais complexos.
+
+### Ficheiros de Texto <a id="ficheirosTexto"></a>
+
+#### Leitura de ficheiros de texto <a id="ficheirosTextoLeitura"></a>
+* Para ler ficheiros de texto, utiliza-se a classe **std::ifstream**.
+```c++
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+	std::ifstream inputFile("exemplo.txt"); // Abre o ficheiro para leitura
+	if (!inputFile) {
+		std::cerr << "Erro ao abrir o ficheiro." << std::endl;
+		return 1;
+	}
+
+	std::string linha;
+	while (std::getline(inputFile, linha)) {
+		std::cout << linha << std::endl; // Imprime cada linha do ficheiro
+	}
+
+	inputFile.close(); // Fecha o ficheiro
+	return 0;
+}
+```
+
+#### Escrita em ficheiros de texto <a id="ficheirosTextoEscrita"></a>
+* Para escrever em ficheiros de texto, utiliza-se a classe **std::ofstream**.
+```c++
+#include <iostream>
+#include <fstream>
+
+int main() {
+	std::ofstream outputFile("exemplo2.txt"); // Abre (ou cria) o ficheiro para escrita
+	if (!outputFile) {
+		std::cerr << "Erro ao abrir o ficheiro." << std::endl;
+		return 1;
+	}
+
+	outputFile << "Aprender a escrever em ficheiros.\n";
+	outputFile << "Código escrito em C++.\n";
+	outputFile.close(); // Fecha o ficheiro
+
+	return 0;
+}
+```
+
+### Ficheiros Binários <a id="ficheirosBinarios"></a>
+
+#### Leitura de ficheiros binários <a id="ficheirosBinariosLeitura"></a>
+* Para ler ficheiros binários, utiliza-se a classe **std::ifstream** com o modo binário (**std::ios::binary**).
+```c++
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+int main() {
+	std::ifstream inputFile("dados.bin", std::ios::binary); // Abre o ficheiro em modo binário
+	if (!inputFile) {
+		std::cerr << "Erro ao abrir o ficheiro." << std::endl;
+		return 1;
+	}
+
+	std::vector<char> buffer((std::istreambuf_iterator<char>(inputFile)), std::istreambuf_iterator<char>());
+	inputFile.close();
+
+	std::cout << "Conteúdo do ficheiro lido em binário (" << buffer.size() << " bytes)." << std::endl;
+	return 0;
+}
+```
+
+#### Escrita em ficheiros binários <a id="ficheirosBinariosEscrita"></a>
+* Para escrever em ficheiros binários, utiliza-se a classe **std::ofstream** com o modo binário.
+```c++
+#include <iostream>
+#include <fstream>
+
+int main() {
+	std::ofstream outputFile("dados.bin", std::ios::binary); // Abre o ficheiro em modo binário
+	if (!outputFile) {
+		std::cerr << "Erro ao abrir o ficheiro." << std::endl;
+		return 1;
+	}
+
+	const char dados[] = {0x41, 0x42, 0x43}; // Dados binários (exemplo: ASCII 'A', 'B', 'C')
+	outputFile.write(dados, sizeof(dados)); // Escreve os dados no ficheiro
+	outputFile.close();
+	return 0;
+}
+```
+
+### Modos de abertura <a id="modosAbertura"></a>
+* O modo de abertura do ficheiro pode ser especificado ao criar o strem. Os principais modos:
+<table>
+	<tr><th>Modo<th>Descrição</tr>
+	<tr><td><b>std::ios::in<td>Abrir para leitura (predefinido para <b>ifstream</b>)
+	<tr><td><b>std::ios::out<td>Abrir para escrita (predefinido para <b>ofstream</b>)
+	<tr><td><b>std::ios::binary<td>Abrir em modo binário
+	<tr><td><b>std::ios::app<td>Adicionar dados no final do ficheiro
+	<tr><td><b>std::ios::trunc<td>Limpar o conteúdo do ficheiro ao abrir
+	<tr><td><b>std::ios::ate<td>Posicionar o cursor no final do ficheiro ao abrir.
+</table>
+* Exemplo:
+
+```c++
+std::fstream file("exemplo.txt", std::ios::in | std::ios::out | std::ios::binary);
+```
+
 # Pedaços de Código <a id="pedacosCodigo"></a>
 
 ## Comparar 3 valores <a id="comparar3valores"></a>
@@ -777,3 +900,87 @@ int main(int argc, char** argv) {
 }
 ```
 
+## Leitura e escrita de ficheiros com estruturas <a id="lerEscreverEstruturas"></a>
+```c++
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+struct pes {
+    int num;
+    string nome;
+    float peso;
+};
+
+void gravarFicheiro(const char* nomeFicheiro, pes pessoa) {
+    ofstream arquivo(nomeFicheiro, ios::binary);
+    if (!arquivo) {
+        cerr << "Erro ao abrir o ficheiro para escrita!" << endl;
+        return;
+    }
+
+    // Gravar dados primitivos
+    arquivo.write(reinterpret_cast<char*>(&pessoa.num), sizeof(int));
+    arquivo.write(reinterpret_cast<char*>(&pessoa.peso), sizeof(float));
+
+    // Gravar tamanho da string
+    size_t tamanhoNome = pessoa.nome.size();
+    arquivo.write(reinterpret_cast<char*>(&tamanhoNome), sizeof(size_t));
+
+    // Gravar conteúdo da string
+    arquivo.write(pessoa.nome.c_str(), tamanhoNome);
+
+    arquivo.close();
+}
+
+void lerFicheiro(const char* nomeFicheiro) {
+    ifstream arquivo(nomeFicheiro, ios::binary);
+    if (!arquivo) {
+        cerr << "Erro ao abrir o ficheiro para leitura!" << endl;
+        return;
+    }
+
+    pes pessoaLida;
+    
+    // Ler dados primitivos
+    arquivo.read(reinterpret_cast<char*>(&pessoaLida.num), sizeof(int));
+    arquivo.read(reinterpret_cast<char*>(&pessoaLida.peso), sizeof(float));
+
+    // Ler tamanho da string
+    size_t tamanhoNome;
+    arquivo.read(reinterpret_cast<char*>(&tamanhoNome), sizeof(size_t));
+
+    // Ler conteúdo da string
+    char* buffer = new char[tamanhoNome + 1]; // +1 para o '\0'
+    arquivo.read(buffer, tamanhoNome);
+    buffer[tamanhoNome] = '\0'; // Adiciona terminador nulo
+
+    pessoaLida.nome = string(buffer);
+    delete[] buffer; // Libertar memória
+
+    arquivo.close();
+
+    // Mostrar os dados lidos
+    cout << "Dados lidos do ficheiro:\n";
+    cout << "Número: " << pessoaLida.num << endl;
+    cout << "Nome: " << pessoaLida.nome << endl;
+    cout << "Peso: " << pessoaLida.peso << " kg" << endl;
+}
+
+int main() {
+    pes pessoa;
+
+    pessoa.num = 1;
+    pessoa.nome = "João Silva";
+    pessoa.peso = 75.5;
+
+    const char* nomeFicheiro = "dados.bin";
+
+    gravarFicheiro(nomeFicheiro, pessoa);
+    lerFicheiro(nomeFicheiro);
+
+    return 0;
+}
+
+```
