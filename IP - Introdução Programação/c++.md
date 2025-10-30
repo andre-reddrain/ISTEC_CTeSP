@@ -10,6 +10,7 @@
 	8. [Repetições (While, Do While, For)](#repeticoes)
 	9. [Formatação Números](#formatacaoNumeros)
 	10. [Pointers](#pointers)
+		1. [Pointers constantes](#pointersConstantes)
 	11. [Funções](#funcoes)
 		1. [Funções por Valor](#funcoesValor)
 		2. [Funções por Referência](#funcoesReferencia)
@@ -244,6 +245,53 @@ int main(int argc, char** argv) {
 	cout << *pIdade; // Escreve o conteúdo do que está apontado pela pIdade
 					 // ou seja, escreve o valor da idade, mas sem fazer
 					 // uso da variável idade em si
+	
+	return 0;
+}
+```
+
+### Pointers constantes <a id="pointersConstantes"></a>
+* Utilização de pointers constantes, em funções:
+	- Passagem usando pointers (entrada e/ou saída).
+	- Passagem usando pointers constantes (entrada).
+* Nota:
+	* Se usarmos um pointer constante, dentro da função não se pode alterar o apontado pelo pointer.
+	* O valor do pointer pode ser alterado.
+```c++
+// *p1 pode ser alterado
+// *p2 NÃO pode ser alterado (por isso se diz ser um parâmetro só de entrada)
+void testes(int *p1, const int *p2){
+
+	cout << "Dentro da função\n"
+		 << "Valor de *p1: " << *p1 << endl  // 5
+		 << "Valor de *p2: " << *p2 << endl; // 5
+
+	// Podemos alterar o apontado por p1
+	*p1 = 6;
+	cout << "*p1 passou a ser 6\n";
+
+	// Não é possível alterar o apontado por p2
+	// *p2 = 6; // Vai dar erro!
+
+	// No entanto, podemos alterar o valor do próprio pointer
+	p2 += 20;
+	// Neste exemplo, o pointer fica a apontar para uma memória 
+	// que não sabemos o que tem dentro
+}
+
+int main(int argc, char** argv) {
+	int val1 = 5, val2 = 5;
+	
+	cout << "Valor 1 = 5\n"
+		 << "Valor 2 = 5\n";
+	
+	cout << "Chamada da função\n";
+	testes( &val1, &val2 );
+	
+	cout << "Após terminada a função\n"
+		 << "Valor 1 = " << val1 << endl // 6
+		 << "Valor 2 = " << val2 << endl // 5
+		 << "O valor 2 não foi alterado pois era só de entrada (pointer constante)";
 	
 	return 0;
 }
@@ -610,6 +658,7 @@ void tentaAlterar(pes p){
 tentaAlterar(pessoa);
 listar(pessoa);
 ```
+
 ### Estruturas passadas por Referência de Endereço <a id="estruturasRef"></a>
 * Quando uma estrutura é passada por referência de endereço para uma função:
 	* Dentro da função, as alterações são feitas.
