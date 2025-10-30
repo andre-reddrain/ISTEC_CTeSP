@@ -9,17 +9,34 @@
 	7. [Switch](#switch)
 	8. [Repetições (While, Do While, For)](#repeticoes)
 	9. [Formatação Números](#formatacaoNumeros)
-	10. [Funções](#funcoes)
+	10. [Pointers](#pointers)
+		1. [Pointers constantes](#pointersConstantes)
+	11. [Funções](#funcoes)
 		1. [Funções por Valor](#funcoesValor)
 		2. [Funções por Referência](#funcoesReferencia)
-		3. [Funções por Pointers](#funcoesPointers) (Ainda falta)
-	11. [Arrays simples](#arrays)
-	12. [Arrays bidimensionais](#arraysbi)
+		3. [Funções por Pointers](#funcoesPointers)
+	12. [Arrays](#arrays)
+		1. [Arrays simples](#arrayuni)
+		2. [Arrays bidimensionais](#arraysbi)
+		3. [Arrays como parâmetros de funções](#arraysparam)
+	13. [Strings](#strings)
+	14. [Alocação dinâmica de memória](#dinamicaMemoria)
+	15. [Estruturas](#estruturas)
+		1. [Estruturas passadas por valor](#estruturasValor)
+		2. [Estruturas passadas por referência de endereço](#estruturasRef)
+		3. [Estruturas passadas por pointer](#estruturasPointer)
+	16. [Ficheiros - Leitura e escrita](#ficheiros)
+		1. [Ficheiros de Texto](#ficheirosTexto)
+			1. [Leitura de ficheiros de texto](#ficheirosTextoLeitura)
+			2. [Escrita em ficheiros de texto](#ficheirosTextoEscrita)
+		2. [Ficheiros binários](#ficheirosBinarios)
+			1. [Leitura de ficheiros binários](#ficheirosBinariosLeitura)
+			2. [Escrita em ficheiros binários](#ficheirosBinariosEscrita)
+		3. [Modos de abertura](#modosAbertura)
 2. [Pedaços de Código](#pedacosCodigo)
 	1. [Comparar 3 Valores](#comparar3valores)
 	2. [Ordenar 3 Valores](#ordenar3valores)
-
-Atualmente na aula 5.4, dia 17 Dezembro!
+	3. [Leitura e escrita de ficheiros com estruturas](#lerEscreverEstruturas)
 
 # Noções Básicas <a id="basico"></a>
 
@@ -209,6 +226,86 @@ cout << 123.4 << endl;				//123
 cout << 1.23 << endl;				//1.23
 ```
 
+## Pointers <a id="pointers"></a>
+
+```c++
+int main(int argc, char** argv) {
+	int idade;	 	 // Criar uma variável para conter um inteiro
+	int *pIdade; 	 // Criar uma variável do tipo "pointer" (apontador)
+				 	 // que aponta para um inteiro
+	
+	idade = 78;  	 // colocar 78 dentro da idade
+    cout << "Idade = ";
+	cout << idade; 	 // Escreve 78 no ecrã
+	
+	pIdade = &idade; // pIdade fica com o endereço da variável idade
+					 // & lê-se "endereço de" (address of)
+					 // Diz-se que pIdade aponta para a idade
+					 
+	cout << "\nEndereco da idade = ";
+    cout << pIdade;  // Escreve o endereço da variável idade
+	cout << "\nOutra maneira de escrever o mesmo = ";
+	cout << &idade;  // Outra maneira de escrever o mesmo
+	
+    cout << "\nEndereco de pIdade = ";
+	cout << &pIdade; // Escreve o endereço da variável pIdade
+	
+    cout << "\nValor da idade, mas usando o pointer = ";
+	cout << *pIdade; // Escreve o conteúdo do que está apontado pela pIdade
+					 // ou seja, escreve o valor da idade, mas sem fazer
+					 // uso da variável idade em si
+	
+	return 0;
+}
+```
+
+### Pointers constantes <a id="pointersConstantes"></a>
+* Utilização de pointers constantes, em funções:
+	- Passagem usando pointers (entrada e/ou saída).
+	- Passagem usando pointers constantes (entrada).
+* Nota:
+	* Se usarmos um pointer constante, dentro da função não se pode alterar o apontado pelo pointer.
+	* O valor do pointer pode ser alterado.
+```c++
+// *p1 pode ser alterado
+// *p2 NÃO pode ser alterado (por isso se diz ser um parâmetro só de entrada)
+void testes(int *p1, const int *p2){
+
+	cout << "Dentro da função\n"
+		 << "Valor de *p1: " << *p1 << endl  // 5
+		 << "Valor de *p2: " << *p2 << endl; // 5
+
+	// Podemos alterar o apontado por p1
+	*p1 = 6;
+	cout << "*p1 passou a ser 6\n";
+
+	// Não é possível alterar o apontado por p2
+	// *p2 = 6; // Vai dar erro!
+
+	// No entanto, podemos alterar o valor do próprio pointer
+	p2 += 20;
+	// Neste exemplo, o pointer fica a apontar para uma memória 
+	// que não sabemos o que tem dentro
+}
+
+int main(int argc, char** argv) {
+	int val1 = 5, val2 = 5;
+	
+	cout << "Valor 1 = 5\n"
+		 << "Valor 2 = 5\n";
+	
+	cout << "Chamada da função\n";
+	testes( &val1, &val2 );
+	
+	cout << "Após terminada a função\n"
+		 << "Valor 1 = " << val1 << endl // 6
+		 << "Valor 2 = " << val2 << endl // 5
+		 << "O valor 2 não foi alterado pois era só de entrada (pointer constante)";
+	
+	return 0;
+}
+```
+
 ## Funções <a id="funcoes"></a>
 * Utilização de funções:
 	* Passagem de parâmetros por **valor** (**Entrada só**)
@@ -254,12 +351,31 @@ int main(int argc, char** argv) {
 }
 ```
 
-### Funções por Pointers <a id="funcoesPointers"></a> (WIP)
+### Funções por Pointers <a id="funcoesPointers"></a>
 ```c++
-// Ainda não foi dado...
+void soma(int num1, int num2, int *res){
+	*res = num1 + num2; // O apontado por "res" recebe o resultado
+}
+
+int main(int argc, char** argv) {
+	int val1, val2, total;
+	
+	val1 = 10;
+	val2 = 29;
+	
+	// Chamada da função
+	// Passa-se o endereço do local onde queremos guardar o resultado
+	soma(val1, val2, &total);
+	
+	cout << "Resultado da soma = " << total << endl;
+	
+	return 0;
+}
 ```
 
 ## Arrays simples <a id="arrays"></a>
+
+### Arrays simples <a id ="arraysuni"></a>
 * Um array é um conjunto de espaços todos do mesmo tipo
 * O array só tem UM nome que indica TODOS os espaços
 	* Ex: Em vez de criar 10 variáveis, cria-se um array para conter os 10 elementos
@@ -297,7 +413,7 @@ for(int el : notas){
 }
 ```
 
-## Arrays bidimensionais <a id="arraysbi"></a>
+### Arrays bidimensionais <a id="arraysbi"></a>
 * Um array bidimensional é uma **matriz** (x, y)
 
 ```c++
@@ -318,6 +434,387 @@ for (int i = 0; i < 3; i++) {
 [1,0] [1,1] [1,2] [1,3]
 [2,0] [2,1] [2,2] [2,3]
 */
+```
+
+### Arrays como parâmetros de funções <a id="arraysparam"></a>
+* Para se fazer a passagem de um array como parâmentro, é necessário:
+	* Passar o array:
+		* É sempre passado por referência de endereço. Assim, as alterações feitas dentro da função são reconhecidas no exterio (I/O param)
+		* Se pretendermos usar um array dentro de uma função e impedir que o seu conteúdo seja alterado, podemos adicionar "const" antes do tipo.
+	* Passar a dimensão do array:
+		* Por default, a função não conhece a dimensão do array. Temos que passar a dimensão como parâmetro.
+		* Dim pode ser um int, é preferível usar o tipo apropriado size_t.
+
+```c++
+// Passagem de um array por referência (I/O Param)
+// A função não conhece a dimensão do array (não está associada ao parâmetro)
+void listar (int arr[], int dim) {
+	for (int i=0; i<dim; i++) {
+		cout << "Idade " << i+1 << ": " << arr[i] << endl;
+	}
+	// for (auto el: arr) - Dá erro!
+}
+
+void teste (const int ida[], size_t dim) {
+	int soma=0;
+
+	for(size_t i=0; i<dim; i++) {
+		soma += ida[i];
+	}
+
+	cout << "É possível aceder ao conteúdo.\n"
+		 << "Soma dos elementos: " << soma << endl;
+
+	// ida[0] = 999; - Erro!
+}
+```
+
+* Outra forma é declarar a função como **template**. Deixa de ser preciso especificar a dimensão do array.
+* Desta forma, pode-se usar o ":" no for, pois a função conhece a dimensão do array.
+
+```c++
+template <typename T, size_t N>
+void listar( T (&arr)[N] ) {
+	size_t i=1;
+
+	for (auto el : arr) {
+		cout << "Idade " << i++ << ": " << el << endl;
+	}
+}
+``` 
+
+## Strings <a id="strings"></a>
+* Strings podem ser usadas como:
+	* No formato de array de caracteres.
+	* No formato string (objeto).
+* Para copiar strings:
+	* Não se podem fazer atribuições tal como se fazem para os tipos simples.
+	* Podemos usar a função strcpy(destino, origem).
+	* Com o objeto string, podem-se fazer atribuições usando o =, tal como se faz para os outros tipos.
+
+```c++
+int main(int argc, char** argv) {
+	// Array de chars
+	char nome[20], apelido[20], nomeCompleto[40];
+
+	// Para ler, deve-se usar a função cin.getLine()
+	cin.getline(nome, 20);	// É obrigatório especificar a dimensão do array
+	cin.getline(apelido, 20);
+
+	// Percorrer uma string, char a char
+	for(int i =0; i < strlen(nome): i++) {
+		cout << nome[i];
+	}
+
+	for(int i = 0; nome[i] != '\0'; i++) {
+		cout << nome[i];
+	}
+
+	// Copiar Strings
+	strcpy(nomeCompleto, nome);~
+
+	// Concatenar Strings
+	strcat(nomeCompleto, " ");
+	strcat(nomeCompleto, apelido);
+
+	// Objeto string
+	string nome2, apelido2, nomeCompleto2;
+
+	getline(cin, nome2);	// Função para ler strings
+	nome2
+
+	// Percorrer uma string
+	// Também se pode usar .length()
+	// Não se deve usar o teste "nome2[i] != '\0', como se faz no array de char
+	for (int i = 0; i < nome2.size(); i++) {
+		cout << nome2[i];	// Escrever a string, char a char
+	}
+
+	// Copiar e/ou juntar strings
+	nomeCompleto2 = nome2 + ' ' + apelido2;
+}
+```
+
+## Alocação dinâmica de memória <a id ="dinamicaMemoria">
+* Para utilização dinâmica de memória, há 2 instruções:
+	* new - Pedir memória ao PC
+	* delete - Libertar a memória
+* As variáveis são criadas em **runtime**.
+* Na altura em que se escreve o código, ainda não se sabe qual a dimensão que se pretende para as variáveis. (ex: Arrays)
+
+```c++
+int main(int argc, char** argv) {
+	// Criar um pointer para um inteiro
+	int *pNum = nullptr;
+	
+	// 1. Alocar memória para guardar o número
+	pNum = new (nothrow) int;
+	// Devolve um pointer "tipado" para o espaço alocado
+	// nothrow serve para que não seja lançada uma exceção em caso de erro
+	
+	// 2. testar se conseguiu alocar a memória
+	if( !pNum ) return 8; 
+	// DOS error code 8 = insufficient memory
+	// pNum fica com o endereço da memória alocada (se estiver tudo OK)
+	// pNum fica vazio (com zero) se o sistema não conseguiu alocar memória
+	
+	// 3. Ler o número
+	cout << "Escreva o valor: ";
+	cin >> *pNum;
+	
+	// 4. Somar-lhe 4
+	*pNum += 4;
+	
+	// 5. Escrever o resultado
+	cout << "Resultado depois de somar 4: " << *pNum << endl;
+	
+	// 6. Libertar o espaço alocado
+	delete pNum;
+	
+	// Pode-se usar o new para criar arrays.
+	// Basta indicar o nº de elementos (5, neste caso) do array
+
+	int *pArr = nullptr; // Criar o pointer para o array
+	int *pAux = nullptr; // Criar o pointer auxiliar
+
+	// Alocar memória para os 5 int
+	pArr = new (nothrow) int[5]; 
+
+	// Memória insuficiente
+	if( !pArr ) return 8;
+
+	// Preencher o array
+	for(int i=0; i<5; i++) 
+		pArr[i] = i+10;
+	
+	pAux = pArr;
+
+	// Listar o array
+	for(int i=0; i<5; i++) 
+		cout << *pAux++ << ' ';
+		
+	delete[] pArr;
+	// Atenção aos [] a seguir ao delete
+	// Não há necessidade de especificar a dimensão do array
+	// porque o C++ controla a dimensão do bloco que alocou
+
+	return 0;
+}
+```
+
+## Estruturas <a id="estruturas"></a>
+```c++
+// Definição da estrutura. Não implica reserva de espaço
+// Criar um tipo novo chamado "pes"
+struct pes {
+	int num;		// Campo número de aluno 
+	string nome;	// Campo nome
+	int idade;		// Campo idade
+};
+
+// Função para listar uma pessoa
+void listar(pes p){
+	cout << "Número: " << p.num << endl;
+	cout << "Nome: " << p.nome << endl;
+	cout << "Idade: " << p.idade << endl;
+}
+
+const int MAXalunos = 2;
+
+int main(int argc, char** argv) {
+	// Criação de um array de estruturas
+	pes turma[MAXalunos];
+	
+	// Ler, usando um ciclo de repetição, os dados de cada aluno
+	cout << "\nDados para os alunos\n"
+		 << "---------------------\n";
+	for( auto &el : turma ){
+		cout << "Número: "; cin >> el.num;
+		cout << "  Nome: ";
+		cin.ignore();
+		getline(cin, el.nome);
+		cout << " Idade: "; cin >> el.idade;
+		cout << endl;
+	}
+	
+	//	Escrever, usando um ciclo de repetição, os dados de cada aluno
+	cout << "\nDados lidos dos alunos\n"
+		 << "----------------------\n";
+	for( auto el : turma ){
+		cout << "Número: " << el.num << endl
+			 << "  Nome: " << el.nome << endl
+			 << " Idade: " << el.idade << endl
+			 << endl;
+	}
+	
+	return 0;
+}
+```
+
+### Estruturas passadas por valor <a id="estruturasValor"></a>
+* Quando uma estrutura é passada por valor para uma função:
+	* Dentro da função, as alterações são feitas.
+	* Fora da função, as alterações **NÃO SÃO** reconhecidas.
+```c++
+// Dentro da função, as alterações são feitas
+void tentaAlterar(pes p){
+	p.nome = "Pedro";
+	p.idade+=3;
+	listar(p);
+}
+
+// As alterações não são reconhecidas. A pessoa não foi alterada
+tentaAlterar(pessoa);
+listar(pessoa);
+```
+
+### Estruturas passadas por Referência de Endereço <a id="estruturasRef"></a>
+* Quando uma estrutura é passada por referência de endereço para uma função:
+	* Dentro da função, as alterações são feitas.
+	* Depois da função, o nome e a idade foram modificados.
+```c++
+// Dentro da função, as alterações são feitas.
+void alteraMesmo(pes &p){
+	p.nome = "Artur";
+	p.idade++;
+	listar(p);
+}
+
+// As alterações são reconhecidas. A pessoa foi alterada.
+alteraMesmo(pessoa);
+listar(pessoa);
+```
+
+### Estruturas passadas por Pointer <a id="estruturasPointer"></a>
+* Quando uma estrutra é passada por pointer para uma função:
+	* Dentro da função, as alterações são feitas.
+	* Depois da função, o nome e a idade foram modificados.
+
+```c++
+// Dentro da função pode-se usar (*p).nome ou p->nome
+void alteraMesmoPointer(pes *p){
+	p->nome = "Josefa";
+	p->idade++;
+	listar(*p);
+}
+
+// As alterações são reconhecidas. A pessoa foi alterada.
+alteraMesmoPointer(&pessoa);
+listar(pessoa);
+```
+
+## Ficheiros - Leitura e escrita <a id="ficheiros"></a>
+* O acesso a ficheiros é realizado usando a biblioteca padrão do C++, que inclui classes como **ifstream**, **ofstream** e **fstream**. Estas classes permitem trabalhar com ficheiros de texto e ficheiros binários.
+* **Verificação de erros**: Verificar sempre se o ficheiro foi aberto corretamente, usando o método **is_open()** ou verificando o próprio objeto.
+* **Fechar ficheiros**: Embora os ficheiros sejam fechados automáticamente ao sair do âmbito, é boa prática fechá-los explicitamente com o método **close()**.
+* **Manipulação de exceções**: Pode usar exceções com **std::ios::exception** para tratar erros mais complexos.
+
+### Ficheiros de Texto <a id="ficheirosTexto"></a>
+
+#### Leitura de ficheiros de texto <a id="ficheirosTextoLeitura"></a>
+* Para ler ficheiros de texto, utiliza-se a classe **std::ifstream**.
+```c++
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+	std::ifstream inputFile("exemplo.txt"); // Abre o ficheiro para leitura
+	if (!inputFile) {
+		std::cerr << "Erro ao abrir o ficheiro." << std::endl;
+		return 1;
+	}
+
+	std::string linha;
+	while (std::getline(inputFile, linha)) {
+		std::cout << linha << std::endl; // Imprime cada linha do ficheiro
+	}
+
+	inputFile.close(); // Fecha o ficheiro
+	return 0;
+}
+```
+
+#### Escrita em ficheiros de texto <a id="ficheirosTextoEscrita"></a>
+* Para escrever em ficheiros de texto, utiliza-se a classe **std::ofstream**.
+```c++
+#include <iostream>
+#include <fstream>
+
+int main() {
+	std::ofstream outputFile("exemplo2.txt"); // Abre (ou cria) o ficheiro para escrita
+	if (!outputFile) {
+		std::cerr << "Erro ao abrir o ficheiro." << std::endl;
+		return 1;
+	}
+
+	outputFile << "Aprender a escrever em ficheiros.\n";
+	outputFile << "Código escrito em C++.\n";
+	outputFile.close(); // Fecha o ficheiro
+
+	return 0;
+}
+```
+
+### Ficheiros Binários <a id="ficheirosBinarios"></a>
+
+#### Leitura de ficheiros binários <a id="ficheirosBinariosLeitura"></a>
+* Para ler ficheiros binários, utiliza-se a classe **std::ifstream** com o modo binário (**std::ios::binary**).
+```c++
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+int main() {
+	std::ifstream inputFile("dados.bin", std::ios::binary); // Abre o ficheiro em modo binário
+	if (!inputFile) {
+		std::cerr << "Erro ao abrir o ficheiro." << std::endl;
+		return 1;
+	}
+
+	std::vector<char> buffer((std::istreambuf_iterator<char>(inputFile)), std::istreambuf_iterator<char>());
+	inputFile.close();
+
+	std::cout << "Conteúdo do ficheiro lido em binário (" << buffer.size() << " bytes)." << std::endl;
+	return 0;
+}
+```
+
+#### Escrita em ficheiros binários <a id="ficheirosBinariosEscrita"></a>
+* Para escrever em ficheiros binários, utiliza-se a classe **std::ofstream** com o modo binário.
+```c++
+#include <iostream>
+#include <fstream>
+
+int main() {
+	std::ofstream outputFile("dados.bin", std::ios::binary); // Abre o ficheiro em modo binário
+	if (!outputFile) {
+		std::cerr << "Erro ao abrir o ficheiro." << std::endl;
+		return 1;
+	}
+
+	const char dados[] = {0x41, 0x42, 0x43}; // Dados binários (exemplo: ASCII 'A', 'B', 'C')
+	outputFile.write(dados, sizeof(dados)); // Escreve os dados no ficheiro
+	outputFile.close();
+	return 0;
+}
+```
+
+### Modos de abertura <a id="modosAbertura"></a>
+* O modo de abertura do ficheiro pode ser especificado ao criar o strem. Os principais modos:
+<table>
+	<tr><th>Modo<th>Descrição</tr>
+	<tr><td><b>std::ios::in<td>Abrir para leitura (predefinido para <b>ifstream</b>)
+	<tr><td><b>std::ios::out<td>Abrir para escrita (predefinido para <b>ofstream</b>)
+	<tr><td><b>std::ios::binary<td>Abrir em modo binário
+	<tr><td><b>std::ios::app<td>Adicionar dados no final do ficheiro
+	<tr><td><b>std::ios::trunc<td>Limpar o conteúdo do ficheiro ao abrir
+	<tr><td><b>std::ios::ate<td>Posicionar o cursor no final do ficheiro ao abrir.
+</table>
+* Exemplo:
+
+```c++
+std::fstream file("exemplo.txt", std::ios::in | std::ios::out | std::ios::binary);
 ```
 
 # Pedaços de Código <a id="pedacosCodigo"></a>
@@ -403,3 +900,87 @@ int main(int argc, char** argv) {
 }
 ```
 
+## Leitura e escrita de ficheiros com estruturas <a id="lerEscreverEstruturas"></a>
+```c++
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+struct pes {
+    int num;
+    string nome;
+    float peso;
+};
+
+void gravarFicheiro(const char* nomeFicheiro, pes pessoa) {
+    ofstream arquivo(nomeFicheiro, ios::binary);
+    if (!arquivo) {
+        cerr << "Erro ao abrir o ficheiro para escrita!" << endl;
+        return;
+    }
+
+    // Gravar dados primitivos
+    arquivo.write(reinterpret_cast<char*>(&pessoa.num), sizeof(int));
+    arquivo.write(reinterpret_cast<char*>(&pessoa.peso), sizeof(float));
+
+    // Gravar tamanho da string
+    size_t tamanhoNome = pessoa.nome.size();
+    arquivo.write(reinterpret_cast<char*>(&tamanhoNome), sizeof(size_t));
+
+    // Gravar conteúdo da string
+    arquivo.write(pessoa.nome.c_str(), tamanhoNome);
+
+    arquivo.close();
+}
+
+void lerFicheiro(const char* nomeFicheiro) {
+    ifstream arquivo(nomeFicheiro, ios::binary);
+    if (!arquivo) {
+        cerr << "Erro ao abrir o ficheiro para leitura!" << endl;
+        return;
+    }
+
+    pes pessoaLida;
+    
+    // Ler dados primitivos
+    arquivo.read(reinterpret_cast<char*>(&pessoaLida.num), sizeof(int));
+    arquivo.read(reinterpret_cast<char*>(&pessoaLida.peso), sizeof(float));
+
+    // Ler tamanho da string
+    size_t tamanhoNome;
+    arquivo.read(reinterpret_cast<char*>(&tamanhoNome), sizeof(size_t));
+
+    // Ler conteúdo da string
+    char* buffer = new char[tamanhoNome + 1]; // +1 para o '\0'
+    arquivo.read(buffer, tamanhoNome);
+    buffer[tamanhoNome] = '\0'; // Adiciona terminador nulo
+
+    pessoaLida.nome = string(buffer);
+    delete[] buffer; // Libertar memória
+
+    arquivo.close();
+
+    // Mostrar os dados lidos
+    cout << "Dados lidos do ficheiro:\n";
+    cout << "Número: " << pessoaLida.num << endl;
+    cout << "Nome: " << pessoaLida.nome << endl;
+    cout << "Peso: " << pessoaLida.peso << " kg" << endl;
+}
+
+int main() {
+    pes pessoa;
+
+    pessoa.num = 1;
+    pessoa.nome = "João Silva";
+    pessoa.peso = 75.5;
+
+    const char* nomeFicheiro = "dados.bin";
+
+    gravarFicheiro(nomeFicheiro, pessoa);
+    lerFicheiro(nomeFicheiro);
+
+    return 0;
+}
+
+```
