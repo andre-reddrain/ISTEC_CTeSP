@@ -21,6 +21,9 @@
 	13. [Strings](#strings)
 	14. [Alocação dinâmica de memória](#dinamicaMemoria)
 	15. [Estruturas](#estruturas)
+		1. [Estruturas passadas por valor](#estruturasValor)
+		2. [Estruturas passadas por referência de endereço](#estruturasRef)
+		3. [Estruturas passadas por pointer](#estruturasPointer)
 2. [Pedaços de Código](#pedacosCodigo)
 	1. [Comparar 3 Valores](#comparar3valores)
 	2. [Ordenar 3 Valores](#ordenar3valores)
@@ -541,9 +544,106 @@ int main(int argc, char** argv) {
 	return 0;
 }
 ```
-## Estruturas <a id="estruturas"></a>
 
-//TODO Aula 10 Dia 21/02
+## Estruturas <a id="estruturas"></a>
+```c++
+// Definição da estrutura. Não implica reserva de espaço
+// Criar um tipo novo chamado "pes"
+struct pes {
+	int num;		// Campo número de aluno 
+	string nome;	// Campo nome
+	int idade;		// Campo idade
+};
+
+// Função para listar uma pessoa
+void listar(pes p){
+	cout << "Número: " << p.num << endl;
+	cout << "Nome: " << p.nome << endl;
+	cout << "Idade: " << p.idade << endl;
+}
+
+const int MAXalunos = 2;
+
+int main(int argc, char** argv) {
+	// Criação de um array de estruturas
+	pes turma[MAXalunos];
+	
+	// Ler, usando um ciclo de repetição, os dados de cada aluno
+	cout << "\nDados para os alunos\n"
+		 << "---------------------\n";
+	for( auto &el : turma ){
+		cout << "Número: "; cin >> el.num;
+		cout << "  Nome: ";
+		cin.ignore();
+		getline(cin, el.nome);
+		cout << " Idade: "; cin >> el.idade;
+		cout << endl;
+	}
+	
+	//	Escrever, usando um ciclo de repetição, os dados de cada aluno
+	cout << "\nDados lidos dos alunos\n"
+		 << "----------------------\n";
+	for( auto el : turma ){
+		cout << "Número: " << el.num << endl
+			 << "  Nome: " << el.nome << endl
+			 << " Idade: " << el.idade << endl
+			 << endl;
+	}
+	
+	return 0;
+}
+```
+
+### Estruturas passadas por valor <a id="estruturasValor"></a>
+* Quando uma estrutura é passada por valor para uma função:
+	* Dentro da função, as alterações são feitas.
+	* Fora da função, as alterações **NÃO SÃO** reconhecidas.
+```c++
+// Dentro da função, as alterações são feitas
+void tentaAlterar(pes p){
+	p.nome = "Pedro";
+	p.idade+=3;
+	listar(p);
+}
+
+// As alterações não são reconhecidas. A pessoa não foi alterada
+tentaAlterar(pessoa);
+listar(pessoa);
+```
+### Estruturas passadas por Referência de Endereço <a id="estruturasRef"></a>
+* Quando uma estrutura é passada por referência de endereço para uma função:
+	* Dentro da função, as alterações são feitas.
+	* Depois da função, o nome e a idade foram modificados.
+```c++
+// Dentro da função, as alterações são feitas.
+void alteraMesmo(pes &p){
+	p.nome = "Artur";
+	p.idade++;
+	listar(p);
+}
+
+// As alterações são reconhecidas. A pessoa foi alterada.
+alteraMesmo(pessoa);
+listar(pessoa);
+```
+
+### Estruturas passadas por Pointer <a id="estruturasPointer"></a>
+* Quando uma estrutra é passada por pointer para uma função:
+	* Dentro da função, as alterações são feitas.
+	* Depois da função, o nome e a idade foram modificados.
+
+```c++
+// Dentro da função pode-se usar (*p).nome ou p->nome
+void alteraMesmoPointer(pes *p){
+	p->nome = "Josefa";
+	p->idade++;
+	listar(*p);
+}
+
+// As alterações são reconhecidas. A pessoa foi alterada.
+alteraMesmoPointer(&pessoa);
+listar(pessoa);
+```
 
 # Pedaços de Código <a id="pedacosCodigo"></a>
 
