@@ -1,0 +1,30 @@
+<!-- Ficha Trabalho 1
+ Criar uma página web simples que permita ao utilizador verificar se um nº é par ou ímpar.
+ A página deve conter:
+    - Um campo de entrada onde o utilizador pode digitar um número
+    - Um botão que, ao ser clicado, executa a verificação do número
+    - Uma área onde o resultado da verificação será exibido
+ Requisitos:
+    - Se o campo de entrada estiver vazio, exiba uma mensagem informando que o utilizador deve inserir um número válido
+    - Caso contrário, verifique se o número é par ou ímpar e exiba a mensagem correspondente
+    - Utilize JavaScript para implementar a lógica de verificação e manipulação
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Trabalho 1</title>
+</head>
+<body>
+    <br>
+    <input type="number" id="userInput">
+    <input type="button" value="Verificar" onclick="verificarPar()">
+    <br>
+    <p id="res"></p>
+</body>
+
+<script src="./FichaTrabalho1.js">
+</script>
+</html>
