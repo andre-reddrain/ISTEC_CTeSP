@@ -1,0 +1,27 @@
+<!-- Ficha de Trabalho 3
+ Cria uma página web que permita ao utilizador inserir uma lista de nomes, separados por vírgulas.
+ O programa deve realizar as seguintes operações:
+    1. Exibir o nº total de nomes na lista
+    2. Exibir a lista de nomes em ordem alfabética
+    3. Exibir o primeiro e ultimo nome da lista
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Trabalho 3</title>
+</head>
+<body>
+    <h1>Lista de nomes</h1>
+    <p>Introduza nomes, separados por vírgulas(,):</p>
+    <textarea id="userInput"></textarea>
+    <br>
+    <input type="button" onclick="listarNomes()" value="Confirmar">
+    <br>
+    <p id="errorMsg"></p>
+    <div id="res"></div>
+</body>
+
+ <script src="FichaTrabalho3.js"></script>
+</html>
