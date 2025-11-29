@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: 5%;
+}
+
+.item {
+    border-style:dotted;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Trabalho 11</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='boxicons.min.css' rel='stylesheet'>
+</head>
+<body onload="loadStorage()">
+    <div class="container">
+        <div class="item">
+            <h1>Produtos</h1>
+            <ul id="listaProdutos"></ul>
+            <div>
+                <h3>Criação de um produto</h3>
+                <p>Nome do Produto</p>
+                <input type="text" id="nomeProduto">
+                <br>
+                <p>Preço do Produto (€)</p>
+                <input type="number" id="precoProduto">
+                <br>
+                <br>
+                <input type="button" id="criarProduto" value="Criar Produto">
+                <p id="resProduto"></p>
+            </div>
+            
+        </div>
+        <div class="item">
+            <h1>Carrinho</h1>
+            <ul id="listaCarrinho"></ul>
+        </div>
+    </div>
+</body>
+<script type="module" src="main.js"></script>
+</html>
