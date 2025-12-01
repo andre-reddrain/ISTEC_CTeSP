@@ -1,3 +1,6 @@
 [submodule "P - Programação/Projeto Final/Projeto_python"]
 	path = P - Programação/Projeto Final/Projeto_python
 	url = https://github.com/PedroJesus32/Projeto_python.git
+[submodule "DAS - Desenvolvimento Ágil Software/Projeto_DAS"]
+	path = DAS - Desenvolvimento Ágil Software/Projeto_DAS
+	url = https://github.com/andre-reddrain/Projeto_DAS.git
