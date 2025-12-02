@@ -1,0 +1,3 @@
+[submodule "PF - Projeto Final/backend"]
+	path = PF - Projeto Final/backend
+	url = https://github.com/andre-reddrain/projetofinal_backend.git
