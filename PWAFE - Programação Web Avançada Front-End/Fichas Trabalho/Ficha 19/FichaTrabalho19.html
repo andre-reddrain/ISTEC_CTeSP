@@ -1,0 +1,28 @@
+<!-- Ficha de Trabalho 19
+ Crie uma página HTML que permita ao utilizador inserir o seu nome e idade.
+ Ao clicar num botão, uma mensagem personalizada deve ser exibida utilizando string templates.
+ Passos:
+    1. Crie um formulário com dois campos: Nome e Idade
+    2. Adicionar um botão que, quando clicado, exibe uma mensagem na tela usando string templates
+    3. A mensagem deve ter o formato: "Olá, [nome]! Tem [idade] anos."
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Trabalho 19</title>
+</head>
+<body>
+    <h1>Formulário de Apresentação</h1>
+    <p>Nome:</p>
+    <input type="text" id="nome">
+    <p>Idade:</p>
+    <input type="number" id="idade">
+    <br><br>
+    <input type="button" onclick="submeterDados()" value="Enviar"></button>
+    <br><br>
+    <strong id="res"></strong>
+</body>
+<script src="FichaTrabalho19.js"></script>
+</html>
