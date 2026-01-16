@@ -25,5 +25,5 @@ Ficha 24 - N/A
 Ficha 25 - Por fazer
 Ficha 26 - Por fazer
 Ficha 27 - ✓
-Ficha 28 - Por fazer
-Ficha 29 - Por fazer
+Ficha 28 - ✓
+Ficha 29 - ✓
