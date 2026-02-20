@@ -52,7 +52,7 @@ Exemplos de protocolos de serviços que utilizam SSL/TLS:
 - HTTP + SSL/TLS = HTTPS
 
 ## 4.2 - Protocolo IPSec
-Suporta o transporte segudo de pacotes IP - Autenticação, encriptação e controlo de integridade na camada de rede entre duas entidades peer
+Suporta o transporte seguro de pacotes IP - Autenticação, encriptação e controlo de integridade na camada de rede entre duas entidades peer
 Principais características do IPSec (IP Security):
 - Estabelecimento de associações de segurança entre as entidades comunicantes, com base nas seguintes funcionalidades:
     - Funcionalidades de segurança via cabeçalhos de extensão:

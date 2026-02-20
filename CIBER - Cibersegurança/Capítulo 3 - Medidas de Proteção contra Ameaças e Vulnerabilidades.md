@@ -233,7 +233,7 @@ O processo de gestão de risco:
     - E-Boxes - Sensores de captura de eventos elementares
     - A-Boxes - módulos de análise
     - D-Boxes - módulos de armazenamento de eventos (provas forenses) e de resultados da análise com deteção de intrusões (alarmes)
-    - C-Boxesou R-Boxes - módulos com medidas de reação a alarmes
+    - C-Boxes ou R-Boxes - módulos com medidas de reação a alarmes
 
 ### 3.5.3 - Métricas de Qualidade de um IDS
 **Qualidade de um IDS**:
@@ -300,7 +300,7 @@ O processo de gestão de risco:
         - *Desvantagens*:
             - Possível dificuldade no ajuste do grau de sensibilidade à deteção de intrusões
 
-## 3.6 - SIEM (Secutiry Information and Event Management)
+## 3.6 - SIEM (Security Information and Event Management)
 **Objetivos dos SIEM**:
 - Duas funcionalidades: SIM (gestão de info) + SEM (gestão de eventos):
     1. Gestão da informação de segurança (SIM):
