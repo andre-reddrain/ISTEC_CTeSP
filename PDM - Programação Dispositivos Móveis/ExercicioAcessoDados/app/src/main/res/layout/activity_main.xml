@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Contador (Ex.1) -->
+        <TextView
+            android:id="@+id/txtContador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="48sp" />
+
+        <Button
+            android:id="@+id/btnIncrementar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Incrementar"
+            android:layout_marginTop="16dp" />
+
+        <!-- Preferências (Ex.2) -->
+        <EditText
+            android:id="@+id/edtNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="O teu nome"
+            android:layout_marginTop="24dp" />
+
+        <Switch
+            android:id="@+id/switchDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modo escuro"
+            android:layout_marginTop="12dp" />
+
+        <ImageView
+            android:id="@+id/imgCat"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="24dp" />
+
+        <Button
+            android:id="@+id/btnCat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar Gato"
+            android:layout_marginTop="12dp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
