@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    color: white; /* Altera a cor do texto do botão */
+    background-color: #333; /* Altera a cor de fundo para combinar com a navbar */
+    border: none; /* Remove borda padrão */
+    padding: 14px 16px; /* Mantém o mesmo espaçamento que os links */
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.dropdown .dropbtn:hover {
+    background-color: #ddd; /* Efeito hover igual aos links */
+    color: black;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilos Responsivos */
+@media screen and (max-width: 600px) {
+    .navbar a, .dropdown .dropbtn {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
