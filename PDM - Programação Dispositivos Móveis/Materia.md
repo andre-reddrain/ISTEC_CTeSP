@@ -7,6 +7,61 @@ Plataforma web da Google para gerir serviços em nuvem.
 - Criação de projetos e gestão de credenciais
 - Monitorização e faturação de serviços
 
+## Gradle (Module: app)
+Dependências no **build.gradle**:
+```kotlin
+implementation("com.google.android.gms:play-services-maps:18.2.0")
+implementation("com.google.android.gms:play-services-location:21.3.0")
+```
+
+## AndroidManifest.xml
+Dentro de <**application**>:
+```kotlin
+<meta-data
+    android:name="com.google.android.geo.API_KEY"
+    android:value="[COLAR API KEY AQUI]"/>
+```
+
+Permissões (fora de application):
+```kotlin
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+## Layout (activity_main.xml)
+Adicionar fragment do mapa:
+```kotlin
+<androidx.fragment.app.FragmentContainerView
+    android:id="@+id/map"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+```
+
+## MainActivity
+Implementar **OnMapReadyCallback**:
+```kotlin
+class MainActivity : AppCompatActivity(), OnMapReadyCallback {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        val mMap = googleMap
+        val lisboa = LatLng(38.7223, -9.1393)
+        mMap.moveCamera(
+            CameraUpdateFactory.newLatLngZoom(lisboa, 12f)
+        )
+    }
+}
+```
+
 # Aula 2 - Utilização de Sensores
 Sensores medem movimento, orientação e condições ambientais em dispositivos Android.
 - Acesso via SensorManager
