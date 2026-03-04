@@ -160,3 +160,36 @@ sensorList.forEach { sensor ->
 - Verificar conectividade antes de chamadas remotas
 - Implementar retry logic para falhas
 - Validar dados localmente antes de enviar
+
+# Aula 4 - Aspetos de Segurança
+- Proteger dados dos utilizadores.
+- Evitar perdas financeiras.
+- Manter reputação da app.
+- Cumprir legislação (RGPD).
+
+## Princípios Fundamentais
+**Confidencialidade** - Dados acessíveis apenas a autorizados.
+**Integridade** - Dados não alterados indevidamente.
+**Disponibilidade** - Acesso quando necessário.
+
+## Vulnerabilidades comuns
+- Injeção SQL
+- Cross-Site Scripting (XSS)
+- Armazenamento inseguro de dados
+- Autenticação fraca
+
+## Autenticação
+Verificar a identidade do utilizador:
+- Username e password
+- Biometria (impressão digital, face)
+- Tokens de autenticação (JWT)
+
+## Encriptação de Dados
+**Local** - Encriptar dados sensíveis no dispositivo
+**Remoto** - Usar HTTPS para comunicação segura
+
+## Boas Práticas Básicas
+- Nunca armazenar passwords em texto simples
+- Validar inputs do utilizador
+- Usar permissões mínimas necessárias
+- Manter bibliotecas atualizadas
