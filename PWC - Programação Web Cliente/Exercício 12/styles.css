@@ -1,0 +1,39 @@
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+}
+
+.area{
+    display:flex;
+    align-items:center;
+}
+
+.caixa{
+    width:240px;
+    height:140px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:20px;
+}
+
+.caixa-sombra{
+    background:#1e73be;
+    box-shadow:0 10px 20px rgba(0,0,0,0.25);
+}
+
+.caixa-sombra-diferente{
+    background:#ff5a3c;
+
+    box-shadow:
+        0 6px 10px rgba(0,0,0,0.25),
+        0 15px 25px rgba(0,0,0,0.15);
+}
+
+.texto-sombra{
+    font-size:34px;
+    color:#333;
+
+    text-shadow:2px 2px 4px rgba(0,0,0,0.4);
+}
