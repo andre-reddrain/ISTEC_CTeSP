@@ -6,7 +6,7 @@
 
 ## AVALIAÇÃO
 
-![Nota Final](https://img.shields.io/badge/Nota_Final-18_/20-238636?style=for-the-badge&logo=googleclassroom&logoColor=white)
+![Nota Final](https://img.shields.io/badge/Nota_Final-19_/20-238636?style=for-the-badge&logo=googleclassroom&logoColor=white)
 
 - ![Relatorio](https://img.shields.io/badge/Relatório-19_/_20-greenlight)
 - ![Projeto](https://img.shields.io/badge/Projeto_(90%)-19_/_20-greenlight)

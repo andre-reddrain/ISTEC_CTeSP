@@ -20,9 +20,7 @@ Lista de Cadeiras:
 ☐ FDS
     - Concluir o resumo da matéria (Aula 6)
 
-☐ GP
-    - Fazer um resumo da matéria
-    - Colocar os projetos do project na pasta
+☑ GP - Merged
 
 ☐ IP
     - Concluir o resumo da matéria
