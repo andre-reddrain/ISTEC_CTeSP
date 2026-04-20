@@ -9,8 +9,8 @@
 ![Nota Final](https://img.shields.io/badge/Nota_Final-19_/20-238636?style=for-the-badge&logo=googleclassroom&logoColor=white)
 
 - ![Relatorio](https://img.shields.io/badge/Relatório-19_/_20-greenlight)
-- ![Projeto](https://img.shields.io/badge/Projeto_(90%)-19_/_20-greenlight)
-- ![Labs](https://img.shields.io/badge/Laboratórios_(10%)-18_/_20-greenlight)
+- ![Projeto](https://img.shields.io/badge/Projeto_90%25-19_/_20-greenlight)
+- ![Labs](https://img.shields.io/badge/Laboratórios_10%25-18_/_20-greenlight)
 
 ## OBJETIVOS
 No final da Unidade Curricular o aluno deve ser capaz de:
