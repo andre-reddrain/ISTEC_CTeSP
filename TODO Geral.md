@@ -1,7 +1,3 @@
-- Enviar Email para a secretaria com Foto, CV e Boletim de Vacinas
-
-☑☐
-
 Lista de Cadeiras:
 ☑ AED - Merged
 
