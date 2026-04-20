@@ -10,33 +10,41 @@
 - **Proposição** é toda a expressão suscetível de ser verdadeira(V) ou falsa(F)
 - Designamos estes atributos por **valores lógicos** -> Podem ser definidos por **{V,F}** ou **{0,1}**
     - Ex: As expressões seguintes são proposições:
-        1 - Londres é a capital do Reino Unido - $\color{green}Verdadeiro$
-        2 - 3^0 > 1 - $\color{red}Falso$
-        3 - Pi = 3,14 - $\color{red}Falso$
-        4 - m.d.c(20,30) = 4 + 2 x 3 - $\color{green}Verdadeiro$
-        5 - O Rio Douro nasce em Portugal - $\color{red}Falso$
+        1. Londres é a capital do Reino Unido - $\color{green}Verdadeiro$
+        2. 3^0 > 1 - $\color{red}Falso$
+        3. Pi = 3,14 - $\color{red}Falso$
+        4. m.d.c(20,30) = 4 + 2 x 3 - $\color{green}Verdadeiro$
+        5. O Rio Douro nasce em Portugal - $\color{red}Falso$
 
 ## Propriedades
+
 - **Propriedade 1 - Princípio de não contradição** - Uma proposição não pode ser simultaneamente verdadeira e falsa.
-    - Conetivos lógicos
-    $$ \begin{array}{ccc}
-    Conetivo & Símbolo & \text{Operação Lógica} \\
-    não & ~\text{\textasciitilde} & \text{Negação} \\
-    ou & \lor & \text{Disjunção} \\
-    e & \land & \text{Conjunção} \\
-   se...então & \implies & \text{Implicação} \\
-   \text{se e só se} & \iff & \text{Equivalência} \\
-   \end{array} $$
+  - Conetivos lógicos:
 
+<div align="center">
+    
+| Conetivo | Símbolo | Operação Lógica |
+| :--- | :---: | :--- |
+| não | $\sim$ | Negação |
+| ou | $\lor$ | Disjunção |
+| e | $\land$ | Conjunção |
+| se...então | $\implies$ | Implicação |
+| se e só se | $\iff$ | Equivalência |
 
-- **Equivalência** - Dadas proposições $p$ e $q$, "$p$ é equivalente a $q$" é uma proposição verdadeira se e só se $p$ e $q$ tiverem o mesmo valor lógico.
-    $$ \begin{array}{ccc}
-    p & q & p \iff q \\
-    \color{green}V & \color{green}V & \color{green}V \\
-    \color{green}V & \color{red}F & \color{red}F \\
-    \color{red}F & \color{green}V & \color{red}F \\
-    \color{red}F & \color{red}F & \color{green}V \\
-    \end{array} $$
+</div>
+
+- **Equivalência** - Dadas proposições $p$ e $q$, " $p$ é equivalente a $q$ " é uma proposição verdadeira se e só se $p$ e $q$ tiverem o mesmo valor lógico.
+
+<div align="center">
+    
+| $p$ | $q$ | $p \iff q$ |
+| :---: | :---: | :---: |
+| $\color{green}V$ | $\color{green}V$ | $\color{green}V$ |
+| $\color{green}V$ | $\color{red}F$ | $\color{red}F$ |
+| $\color{red}F$ | $\color{green}V$ | $\color{red}F$ |
+| $\color{red}F$ | $\color{red}F$ | $\color{green}V$ |
+
+</div>
 
 - **Negação** - Dada uma proposição $p$, "não $p$" é uma proposição verdadeira se $p$ for falsa e é falsa se $p$ for verdadeira.
 
