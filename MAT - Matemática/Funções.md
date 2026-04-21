@@ -4,7 +4,8 @@
 Dados os conjuntos A e B, define-se uma **função $f$ de $A$ em $B$**, quando a cada elemento de $x$ de $A$ se associa um único elemento de $B$, que se representa por $f(x)$.
 
 **Exemplo**:
-![image](imagens/exemplo_funcao.png)
+
+![image](Imagens/exemplo_funcao.png)
 
 ## Função Afim
 Uma função definida por uma expressão algébrica do tipo $y = kx + b$ é uma **função afim**.
@@ -23,7 +24,8 @@ As retas que representam gráficamente funções afins com o mesmo declive são 
 Consideremos o polinómio, de grau 2, $ax^2 + bx + c$, com $a \ne 0$.
 Se $b = 0$ e $c = 0$ então obtemos o monómio $ax^2$
 
-![image](imagens/exemplo_funcao_quadratica.png)
+![image](Imagens/exemplo_funcao_quadratica.png)
+
 À curva que representa a função chamamos **parábola**.
 Ao ponto (0,0) chamamos **vértice** da parábola.
 

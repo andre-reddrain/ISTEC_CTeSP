@@ -56,7 +56,7 @@
     * Caso alguma delas se atrase, o projeto termina mais tarde.
     * O caminho crítico pode ser alterado no decurso da execução do projeto.
 
-![](./Crítico.png)
+![](./Imagens/Crítico.png)
 
 ## Slack (Folga)
 * Tipos de slack:
@@ -64,7 +64,7 @@
     * **Nulo** - A tarefa faz parte do caminho crítico.
     * **Negativo** - A tarefa já está atrasada, face ao previsto inicialmente.
 
-![](./Slack.png)
+![](./Imagens/Slack.png)
 
 ## Filtos
 * Menu "View" - "Filter" - Dá para escolher vários tipos de filtro.
