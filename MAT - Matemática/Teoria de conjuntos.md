@@ -50,15 +50,15 @@
 
 ## Condições possíveis e impossíveis
 
-- Dada uma condição $p(x)$ e um conjunto $U$, representamos a proposição **"$\exists x : x \in U \land p(x)$" por "$\exists x \in U : p(x)$"**
+- Dada uma condição $p(x)$ e um conjunto $U$, representamos a proposição **$\exists x : x \in U \land p(x)$ por $\exists x \in U : p(x)$**
     - **Se for verdadeira, designamos $p(x)$ por condição possível em $U$**
     - **Se for falsa, designamos $p(x)$ por condição impossível em $U$**
 
 ## Propriedade 13 - Segundas Leis de De Morgan
 
 - Dada uma condição $p(x)$:
-    - **A negação de "$\forall x, p(x)$" é equivalente a "$\exists x : \sim p(x)$"**
-    - **A negação de "$\exists x, p(x)$" é equivalente a "$\forall x, \sim p(x)$"**
+    - **A negação de $\forall x, p(x)$ é equivalente a $\exists x: \sim p(x)$**
+    - **A negação de $\exists x, p(x)$ é equivalente a $\forall x, \sim p(x)$**
 
 ## Complementação
 
@@ -88,7 +88,7 @@
     - $M = \{a, b, c\}$ e $N = \{a, e, d\}$
     - **$M \cup N = \{a, b, c, e, d\} \to$ União**
     - **$M \cap N = \{a\} \to$ Interseção (Elementos em comum)**
-    - O valor lógico de "$x \in M \lor x \in N$" e "$x \in M \land x \in N$":
+    - O valor lógico de $x \in M \lor x \in N$ e $x \in M \land x \in N$:
 
 <div align="center">
 
