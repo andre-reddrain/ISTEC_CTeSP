@@ -22,12 +22,7 @@ Lista de Cadeiras:
 
 ☑ GP - Merged
 
-☐ IP
-    - Concluir o resumo da matéria
-        - Atualmente na aula 5.4 (17 Dez)
-        - Concluir Ex 2.1
-        - Falta Ex 5.1
-        - Falta Ex 5.4
+☑ IP - Merged
 
 ☐ IRD
     - Concluir o resumo da matéria
@@ -42,7 +37,6 @@ Lista de Cadeiras:
 ☑ MAT - Merged
 
 ☑ P - Merged
-    - Concluir fichas de trabalho (1,7,8)
 
 ☐ PSW
     - Rever tudo!
@@ -50,8 +44,4 @@ Lista de Cadeiras:
 ☐ PWS
     - Fazer resumo da matéria (wpp)
 
-☑ SGC
-
-Colocar tmb as notas das cadeiras.
-
-git submodule??clearc
+☑ SGC - Merged

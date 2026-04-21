@@ -1,6 +1,8 @@
 import math
 
 #region Exercício 1 - Expressões matemáticas
+
+# 1. Determine o resultado das expressões matemáticas em Python
 ex1a = 10 - 2 * 3
 print('1a) 10 - 2 * 3 = ', ex1a)
 
@@ -73,6 +75,8 @@ print('1I) pow(4,8//2) = ', ex1I)
 #endregion
 
 #region Exercício 2 - Números
+
+# 2. Verifique que os números em Python não são todos iguais.
 ex2a = type(2)
 print('2a) type(2) = ', ex2a)
 
@@ -112,6 +116,8 @@ print('2l) (2 ** 2) ** 3 = ', ex2l)
 #endregion
 
 #region Exercício 3 - Operação de conversão de números
+
+# 3. Verifique o resultado das conversões de número em Python.
 ex3a = int(5.6)
 print('3a) int(5.6) = ', ex3a)
 
@@ -130,6 +136,8 @@ print('3e) float() = ', ex3e)
 #endregion
 
 #region Exercício 4 - Módulo math
+
+# 4. Usando o módulo math, determine o resultado das expressões matemáticas em Python.
 ex4a = math.sqrt(9) ** round(2.6)
 print('4a) sqrt(9) ** round(2.6) = ', ex4a)
 
@@ -154,12 +162,15 @@ print('4g) ceil(-5.6) + floor(-5.6) = ', ex4g)
 #endregion
 
 # Exercício 5 - Perímetro e Área de um triângulo
+# Dado o raio de uma circunferência, determine e apresente o valor da sua área (I) e do seu perímetro (II).
 ex5raio = 4
 ex5area = math.pi * (ex5raio^2)
 ex5perimetro = 2 * math.pi * ex5raio
 print('5) Raio: ', ex5raio, ' / Área = ', ex5area, ' / Perímetro: ', ex5perimetro)
 
 # Exercício 6 - Horas, minutos e segundos
+# Dados os valores das horas, dos minutos e dos segundos, determine e apresente o valor do número de
+# segundos correspondentes.
 ex6horas = 17
 ex6minutos = 53
 ex6segundos = 23
@@ -167,4 +178,4 @@ ex6segundosTotal = (ex6horas * 60 * 60) + (ex6minutos * 60) + ex6segundos
 print(ex6horas, 'h:', ex6minutos, 'm:', ex6segundos, 's -> Total de segundos: ', ex6segundosTotal)
 
 # Exercício 7 - Média
-# TODO 7. Dadas as classificações de todas as componentes da avaliação periódica da unidade curricular de Programação, determine e apresente a média final.
+# 7. Dadas as classificações de todas as componentes da avaliação periódica da unidade curricular de Programação, determine e apresente a média final.
