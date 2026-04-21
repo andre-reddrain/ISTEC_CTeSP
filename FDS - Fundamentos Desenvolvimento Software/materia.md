@@ -105,20 +105,21 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
 ### Metodologias Ágeis
 - As metodologias ágeis, como **Scrum** e **Kanban**, adotam uma **abordagem iterativa e incremental**. Em vez de seguir uma sequência rígida, o desenvolvimento é feito em ciclos curtos, a que chamamos "**sprints**", onde **cada iteração visa entregar uma parte funcional do software**. A filosofia ágil valoriza a **adaptação rápida às mudanças** e coloca o cliente como parte integrante do processo, o que facilita a adaptação dos requisitos e melhorias contínuas do produto.
 
-<table>
-<tr><th>Aspecto<th>Metodologias Tradicionais<th>Metodologias Ágeis
-<tr><td><b>Estrutura de trabalho</b><td>Rígida e sequencial<td>Flexível e iterativa
-<tr><td><b>Planeamento</b><td>Planeamento inicial extenso e detalhado<td>Planeamento adaptativo a cada iteração
-<tr><td><b>Feedback do Cliente</b><td>Limitado, geralmente no início e no final<td>Contínuo, com interações frequentes
-<tr><td><b>Risco de Mudanças</b><td>Alto custo e complexidade para adaptações<td>Adaptável, menor custo para alterações
-<tr><td><b>Tempo de Entrega</b><td>Mais longo, entregas no final do projeto<td>Ciclos curtos de entrega, valor incremental
-<tr><td><b>Controlo de Qualidade</b><td>Testes geralmente no fim<td>Testes contínuos em cada sprint
-<tr><td><b>Vantagens</b><td><ul><li>Ideal para projetos onde os requisitos são claros e estáveis<li>Maior previsibilidade de prazos e custos</ul><td><ul><li>Maior capacidade de adaptação a mudanças<li>Melhoria contínua<li>Entrega de valor incremental<li>Ciclos curtos de feedback</ul>
-<tr><td><b>Desvantagens</b><td><ul><li>Dificuldade de adaptação a mudanças<li>Alto custo para ajustes ao longo do processo<li>Menor flexibilidade<li>Feedback limitado do cliente</ul><td><ul><li>Menor previsibilidade de prazos e custos<ul>
-</table>
+| Aspecto | Metodologias Tradicionais | Metodologias Ágeis |
+| :--- | :--- | :--- |
+| **Estrutura de trabalho** | Rígida e sequencial | Flexível e iterativa |
+| **Planeamento** | Inicial extenso e detalhado | Adaptativo a cada iteração |
+| **Feedback do Cliente** | Limitado, geralmente no início e no final | Contínuo, com interações frequentes |
+| **Risco de Mudanças** | Alto custo e complexidade para adaptações | Adaptável, menor custo para alterações |
+| **Tempo de Entrega** | Mais longo, entregas no final do projeto | Ciclos curtos de entrega, valor incremental |
+| **Controlo de Qualidade** | Testes geralmente no fim | Testes contínuos em cada sprint |
+| **Vantagens** | • Ideal para requisitos claros e estáveis<br>• Maior previsibilidade de prazos e custos | • Alta capacidade de adaptação<br>• Melhoria contínua<br>• Entrega de valor incremental<br>• Ciclos curtos de feedback |
+| **Desvantagens** | • Dificuldade de adaptação a mudanças<br>• Alto custo para ajustes intermédios<br>• Menor flexibilidade<br>• Feedback limitado do cliente | • Menor previsibilidade inicial de prazos e custos |
 
 ***
-# Modelo Cascata (Waterfall)
+# Metodologias Tradicionais
+
+## Modelo Cascata (Waterfall)
 - O modelo cascata é uma abordagem linear e sequencial para o desenvolvimento de software, onde cada fase deve ser completada antes que a próxima começe.
 - **Fases principais**:
     1. **Requisitos**: Recolha e documentação dos requisitos do sistema.
@@ -128,4 +129,73 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
     5. **Manutenção**: Correção de erros e implementação de melhorias após a entrega.
 - Utilizado em projetos com requisitos bem definidos e estáveis, sistemas críticos onde a documentação rigorosa é essencial, e em situações onde há pouca ou nenhuma incerteza no projeto.
 
-### Aula 6
+## Modelo Prototipagem
+- Prototipagem é a criação de um modelo funcional do sistema em desenvolvimento para explorar ideias e obter feedback antes da implementação completa.
+- **Tipos de protitipagem**:
+    1. **Rápida**: Criação rápida de protótipos para obter feedback inicial.
+    2. **Evolutiva**: Protótipos que são continuamente refinados até se tornarem no produto final.
+    3. **Descartável**: Protótipos que são feitos apenas para explorar ideias e são descartados após o uso.
+    4. **Incremental**: Desenvolvimento de protótipos em incrementos que são eventualmente integrados no sistema final.
+- Utilizado em projetos com requisitos incertos ou em evolução, desenvolvimento de interfaces de utilizador (UI) onde o feedback é crucial, e em projetos onde é importante ver e testar funcionalidades antes da implementação completa.
+
+### Cascata vs Prototipagem
+| Aspecto | Modelo Cascata | Prototipagem |
+| :--- | :--- | :--- |
+| **Abordagem** | Linear e sequencial | Iterativa e exploratória |
+| **Flexibilidade** | Baixa flexibilidade para mudanças | Alta flexibilidade e adaptabilidade |
+| **Documentação** | Extensa e detalhada | Pode ser menos formal e mais visual |
+| **Feedback** | Recebido no final do desenvolvimento | Contínuo durante o desenvolvimento |
+| **Risco** | Maior risco de não atender aos requisitos | Menor risco devido ao feedback |
+| **Aplicabilidade** | Projetos estáveis e bem definidos | Projetos com incertezas e mudanças frequentes |
+
+# Documento Requisitos funcionais e requisitos não funcionais
+- É uma peça central na fase de definição de um projeto. Descreve detalhadamente todas as necessidades e expectativas que o sistema deve atender, divididas em dois tipos principais:
+    1. **Requisitos funcionais** - Especificam o que o sistema deve fazer. Descrevem as funcionalidades e serviços que o sistema deve oferecer para atender às necessidades dos utilizadores. Esses requisitos são específicos e mensuráveis.
+    2. **Requisitos não funcionais** - Definem os critérios que podem ser usados para julgar a operação de um sistema, em vez de comportamentos específicos. São geralmente relacionados com qualidades do sistema, como desempenho, usabilidade, fiabilidade, etc...
+
+## Estrutura do Documento
+- Um documento de requisitos funcionais e não funcionais típico pode incluir as seguintes secções:
+    1. **Introdução**:
+        - Objetivo do documento.
+        - Âmbito do sistema.
+        - Definições, acrónimos e abreviaturas.
+        - Referências.
+    2. **Descrição Geral do Sistema**:
+        - Visão geral do sistema.
+        - Principais funcionalidades.
+        - Utilizadores do sistema.
+    3. **Requisitos funcionais**:
+        - Descrição detalhada de cada funcionalidade.
+        - Fluxos de trabalho e diagramas de casos de uso.
+    4. **Requisitos não funcionais**:
+        - Desempenho.
+        - Facilidade de utilização.
+        - Segurança.
+        - Fiabilidade.
+        - Compatibilidade.
+    5. **Apêndices**:
+        - Glossário de termos.
+        - Diagramas e modelos adicionais.
+        - Tabelas de registo de requisitos.
+
+# Diagrama de Casos de Uso
+- É uma representação visual usada na engenharia de software para descrever as funcionalidades dum sistema do ponto de vista dos seus utilizadores (atores).
+- É parte integrante da modelagem da análise de requisitos e é frequentemente utilizado na metodologia UML (Unified Modeling Language).
+- **Elementos do Diagrama de Casos de Uso**:
+    1. **Ator (Actor)**:
+        - Representa um utilizador ou outro sistema que interage com o sistema em desenvolvimento.
+        - É representado por um stick figure.
+    2. **Caso de Uso (Use Case)**:
+        - Representa uma funcionalidade ou serviço fornecido pelo sistema que resulta num valor observável para o ator.
+        - É representado por uma **eclipse com o nome do caso de uso no interior**.
+    3. **Sistema (System)**:
+        - Representa o sistema como um todo, delimitando a fronteira do que está incluído no diagrama.
+        - É representado por um **retângulo que contém todos os casos de uso**.
+    4. **Relações (Relationships)**:
+        - **Associação: Linha sólida** que liga um ator a um caso de uso, indicando que o ator interage com aquele caso de uso.
+        - **Inclusão (<\<include>>)**: Indica que um caso de uso inclui sempre a funcionalidade de outro caso de uso. É uma relação direta entre dois casos de uso.
+        - **Extensão (<\<extend>>)**: Indica que um caso de uso pode opcionalmente estender o comportamento de outro caso de uso, dependendo de uma condição.
+        - **Generalização**: Indica uma relação de herança entre atores ou casos de uso.
+***
+
+# Aula 7
