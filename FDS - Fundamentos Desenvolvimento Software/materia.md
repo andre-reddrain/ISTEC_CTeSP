@@ -198,4 +198,40 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
         - **Generalização**: Indica uma relação de herança entre atores ou casos de uso.
 ***
 
-# Aula 7
+# V-Model
+
+- **Origem** - V-Model (Modelo em V) surgiu como uma evolução do modelo Cascata para abordar de forma mais explícita a integração das atividades de teste ao longo do ciclo de desenvolvimento. Visa garantir que cada fase do desenvolvimento tenha uma fase correspondente de teste, melhorando a qualidade e fiabilidade do produto final.
+- **Definição** - Metodologia de desenvolvimento de software que privilegia a verificação e validação em cada etapa do processo de desenvolvimento. Propõe um paralelo entre desenvolvimentos e testes.
+- **Estrutura** - Pode ser visualmente representada como um "V", onde o lado esquerdo representa as fases de **definição e design**, e o lado direito representa as fases de **teste e validação**. No centro está a fase de **implementação**.
+
+## Análise das fases de desenvolvimento e teste
+
+**Fases do lado esquerdo do V (Definição e Design)**
+
+1. **Requisitos do Sistema**: Definição dos requisitos gerais do sistema, considerando todas as funcionalidade necessárias.
+2. **Requisitos do Software**: Divisão dos requisitos em requisitos específicos do software.
+3. **Design de Arquitetura**: Definição da arquitetura do sistema, incluindo a divisão em módulos e as interações entre eles.
+4. **Design de Componentes**: Definição do design de cada componente ou módulo.
+
+**Fases do lado direito do V (Teste e Validação)**
+
+1. **Testes de Unidade**: Teste individual de cada componente para garantir que funciona corretamente.
+2. **Teste de Integração**: Teste das interações entre os diferentes módulos e componentes do sistema.
+3. **Testes de Sistema**: Teste do sistema como um todo, verificando se atende aos requisitos do sistema.
+4. **Testes de Aceitação**: Teste realizado pelo utilizador final para validar se o sistema atende às suas necessidades e expectativas.
+
+(TODO Adicionar Imagem do V-Model)
+
+## Comparação com modelo Cascata e outras metodologias tradicionais
+
+**Comparação com o Modelo Cascata**
+- **Semelhança**: Ambos seguem uma abordagem sequencial e linear de desenvolvimento.
+- **Diferença**: No modelo cascata, os testes são realizados apenas após a fase de desenvolvimento completa, enquanto no V-Model, os testes são integrados em cada fase do desenvolvimento.
+
+**Comparação com outras metodologias tradicionais**
+- **Modelo Incremental**: No modelo incremental, o desenvolvimento e a entrega do software são feitos em incrementos ou versões parciais, enquanto no V-Model, o desenvolvimento é sequencial dando ênfase às verificações e validações constantes.
+- **Modelo Espiral**: O modelo espiral combina elementos do modelo cascata e do modelo incremental, com foco na análise de riscos e nas iterações. O V-Model mantém uma abordagem linear com ênfase nos testes de cada fase.
+- **Metodologias Ágeis**: Como o Scrum e XP, são iterativas e centradas em entregas rápidas e contínuas, com forte envolvimento do cliente. O V-Model é mais rígido e estruturado, com um foco maior na documentação e controlo.
+***
+
+# Aula 8
