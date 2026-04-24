@@ -234,4 +234,34 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
 - **Metodologias Ágeis**: Como o Scrum e XP, são iterativas e centradas em entregas rápidas e contínuas, com forte envolvimento do cliente. O V-Model é mais rígido e estruturado, com um foco maior na documentação e controlo.
 ***
 
-# Aula 8
+# Metodologias Ágeis - Introdução ao SCRUM
+
+**Introdução ao Desenvolvimento Ágil e Princípios das Metodologias Ágeis**
+
+- **Definição de Desenvolvimento Ágil**: Abordagem iterativa e incremental que visa responder rápidamente a mudanças, dando ênfase à entrega contínua de valor, ao cliente.
+- **Princípios das Metodologias Ágeis**:
+    1. **Indivíduos e interações** são mais importantes que os processos e ferramentas.
+    2. **Software a funcionar** é mais importante que a documentação extensiva.
+    3. **Colaboração com o cliente** é mais importante que a negociação de contratos.
+    4. **Responder a mudanças** é mais importante que seguir um plano.
+- **Benefícios do Ágil**: Flexibilidade, adaptação a mudanças, foco na entrega de valor contínuo e melhoria constante do processo.
+
+**Estrutura do SCRUM**
+
+Scrum é uma framework ágil utilizada para gerir e realizar projetos complexos. Baseia-se em ciclos iterativos chamados **Sprints**, com a estrutura composta por:
+- **Papéis no SCRUM**
+    1. **Product Owner (PO)**: Responsável por gerir o Product Backlog, dando prioridade às funcionalidades a serem entregues e garantindo que a equipa entregue valor ao cliente.
+    2. **Scrum Master (SM)**: Atua como facilitador, garantindo que a equipa siga os processos do SCRUM, removendo obstáculos e promovendo a melhoria contínua.
+    3. **Equipa de Desenvolvimento**: Grupo multidisciplinar responsável por criar o incremento de produto durante cada sprint.
+- **Artefactos no SCRUM**
+    1. **Product Backlog**: Lista de prioridade de cada funcionalidade, requisito e melhoria que o produto deve ter. Gerdio pelo PO.
+    2. **Sprint Backlog**: Subconjunto do Product Backlog selecionado para o Sprint atual, com as tarefas a serem realizadas pela equipa de desenvolvimento.
+    3. **Incremento**: A versão mais recente do produto, incluindo todos os itens completados durante o Sprint. Deve ser funcional e pronto para ser entregue.
+- **Eventos no SCRUM**
+    1. **Sprint**: Ciclo de trabalho que dura 1 a 4 semanas. Durante o Sprint, a equipa trabalha no Product Backlog para criar um incremento do produto.
+    2. **Daily Scrum (Stand-up)**: Reunião diária de 15 minutos, onde cada membro da equipa partilha o que fez no dia anterior, o que vai fazer hoje e se existe algum impedimento.
+    3. **Sprint Review**: Reunião no final de cada Sprint, onde a equipa apresenta o incremento concluído ao PO e às partes interessadas para revisão.
+    4. **Sprint Retrospective**: Reunião de reflexão, onde a equipa avalia o que funcionou bem e o que pode ser melhorado no próximo ciclo de Sprint.
+***
+
+# Aula 9
