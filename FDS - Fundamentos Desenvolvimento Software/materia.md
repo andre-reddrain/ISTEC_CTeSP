@@ -264,4 +264,69 @@ Scrum é uma framework ágil utilizada para gerir e realizar projetos complexos.
     4. **Sprint Retrospective**: Reunião de reflexão, onde a equipa avalia o que funcionou bem e o que pode ser melhorado no próximo ciclo de Sprint.
 ***
 
-# Aula 9
+# Como testar software
+
+1. **Planeamento dos Testes**
+    - **Definir os Objetivos**: Identificar o que será testado e que problemas o teste pretende encontrar.
+    - **Selecionar o Âmbito**: Escolher os módulos ou funcionalidades que serão testados.
+    - **Criar um Plano de Teste**:
+        - Estratégia de testes (manual ou automatizado)
+        - Ferramentas necessárias
+        - Recursos (pessoas, ambiente e infraestrutura)
+        - Cronograma
+2. **Especificação dos Casos de Teste**
+    - **Definir Cenários**: Basear-se nos requisitos funcionais e não funcionais.
+    - **Especificar Casos de Teste**:
+        - Descrição do teste
+        - Pré-condições
+        - Dados de entrada
+        - Procedimentos de execução
+        - Resultados esperados
+    - **Criar matriz de rastreio de requisitos (RTM)**: Garantir que todos os requisitos sejam cobertos pelos testes.
+3. **Preparaçõa do Ambiente de Teste**
+    - Configurar o ambiente semelhante ao de produção.
+    - Configurar ferramentas de teste.
+    - Garantir a disponibilidade de dados de teste.
+4. **Execução dos testes**
+    - **Testes manuais**:
+        - Seguir os casos de teste definidos.
+        - Registar os resultados observados.
+    - **Testes automatizados**:
+        - Executar scripts de automação.
+        - Validar os logs gerados.
+    - **Tipos de testes**:
+        - **Testes unitários**: Testar partes individuais do código.
+        - **Testes de Integração**: Verificar a interação entre módulos.
+        - **Testes de Sistema**: Avaliar o sistema como um todo.
+        - **Testes de Aceitação**: Garantir que o software atende aos requisitos dos utilizadores.
+        - **Testes de Regressão**: Certificar que as modificações não introduziram novos defeitos.
+        - **Teste de Performance**: Verificar os tempos de resposta, carga e estabilidade.
+5. **Análise dos Resultados**
+    - Comparar os resultados obtidos com os esperados.
+    - Identificar e documentar falhas.
+    - Priorizar os problemas com base na sua gravidade e impacto.
+
+6. **Relatórios de Testes**
+    - Elaborar um relatório com:
+        - Casos de teste executados.
+        - Resultados (sucessos e falhas).
+        - Estatísticas (percentagem de sucesso, número de falhas, etc...).
+        - Recomendações e próximas etapas.
+
+7. **Correção e Re-teste**
+    - Enviar as falhas documentadas para a equipa de desenvolvimento.
+    - Após as correções, executar novos testes (re-testes e/ou testes de regressão).
+
+8. **Encerramento dos Testes**
+    - Garantir que todos os requisitos foram validados.
+    - Avaliar a qualidade do produto.
+    - Arquivar todos os artefatos de teste para referência futura.
+  
+**Ferramentas para testes**:
+- Manuais: TestRail, Zephyr.
+- Automação: Selenium, Appoum, JUnit, TestNG.
+- Testes de performance: JMeter, LoadRunner.
+- Testes de API: Postman, SoapUI.
+***
+
+# Aula 10
