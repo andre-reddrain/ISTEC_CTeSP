@@ -329,4 +329,51 @@ Scrum é uma framework ágil utilizada para gerir e realizar projetos complexos.
 - Testes de API: Postman, SoapUI.
 ***
 
-# Aula 10
+# Projeto de Desenvolvimento de Software
+
+## Gestão de Projetos
+Envolve a aplicação de conhecimentos, habilidades, ferramentas e técnicas para atender aos requisitos do projeto. O objetivo é garantir que o software seja entregue dentro do prazo, orçamento e qualidade esperados.
+
+**Principais aspetos da gestão de projetos**:
+- **Definição de âmbito** - Determinar as funcionalidades e características do software.
+- **Planeamento** - Criar um cronograma, definir recursos e estabelecer prazos.
+- **Execução** - Desenvolver o software de acordo com o planeamento.
+- **Monitorização e controlo** - Acompanhar o progresso e corrigir desvios.
+- **Encerramento** - Finalizar o projeto e realizar a entrega oficial.
+
+A gestão eficiente evita desperdícios de tempo e recursos, garantindo que o software cumpra os objetivos estabelecidos.
+
+## O papel do gestor de projetos
+É a pessoa responsável por planear, organizar, liderar e controlar o projeto de software. Atua como um elo entre a equipa de desenvolvimento, clientes e outras partes interessadas.
+
+**Principais responsabilidades do gestor de projetos**:
+- **Definir objetivos claros** - Garantir que todos compreendam o propósito do projeto.
+- **Gerir equipas** - Coordenar programadores, designers, equipa de testes e outros profissionais.
+- **Gerir riscos** - Identificar possíveis problemas e criar planos de mitigação.
+- **Garantir comunicação eficaz** - Facilitar a troca de informações entre as partes envolvida.
+- **Controlar prazos e orçamento** - Evitar atrasos e gastos excessivos.
+
+Um gestor de projetos eficaz melhora a eficiência da equipa e aumenta a probabilidade de sucesso do projeto.
+
+## Ciclo de vida de um projeto
+Descreve as etapas a percorrer do início ao fim. Pode variar de acordo com a metodologia adotada, mas geralmente segue estas fases:
+
+1. **Iniciação** - Definição do projeto, levantamento de requisitos e viabilidade.
+2. **Planeamento** - Criação de cronograma, definição de tarefas e alocação de recursos.
+3. **Execução** - Desenvolvimento do software, programação e implementação.
+4. **Monitorização e Controlo** - Testes, ajustes e acompanhamento de progresso.
+5. **Encerramento** - Entrega do software e documentação final.
+
+Em metodologias ágeis, essas fases podem ser mais dinâmicas e interativas, permitindo entregas contínuas e ajustes frequentes.
+
+## Ferramentas de Planeamento
+Auxiliam a organização e execução eficiente do projeto. Ajudam a visualizar o progresso, alocar recursos e manter a equipa alinhada.
+
+**Principais ferramentas utilizadas**:
+- **Microsoft Project** - Planeamento de cronogramas e alocação de recursos.
+- **Trello** - Organização de tarefas usando quadros e cartões.
+- **Jira** - Gestão de projetos ágeis, ideal para equipas de software.
+- **Asana** - Gestão de equipas e tarefas com colaboração em tempo real.
+- **Diagramas de Gantt** - Representação visual de prazos e dependências entre tarefas.
+
+Estas ferramentas permitem maior controlo sobre o projeto, ajudando a minimizar riscos e a garantir a entrega do software no prazo estabelecido.
