@@ -4,6 +4,9 @@
 
 **Horas de Contacto Teórico Práticas** - 50h
 
+## AVALIAÇÃO
+![Nota Final](https://img.shields.io/badge/Nota_Final-17_/20-238636?style=for-the-badge&logo=googleclassroom&logoColor=white)
+
 ## OBJETIVOS
 No final da Unidade Curricular o aluno deve ser capaz de:
 
