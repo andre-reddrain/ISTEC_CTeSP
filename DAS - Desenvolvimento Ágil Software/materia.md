@@ -26,13 +26,12 @@ Ao adotar os princípios da agilidade, as organizações **modernizam as suas pr
 - O que é entregue pode mudar conforme as **prioridades e aprendizados do projeto**
 - A **qualidade é preservada**, porque o foco está em entregar valor continuamente e com excelência, mesmo que nem todas as funcionalidades inicialmente desejadas sejam entregues
 
-<table>
-<tr><th>Aspeto<th>Tradicional<th>Ágil
-<tr><th>Planeamento<td>Extensivo e antecipado<td>Iterativo e adaptativo
-<tr><th>Flexibilidade<td>Baixa (mudanças são más)<td>Alta (mudanças são bem-vindas)
-<tr><th>Qualidade<td>Pode ser sacrificada<td>É prioridade constante
-<tr><th>Entregas<td>No final do projeto<td>Frequentes e incrementais
-</table>
+| Aspeto | Tradicional | Ágil |
+| ------ | ----------- | ---- |
+| **Planeamento** | Extensivo e antecipado | Iterativo e adaptativo |
+| **Flexibilidade** | Baixa (mudanças são más) | Alta (mudanças são bem-vindas) |
+| **Qualidade** | Pode ser sacrificada | É prioridade constante |
+| **Entregas** | No final do projeto | Frequentes e incrementais |
 
 ## DevOps
 **DevOps** é uma cultura e um conjunto de práticas que integram as equipas de **desenvolvimento (Dev)** e **operações (Ops)**, com o objetivo de:
@@ -43,14 +42,14 @@ Ao adotar os princípios da agilidade, as organizações **modernizam as suas pr
 ![image](Imagens/devops.png)
 
 ## Visão de Governança de TI e Desenvolvimento de Software
-<table>
-<tr><th>Nível<th>Model<th>Função
-<tr><th>Estratégico<td><b>EAP</b> - Enterprise Architecture Planning<td><b>Planeamento estratégico</b> da arquitetura corporativa de TI (processos, dados, aplicações, tecnologia)
-<tr><th>Táctico<td><b>ALM/ADLM</b> - Application (Development) Lifecycle Management<td>Gestão do <b>Ciclo de Vida das Aplicações</b><br>ADLM amplia o ALM ao incluir práticas ágeis, automação, integração contínua e colaboração DevOps, alinhando-se à estratégia
-<tr><th>Operacional<td><b>SDLC</b> - Software Development Life Cycle<td>Processo de desenvolvimento de Software (com fases como planeamento, análise, design, construção, testes, entrega e manutenção)
-<tr><th>Técnico/Ágil<td><b>ADML/AML</b> - Modelagens e Execução<td>Modelagem Ágil de Dados (ADML) e Sistemas (AML) (Ferramentas/metodologias específicas que suportam o SDL e ALM/ADLM)
-<tr><th>Técnico/Ágil<td><b>DevOps</b> - Modelagens e Execução<td>Práticas de entrega, automação, integração, deploy e operação contínua
-</table>
+
+| Nível | Model | Função |
+| ----- | ----- | ------ |
+| **Estratégico** | **EAP** - Enterprise Architecture Planning | **Planeamento estratégico** da arquitetura corporativa de TI (processos, dados, aplicações, tecnologia) |
+| **Táctico** | **ALM/ADLM** - Application (Development) Lifecycle Management | Gestão do **Ciclo de Vida das Aplicações** <br>ADLM amplia o ALM ao incluir práticas ágeis, automação, integração contínua e colaboração DevOps, alinhando-se à estratégia |
+| **Operacional** |**SDLC** - Software Development Life Cycle | Processo de desenvolvimento de Software (com fases como planeamento, análise, design, construção, testes, entrega e manutenção) |
+| **Técnico/Ágil** | **ADML/AML** - Modelagens e Execução | Modelagem Ágil de Dados (ADML) e Sistemas (AML) (Ferramentas/metodologias específicas que suportam o SDL e ALM/ADLM) |
+| **Técnico/Ágil** | **DevOps** - Modelagens e Execução | Práticas de entrega, automação, integração, deploy e operação contínua
 
 ### SDLC - Software Development Life Cycle
 - O conceito de **SDLC existe há anos** e surge devido á crescente complexidade da gestão de projetos de desenvolvimento de software e à natureza inerente das entregas de software - que precisam de ser continuamente alteradas e atualizadas
@@ -129,21 +128,52 @@ O Git tem 4 estados principais em que os ficheiros podem estar:
 ![image](Imagens/git_file_lifecicle.png)
 
 **Git Flow**
+
 ![image](Imagens/git_flow.png)
 
 #### Ramificação do Git - Branches
-TODO Slide 191
+
+(TODO Adicionar uma imagem de branches - ver slides 191 - X)
+
+- **Branch** é o nome dado a uma versão (ramificação) do projeto.
+- Possibilita gerenciar múltiplas alterações acontecendo simultaneamente.
+- Branch é um ponteiro móvel que leva a um commit.
+- Git não armazena dados como uma série de mudanças ou diferenças, mas sim como uma série de snapshots.
+- O branch **'master'** não é um branch especial. É igual a qualquer outro branch. A única razão pela qual quase todos os repositórios têm um é porque o comando **git init** cria-o por padrão.
+- O Git sabe em que branch nós estamos atualmente através de um ponteiro especial chamado **HEAD**.
+
+##### Merge
+- Junta os commits de um branch noutro.
+- **Fast-forward** é um tipo especial de merge que **não cria um novo commit de merge**. Ele simplesmente "avança" o ponteiro da branch atual para o commit da outra branch, caso a branch atual esteja "atrás" e não tenha commits divergentes.
+
+    **Pros**:
+    - Operação não destrutiva
+    
+    **Contra**:
+    - Commit extra
+    - Histórico poluído
+ 
+(TODO Slide 219)
 
 #### Comandos GIT
-**git init** - Inicializa um repositório git
-**git status** - Visualizar o estado dos ficheiros do repositório
-**git config** - Configurar o git
-**git add** - Adiciona ficheiros ao repositório
-**git commit -m "Fix"** - Confirma as alterações no repositório
-**git log** - Mostra todos os commits do repositório
-**git show** - Mostra o último commit, em detalhe
-**git diff** - Mostra as modificações dos ficheiros
-**git checkout "filename"** - Reverter as alterações feitas num ficheiro
-**git reset HEAD "filename"** - Retira o ficheiro da área de staged para o ponto anterior
-**git reset --hard "hash"** - Retorna tudo como estava antes do commit
-**git blame "ficheiro"** - Exibe quem modificou cada linha de um ficheiro, incluindo data e commit
+
+- **git init** - Inicializa um repositório git
+- **git status** - Visualizar o estado dos ficheiros do repositório
+- **git config** - Configurar o git
+- **git add** - Adiciona ficheiros ao repositório
+- **git commit -m "Fix"** - Confirma as alterações no repositório
+- **git log** - Mostra todos os commits do repositório
+- **git show** - Mostra o último commit, em detalhe
+- **git diff** - Mostra as modificações dos ficheiros
+- **git checkout "filename"** - Reverter as alterações feitas num ficheiro
+- **git reset HEAD "filename"** - Retira o ficheiro da área de staged para o ponto anterior
+- **git reset --hard "hash"** - Retorna tudo como estava antes do commit
+- **git blame "ficheiro"** - Exibe quem modificou cada linha de um ficheiro, incluindo data e commit
+
+##### Branches
+
+- **git branch -a** - Exibe os branches existentes (inclusive remotos).
+- **git branch "nome"** - Cria o branch "nome".
+- **git checkout -b "nome"** - Cria um branch e altera para ele.
+- **git merge "nome"** - Merge dos commits do branch "nome" para o branch atual.
+- **git checkout "nome"** - Alterna para o branch "nome".
