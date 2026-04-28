@@ -1,4 +1,20 @@
-# Sistemas de Informação
+# Fundamentos Desenvolvimento Software
+
+# Tabela de Conteúdos
+1. [Sistemas de Informação](#sistemasInformacao)
+2. [Dados, Informação e Conhecimento](#dados)
+3. [Sistemas de Informação nas Organizações e Tecnologias de Informação](#sistemasInformacaoOrganizacao)
+4. [Gestão da Informação e Tipos de Sistemas de Informação](#gestaoInformacao)
+5. [Introdução às Metodologias de Desenvolvimento de Software](#metodologiasDesenvolvimento)
+6. [Metodologias Tradicionais](#tradicionais)
+7. [Documento Requisitos funcionais e não funcionais](#requisitos)
+8. [Diagramas de Casos de Uso](#casosUso)
+9. [V-Model](#vmodel)
+10. [Metodologias Ágeis](#agil)
+11. [Testar Software](#testarSoftware)
+12. [Projeto de Desenvolvimento de Software](#gestaoProjetos)
+
+# Sistemas de Informação <a id="sistemasInformacao"></a>
 
 ## Definição de Sistemas de Informação
 - Sistemas de Informação são conjuntos integrados de componentes que recolhem, armazenam, processam e distribuem informações para apoiar a tomada de decisões, a coordenação e o controlo numa organização.
@@ -17,7 +33,7 @@
 - **Aplicações diárias** - GPS, Assistentes virtuais, Redes Sociais...
 - **Impacto na vida das pessoas** - Facilitação da comunicação, acesso à informação, automação de tarefas diárias, planeamento e organização da agenta, reuniões à distância...
 
-# Dados, Informação e Conhecimento
+# Dados, Informação e Conhecimento <a id="dados"></a>
 
 ## Definição de dados, informação e conhecimento
 - **Dados** - Elementos brutos, que por si só não têm significado. São registos ou medições de eventos e não têm interpretação sem um processo de análise ou organização (números, textos, imagens). **Factos brutos sem contexto ou significado**.
@@ -34,7 +50,8 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
 - **Técnicas** - Data mining, análise estatística, algoritmos de machine learning.
 - **Ferramentas** - Folha de cálculo, DBMS, BI
 ***
-# Sistemas de Informação nas Organizações e Tecnologias de Informação
+
+# Sistemas de Informação nas Organizações e Tecnologias de Informação <a id="sistemasInformacaoOrganizacao"></a>
 
 ## Importância dos SI nas operações e na tomada de decisão nas Organizações
 - **Operações**:
@@ -56,7 +73,8 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
 - **CRM (Customer Relationship Management)** - Sistemas de gestão de relacionamento com o cliente. Ex: Salesforce, HubSpot, Zoho CRM.
 - **BI (Business Intelligence)** - Ferramentas para análise de dados e suporte à decisão. Ex: Tableau, Microsoft Power BI, QlikView.
 ***
-# Gestão da Informação e Tipos de Sistemas de Informação
+
+# Gestão da Informação e Tipos de Sistemas de Informação <a id="gestaoInformacao"></a>
 
 ## Conceito e importância da gestão da informação
 - **Gestão da informação**:
@@ -86,7 +104,7 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
     - Sistemas que apoiam o planemanento estratégico da organização, ajudando a alcançar vantagem competitiva e a alinhar operações com objetivos de longo prazo. Ex: Sistemas de Planeamento de Recursos empresariais (ERP), Sistemas de Gestão de Relações com o Cliente (CRM), Sistemas de Gestão da cadeia de suprimentos (SCM).
 ***
 
-# Introdução às Metodologias de Desenvolvimento de Software
+# Introdução às Metodologias de Desenvolvimento de Software <a id="metodologiasDesenvolvimento"></a>
 
 ## Definição e Importância das Metodologias de Desenvolvimento de Software
 - As metodologias de desenvolvimento de software são abordagens estruturadas que orientam o planeamento, a execução e a gestão de projetos de software. Envolvem princípios, práticas e processos que ajudam a equipa a **desenvolver software de maneira organizada e eficiente**. A importância das metodologias está no seu papel fundamental na organização do trabalho, na melhoria da comunicação entre equipas e na garantia de que o projeto seja concluído dentro do prazo, com qualidade e dentro do orçamento previsto.
@@ -117,7 +135,8 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
 | **Desvantagens** | • Dificuldade de adaptação a mudanças<br>• Alto custo para ajustes intermédios<br>• Menor flexibilidade<br>• Feedback limitado do cliente | • Menor previsibilidade inicial de prazos e custos |
 
 ***
-# Metodologias Tradicionais
+
+# Metodologias Tradicionais <a id="tradicionais"></a>
 
 ## Modelo Cascata (Waterfall)
 - O modelo cascata é uma abordagem linear e sequencial para o desenvolvimento de software, onde cada fase deve ser completada antes que a próxima começe.
@@ -148,7 +167,7 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
 | **Risco** | Maior risco de não atender aos requisitos | Menor risco devido ao feedback |
 | **Aplicabilidade** | Projetos estáveis e bem definidos | Projetos com incertezas e mudanças frequentes |
 
-# Documento Requisitos funcionais e requisitos não funcionais
+# Documento Requisitos funcionais e requisitos não funcionais <a id="requisitos"></a>
 - É uma peça central na fase de definição de um projeto. Descreve detalhadamente todas as necessidades e expectativas que o sistema deve atender, divididas em dois tipos principais:
     1. **Requisitos funcionais** - Especificam o que o sistema deve fazer. Descrevem as funcionalidades e serviços que o sistema deve oferecer para atender às necessidades dos utilizadores. Esses requisitos são específicos e mensuráveis.
     2. **Requisitos não funcionais** - Definem os critérios que podem ser usados para julgar a operação de um sistema, em vez de comportamentos específicos. São geralmente relacionados com qualidades do sistema, como desempenho, usabilidade, fiabilidade, etc...
@@ -178,7 +197,7 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
         - Diagramas e modelos adicionais.
         - Tabelas de registo de requisitos.
 
-# Diagrama de Casos de Uso
+# Diagrama de Casos de Uso <a id="casosUso"></a>
 - É uma representação visual usada na engenharia de software para descrever as funcionalidades dum sistema do ponto de vista dos seus utilizadores (atores).
 - É parte integrante da modelagem da análise de requisitos e é frequentemente utilizado na metodologia UML (Unified Modeling Language).
 - **Elementos do Diagrama de Casos de Uso**:
@@ -198,7 +217,7 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
         - **Generalização**: Indica uma relação de herança entre atores ou casos de uso.
 ***
 
-# V-Model
+# V-Model <a id="vmodel"></a>
 
 - **Origem** - V-Model (Modelo em V) surgiu como uma evolução do modelo Cascata para abordar de forma mais explícita a integração das atividades de teste ao longo do ciclo de desenvolvimento. Visa garantir que cada fase do desenvolvimento tenha uma fase correspondente de teste, melhorando a qualidade e fiabilidade do produto final.
 - **Definição** - Metodologia de desenvolvimento de software que privilegia a verificação e validação em cada etapa do processo de desenvolvimento. Propõe um paralelo entre desenvolvimentos e testes.
@@ -220,7 +239,7 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
 3. **Testes de Sistema**: Teste do sistema como um todo, verificando se atende aos requisitos do sistema.
 4. **Testes de Aceitação**: Teste realizado pelo utilizador final para validar se o sistema atende às suas necessidades e expectativas.
 
-(TODO Adicionar Imagem do V-Model)
+![image](./Imagens/v-model.webp)
 
 ## Comparação com modelo Cascata e outras metodologias tradicionais
 
@@ -234,7 +253,7 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
 - **Metodologias Ágeis**: Como o Scrum e XP, são iterativas e centradas em entregas rápidas e contínuas, com forte envolvimento do cliente. O V-Model é mais rígido e estruturado, com um foco maior na documentação e controlo.
 ***
 
-# Metodologias Ágeis - Introdução ao SCRUM
+# Metodologias Ágeis - Introdução ao SCRUM <a id="agil"></a>
 
 **Introdução ao Desenvolvimento Ágil e Princípios das Metodologias Ágeis**
 
@@ -264,7 +283,7 @@ Scrum é uma framework ágil utilizada para gerir e realizar projetos complexos.
     4. **Sprint Retrospective**: Reunião de reflexão, onde a equipa avalia o que funcionou bem e o que pode ser melhorado no próximo ciclo de Sprint.
 ***
 
-# Como testar software
+# Como testar software <a id="testarSoftware"></a>
 
 1. **Planeamento dos Testes**
     - **Definir os Objetivos**: Identificar o que será testado e que problemas o teste pretende encontrar.
@@ -329,7 +348,7 @@ Scrum é uma framework ágil utilizada para gerir e realizar projetos complexos.
 - Testes de API: Postman, SoapUI.
 ***
 
-# Projeto de Desenvolvimento de Software
+# Projeto de Desenvolvimento de Software <a id="gestaoProjetos"></a>
 
 ## Gestão de Projetos
 Envolve a aplicação de conhecimentos, habilidades, ferramentas e técnicas para atender aos requisitos do projeto. O objetivo é garantir que o software seja entregue dentro do prazo, orçamento e qualidade esperados.
