@@ -25,7 +25,7 @@ Técnica de avaliação que envolve medir o **desempenho** e a **satisfação** 
 
 ### Avaliação Formativa
 
-(TODO Adicionar Imagem Slide 21)
+![](./Imagens/avaliacao_formativa.png)
 ***
 
 ### Avaliação Heurística
@@ -72,7 +72,7 @@ Técnica de avaliação que envolve medir o **desempenho** e a **satisfação** 
 - 3 - **Problema de usabilidade maior** - É importante que seja corrigido, logo deve atribuir-se uma prioridade elevada à sua resolução.
 - 4 - **Catástrofe de usabilidade** - É imperativo corrigir este problema antes de lançar o produto.
 
-(TODO Adicionar Imagem Slide 78)
+![](./Imagens/severidade.png)
 ***
 
 ### Avaliação Preditiva
@@ -86,7 +86,9 @@ Modelo GOMS (Goals, Operators, Methods, Selection Rules) foi desenvolvido numa t
 
 Consiste num **objetivo de alto nível**, decomposto numa sequência de **tarefas unitárias** (subobjetivos), podendo cada uma delas ser decomposta em **operadores básicos**.
 
-(TODO Adicionar Imagem Slide 99 - Separar exemplo com divs para cada componente GOMS)
+Exemplo:
+
+![](./Imagens/exemplo_goms.png)
 ***
 
 ### Modelo KLM
@@ -103,7 +105,7 @@ D - Desenhar linhas usando o rato
 M - Preparação mental para realizar uma ação física
 R - Resposta do sistema às ações do utilizador
 
-(TODO Adicionar imagem slide 111)
+![](./Imagens/operador_klm.png)
 ***
 
 ### Avaliação com Utilizadores
