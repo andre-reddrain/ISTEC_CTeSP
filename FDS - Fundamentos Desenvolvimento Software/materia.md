@@ -1,20 +1,20 @@
 # Fundamentos Desenvolvimento Software
 
 # Tabela de Conteúdos
-1. [Sistemas de Informação](#sistemasInformacao)
+1. [Sistemas de Informação](#sistemas-informacao)
 2. [Dados, Informação e Conhecimento](#dados)
-3. [Sistemas de Informação nas Organizações e Tecnologias de Informação](#sistemasInformacaoOrganizacao)
-4. [Gestão da Informação e Tipos de Sistemas de Informação](#gestaoInformacao)
-5. [Introdução às Metodologias de Desenvolvimento de Software](#metodologiasDesenvolvimento)
+3. [Sistemas de Informação nas Organizações e Tecnologias de Informação](#sistemas-informacao-organizacao)
+4. [Gestão da Informação e Tipos de Sistemas de Informação](#gestao-informacao)
+5. [Introdução às Metodologias de Desenvolvimento de Software](#metodologias-desenvolvimento)
 6. [Metodologias Tradicionais](#tradicionais)
 7. [Documento Requisitos funcionais e não funcionais](#requisitos)
-8. [Diagramas de Casos de Uso](#casosUso)
+8. [Diagramas de Casos de Uso](#casos-uso)
 9. [V-Model](#vmodel)
 10. [Metodologias Ágeis](#agil)
-11. [Testar Software](#testarSoftware)
-12. [Projeto de Desenvolvimento de Software](#gestaoProjetos)
+11. [Testar Software](#testar-software)
+12. [Projeto de Desenvolvimento de Software](#gestao-projetos)
 
-# Sistemas de Informação <a id="sistemasInformacao"></a>
+# Sistemas de Informação <a id="sistemas-informacao"></a>
 
 ## Definição de Sistemas de Informação
 - Sistemas de Informação são conjuntos integrados de componentes que recolhem, armazenam, processam e distribuem informações para apoiar a tomada de decisões, a coordenação e o controlo numa organização.
@@ -51,7 +51,7 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
 - **Ferramentas** - Folha de cálculo, DBMS, BI
 ***
 
-# Sistemas de Informação nas Organizações e Tecnologias de Informação <a id="sistemasInformacaoOrganizacao"></a>
+# Sistemas de Informação nas Organizações e Tecnologias de Informação <a id="sistemas-informacao-organizacao"></a>
 
 ## Importância dos SI nas operações e na tomada de decisão nas Organizações
 - **Operações**:
@@ -74,7 +74,7 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
 - **BI (Business Intelligence)** - Ferramentas para análise de dados e suporte à decisão. Ex: Tableau, Microsoft Power BI, QlikView.
 ***
 
-# Gestão da Informação e Tipos de Sistemas de Informação <a id="gestaoInformacao"></a>
+# Gestão da Informação e Tipos de Sistemas de Informação <a id="gestao-informacao"></a>
 
 ## Conceito e importância da gestão da informação
 - **Gestão da informação**:
@@ -104,7 +104,7 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
     - Sistemas que apoiam o planemanento estratégico da organização, ajudando a alcançar vantagem competitiva e a alinhar operações com objetivos de longo prazo. Ex: Sistemas de Planeamento de Recursos empresariais (ERP), Sistemas de Gestão de Relações com o Cliente (CRM), Sistemas de Gestão da cadeia de suprimentos (SCM).
 ***
 
-# Introdução às Metodologias de Desenvolvimento de Software <a id="metodologiasDesenvolvimento"></a>
+# Introdução às Metodologias de Desenvolvimento de Software <a id="metodologias-desenvolvimento"></a>
 
 ## Definição e Importância das Metodologias de Desenvolvimento de Software
 - As metodologias de desenvolvimento de software são abordagens estruturadas que orientam o planeamento, a execução e a gestão de projetos de software. Envolvem princípios, práticas e processos que ajudam a equipa a **desenvolver software de maneira organizada e eficiente**. A importância das metodologias está no seu papel fundamental na organização do trabalho, na melhoria da comunicação entre equipas e na garantia de que o projeto seja concluído dentro do prazo, com qualidade e dentro do orçamento previsto.
@@ -197,7 +197,7 @@ Quando os dados são analisados e colocados num contexto, tornam-se informaçõe
         - Diagramas e modelos adicionais.
         - Tabelas de registo de requisitos.
 
-# Diagrama de Casos de Uso <a id="casosUso"></a>
+# Diagrama de Casos de Uso <a id="casos-uso"></a>
 - É uma representação visual usada na engenharia de software para descrever as funcionalidades dum sistema do ponto de vista dos seus utilizadores (atores).
 - É parte integrante da modelagem da análise de requisitos e é frequentemente utilizado na metodologia UML (Unified Modeling Language).
 - **Elementos do Diagrama de Casos de Uso**:
@@ -283,7 +283,7 @@ Scrum é uma framework ágil utilizada para gerir e realizar projetos complexos.
     4. **Sprint Retrospective**: Reunião de reflexão, onde a equipa avalia o que funcionou bem e o que pode ser melhorado no próximo ciclo de Sprint.
 ***
 
-# Como testar software <a id="testarSoftware"></a>
+# Como testar software <a id="testar-software"></a>
 
 1. **Planeamento dos Testes**
     - **Definir os Objetivos**: Identificar o que será testado e que problemas o teste pretende encontrar.
@@ -348,7 +348,7 @@ Scrum é uma framework ágil utilizada para gerir e realizar projetos complexos.
 - Testes de API: Postman, SoapUI.
 ***
 
-# Projeto de Desenvolvimento de Software <a id="gestaoProjetos"></a>
+# Projeto de Desenvolvimento de Software <a id="gestao-projetos"></a>
 
 ## Gestão de Projetos
 Envolve a aplicação de conhecimentos, habilidades, ferramentas e técnicas para atender aos requisitos do projeto. O objetivo é garantir que o software seja entregue dentro do prazo, orçamento e qualidade esperados.
