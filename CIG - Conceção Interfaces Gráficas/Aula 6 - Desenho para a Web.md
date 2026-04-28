@@ -30,4 +30,20 @@
 
 **Padrões de Desenho**
 
-# Slide 85
+Um padrão de desenho, termo originalmente da área da arquitetura, é um **conjunto de regras** e linhas-mestras com provas dadas e mérito demonstrado, que deve ser seguido na **conceção de soluções** determinados tipos.
+
+**Homepage**
+
+A homepage, ou página inicial de um site, é aquela por onde passa a **maioria dos visitantes** desse site. Como tal, é importante que não só seja **apelativa**, como **eficaz**.
+
+**Login/Registo**
+
+Uma das operações mais recorrentemente encontradas em sites é o login, que permite ao utilizador aceder a uma **área personalizada** ou **serviços** que requerem **autenticação**. Subjacente à possibilidade de login está a existência de um mecanismo de **registo**. Ambos devem ser implementados com cuidado.
+
+**Carrinho de compras**
+
+Uma das utilizações recorrentes da Web é o **comércio eletrónico**. Somas crescentes de dinheiro trocam de mãos por este meio. É nesse sentido que surge a **metáfora do carrinho de compras** associada às compras Web. Este fornece uma forma simples, compreensível e eficaz de concluir uma transação que inclui vários itens.
+
+**Pesquisa**
+
+Uma das formas de **encontrar informação num site**, além da navegação, é a pesquisa. Hoje em dia é habitual a maioria dos sites, mesmos os de menores dimensões, possuírem esta funcionalidade.
