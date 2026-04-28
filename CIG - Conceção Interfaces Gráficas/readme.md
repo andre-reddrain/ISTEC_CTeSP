@@ -8,7 +8,7 @@
 
 ![Nota Final](https://img.shields.io/badge/Nota_Final-15_/20-238636?style=for-the-badge&logo=googleclassroom&logoColor=white)
 
-- ![Projeto](https://img.shields.io/badge/Relatório-15_/_20-greenlight)
+- ![Projeto](https://img.shields.io/badge/Projeto-15_/_20-greenlight)
 - ![Teste](https://img.shields.io/badge/Teste-11_/_20-f39c12)
 
 ## OBJETIVOS
