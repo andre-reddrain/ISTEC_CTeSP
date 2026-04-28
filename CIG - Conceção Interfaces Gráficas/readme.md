@@ -20,9 +20,9 @@ No final da Unidade Curricular o aluno deve ser capaz de:
 
 3. Conhecer os princípios orientadores do design gráfico digital
 
-4. Conhecer o processo de desenho de uma interface gráfica para aplicações web e móveis usando uma ferramenta de desenho gráfico****
+4. Conhecer o processo de desenho de uma interface gráfica para aplicações web e móveis usando uma ferramenta de desenho gráfico
 
-5. ## CONTEÚDOS PROGRAMÁTICOS
+## CONTEÚDOS PROGRAMÁTICOS
 1. Criatividade – Tendências de design gráfico – Evolução de interfaces – Ferramentas – Design e Inovação
 
 2. Ergonomia de Software – Dispositivos físicos – Reconhecimento e dispositivos de input – Menus e a sua interação – Formulários e manipulação direta
