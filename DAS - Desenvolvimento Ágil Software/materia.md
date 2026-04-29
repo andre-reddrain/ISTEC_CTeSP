@@ -127,9 +127,39 @@ O Git tem 4 estados principais em que os ficheiros podem estar:
 
 ![image](Imagens/git_file_lifecicle.png)
 
-**Git Flow**
+#### Git Flow
+
+**Git flow** é um modelo de fluxo de trabalho para o Git, não uma funcionalidade em si.
+É uma estratégia para gerenciar branches de forma organizada, com o objetivo de facilitar o desenvolvimento colaborativo e lançamentos frequentes de software.
+Define um conjunto de branches com papéis específicos e um fluxo de trabalho para gerenciar o desenvolvimento, lançamentos e manutenção de um projeto.
+
+- **main / master** - Código da versão de produção. Versões estáveis.
+- **hotfix** - Correções rápidas em produção, criadas a partir de main e merged de volta para a main e develop.
+- **release** - Para preparar um lançamento, com correções e testes finais. Merged de volta para a main e develop.
+- **develop** - Base para as novas funcionalidades, onde as alterações são integradas antes de irem para a main.
+- **feature** - Desenvolvimento de novas funcionalidades, criadas a partir do develop e merged de volta após a conclusão.
 
 ![image](Imagens/git_flow.png)
+
+#### GitHub Flow
+
+**GitHub Flow** é uma alternativa mais simples ao GitFlow, ideal para equipas pequenas, pois não precisam de gerenciar várias versões.
+Este modelo não tem ramificações de versão. Começa na main, os devs criam branches, que são depois merged de volta à main. A ramificação de recursos é excluída.
+A ideia principal é manter o código mestre num estado constante de implantação e, portanto, pode suportar processos contínuos de integração e entrega.
+
+**Passos do GitHub Flow**:
+1. **Branch Principal (main)** - Representa a **versão estável** do código e é a **base** para todas as **novas funcionalidades**.
+2. **Branches de Funcionalidade** - Para cada nova funcionalidade ou correção, cria-se um novo branch a partir do branch principal.
+3. **Desenvolvimento e Commits** - O trabalho é realizado e registado em commits claros e descritivos na branch da funcionalidade.
+4. **Pull Requests** - Após concluir o desenvolvimento ou correção, um pull request é aberto para **solicitar revisão** e **discussão**.
+5. **Revisão e Merge** - Outros membros da equipa **revisam as mudanças** e, **se aprovadas**, a branch da funcionalidade é **merged** na branch principal.
+6. **Implementação** - A branch principal (main) é então **implementada em produção**, garantindo que as últimas alterações aprovadas estejam disponíveis.
+
+(TODO Imagem Slide 237)
+
+#### GitLab Flow
+
+# Slide 238
 
 #### Ramificação do Git - Branches
 
@@ -153,7 +183,35 @@ O Git tem 4 estados principais em que os ficheiros podem estar:
     - Commit extra
     - Histórico poluído
  
-(TODO Slide 219)
+(TODO Imagem Slide 215 - Remover a parte direita com a mensagem)
+ 
+##### Rebase
+- Replica os commits de um branch para o atual.
+- "Reescreve" o histórico de commits.
+- Pode causar problemas em branches públicas ou partilhadas!
+- Opção [-i] permite a alteração dos commits do rebase:
+    - pick (p) - Usa o commit tal como está.
+    - reword (r) - Permite alterar a mensagem.
+    - edit (e) - Permite fazer alterações nesse commit.
+    - squash (s) - Junta o commit com o commit anterior.
+    - fixup (f) - Semelhante ao squash, mas descarta a mensagem do commit.
+    - drop (d) - Remove o commit.
+ 
+(TODO Adicionar uma imagem que explique bem o rebase)
+
+##### Conflitos
+
+Conflitos acontecem quando mais que uma pessoa alterou o **mesmo** pedaço de um ficheiro em **branches diferentes**.
+Ao tentar fazer um merge com git merge, o git interrompe o processo e mostra uma mensagem. O ficheiro fica assim após o conflito:
+```
+<<<<<<< HEAD
+linha da branch main
+=======
+linha da branch feature
+>>>>>>>
+```
+
+Para resolver, edita-se o ficheiro **manualmente**, escolhendo qual versão manter (ou juntar as 2), e depois remover-se os marcadores.
 
 #### Comandos GIT
 
@@ -177,3 +235,11 @@ O Git tem 4 estados principais em que os ficheiros podem estar:
 - **git checkout -b "nome"** - Cria um branch e altera para ele.
 - **git merge "nome"** - Merge dos commits do branch "nome" para o branch atual.
 - **git checkout "nome"** - Alterna para o branch "nome".
+- **git rebase <base>** - Replica os commits da branch <base> para o atual.
+- **git branch -d <branch>** - Apaga o branch localmente.
+
+#### Tagging
+
+- **git tag** - Lista as tags existentes.
+- **git tag <tag> [<commit>]** - Cria a tag <tag> para o último commit ou para o commit <commit>.
+- **git tag -l <tag>** - Procura pela tag <tag>.
