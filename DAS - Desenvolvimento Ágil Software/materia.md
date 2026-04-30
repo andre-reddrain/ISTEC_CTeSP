@@ -159,7 +159,7 @@ A ideia principal é manter o código mestre num estado constante de implantaç�
 6. **Revisão e Merge** - Outros membros da equipa **revisam as mudanças** e, **se aprovadas**, a branch da funcionalidade é **merged** na branch principal.
 7. **Implementação / Deploy** - A branch principal (main) é então **implementada / deployed em produção**, garantindo que as últimas alterações aprovadas estejam disponíveis.
 
-(TODO Imagem Slide 236)
+![image](./Imagens/github_flow.png)
 
 #### GitLab Flow
 
@@ -168,7 +168,7 @@ Sempre que o branch principal estiver pronto para ser deployed, é possivel dar 
 Esta estratégia oferece **isolamento** adequado **entre ambientes**, permitindo que os developers mantenham várias versões de software em diferentes ambientes.
 Enquanto o GitHub Flow pressupõe que se possa dar deploy na produção sempre que se faça um merge numa ramificação de recursos no master, o GitLab Flow procura resolver esse problema permitindo que o **código passe por ambientes internos antes de chegar à produção**.
 
-(TODO Imagem Slide 237)
+![image](./Imagens/gitlab_flow.png)
 
 #### Tabela comparativa
 
@@ -189,7 +189,7 @@ Enquanto o GitHub Flow pressupõe que se possa dar deploy na produção sempre q
 
 #### Ramificação do Git - Branches
 
-(TODO Adicionar uma imagem de branches - ver slides 191 - X)
+![image](./Imagens/branches.png)
 
 - **Branch** é o nome dado a uma versão (ramificação) do projeto.
 - Possibilita gerenciar múltiplas alterações acontecendo simultaneamente.
@@ -209,7 +209,7 @@ Enquanto o GitHub Flow pressupõe que se possa dar deploy na produção sempre q
     - Commit extra
     - Histórico poluído
  
-(TODO Imagem Slide 215 - Remover a parte direita com a mensagem)
+![image](./Imagens/merge.png)
  
 ##### Rebase
 - Replica os commits de um branch para o atual.
@@ -223,7 +223,7 @@ Enquanto o GitHub Flow pressupõe que se possa dar deploy na produção sempre q
     - fixup (f) - Semelhante ao squash, mas descarta a mensagem do commit.
     - drop (d) - Remove o commit.
  
-(TODO Adicionar uma imagem que explique bem o rebase)
+![image](./Imagens/rebase.png)
 
 ##### Conflitos
 
@@ -307,7 +307,7 @@ Só serão adicionadas as atividades que a equipa comporta, sendo as novas deman
 - Processo controlado pela produção - Melhora a qualidade do produto final, já que há mais eficiência e objetividade.
 - Aumenta a autonomia - Aumenta a autonomia do processo e da equipa, que conseguem trabalhar usando a gestão visual do kanban.
 
-(TODO Imagem Slide 299)
+![image](./Imagens/kanban.png)
 
 ### Scrum
 Baseado em 3 pilares:
@@ -357,7 +357,7 @@ O ciclo de vida de um projeto de desenvolvimento é pontuado por um conjunto de 
 
 #### Processo SCRUM
 
-(TODO Inserir Imagem Slide 302)
+![image](./Imagens/scrum.png)
 
 1. **Product Backlog**
     - Lista inicial de requisitos criada pelo **PO**, com tudo que precisa ser produzido para que a visão do produto seja alcançada.
