@@ -27,4 +27,6 @@ No final da Unidade Curricular o aluno deve ser capaz de:
 
 3. Normalização de Dados – Normalização e o conceito de dependência funcional – 1ª, 2ª e 3ª Forma Normal: condições e efeitos – Conceito de chave primária e chave estrangeira (integridade referencial) – Processo de normalização usando Formas Normais
 
-4. Structured Query Language – Introdução ao SQL – Conceito de DQL, DML e DDL – Utilização do Data Query Language para consultar a base de dados – SELECT, JOIN, UNION – Manipulação de dados usando Data Manipulation Language – INSERT, UPDATE e DELETE – Manipulação de registos (INSERT, UPDATE e DELETE) – Utilização de Data Definition Language para criação e alteração de objetos – CREATE, DROP, ALTER 5. Administração de bases de dados MySQL
+4. Structured Query Language – Introdução ao SQL – Conceito de DQL, DML e DDL – Utilização do Data Query Language para consultar a base de dados – SELECT, JOIN, UNION – Manipulação de dados usando Data Manipulation Language – INSERT, UPDATE e DELETE – Manipulação de registos (INSERT, UPDATE e DELETE) – Utilização de Data Definition Language para criação e alteração de objetos – CREATE, DROP, ALTER
+
+5. Administração de bases de dados MySQL
