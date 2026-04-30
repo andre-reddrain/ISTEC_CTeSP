@@ -1,5 +1,14 @@
-# Desenvolvimento Ágil de Software
-O **desenvolvimento ágil de software** surgiu como uma resposta às limitações dos métodos tradicionais, que têm dificuldades em lidar com mudanças rápidas, cumprir prazos e optimizar recursos de forma eficaz.
+# DAS - Desenvolvimento Ágil de Software
+
+# Tabela de Conteúdos
+1. [Tradicional vs Ágil](#tradicional-agil)
+2. [DevOps](#devops)
+3. [Visão de Governança de TI](#governanca)
+4. [VCS (Version Control System)](#vcs)
+5. [Metodologias Ágeis de Gestão de Projetos](#agil)
+***
+
+O **desenvolvimento ágil de software** surgiu como uma resposta às limitações dos métodos tradicionais, que têm dificuldades ++++em lidar com mudanças rápidas, cumprir prazos e optimizar recursos de forma eficaz.
 Com foco na **flexibilidade e na colaboração**, essa abordagem transforma a produção de software num **processo mais dinâmico**, centrado nas **necessidades dos usuários**, por meio de **entregas frequentes, ajustes constantes** e maior eficiência.
 Ao adotar os princípios da agilidade, as organizações **modernizam as suas práticas**, promovem uma cultura de **adaptação contínua** e **fortalecem a colaboração** entre as equipas.
 
@@ -15,13 +24,13 @@ Ao adotar os princípios da agilidade, as organizações **modernizam as suas pr
 - **Kanban**
 - **Extreme Programming (XP)**
 
-## Tradicional vs Ágil
-### Tradicional
+# Tradicional vs Ágil <a id="tradicional-agil"></a>
+## Tradicional
 - **As funcionalidade são definidas desde o inicio e não mudam**
 - O projeto é planeado para entregar **tudo o que foi especificado**, o que exige controlar o prazo e o custo - mesmo que isso **comprometa a qualidade**
 - A abordagem tradicional tenta eliminar riscos por meio de **planeamento detalhado e previsibilidade**
 
-### Ágil
+## Ágil
 - O cliente e a equipa decidem juntos o que cabe **dentro de um prazo e orçamento fixos**
 - O que é entregue pode mudar conforme as **prioridades e aprendizados do projeto**
 - A **qualidade é preservada**, porque o foco está em entregar valor continuamente e com excelência, mesmo que nem todas as funcionalidades inicialmente desejadas sejam entregues
@@ -33,7 +42,7 @@ Ao adotar os princípios da agilidade, as organizações **modernizam as suas pr
 | **Qualidade** | Pode ser sacrificada | É prioridade constante |
 | **Entregas** | No final do projeto | Frequentes e incrementais |
 
-## DevOps
+# DevOps <a id="devops"></a>
 **DevOps** é uma cultura e um conjunto de práticas que integram as equipas de **desenvolvimento (Dev)** e **operações (Ops)**, com o objetivo de:
 - Automatizar e integrar os processos de desenvolvimento e entrega de software
 - Reduzir o tempo entre o desenvolvimento de uma funcionalidade e a sua release
@@ -41,7 +50,7 @@ Ao adotar os princípios da agilidade, as organizações **modernizam as suas pr
 
 ![image](Imagens/devops.png)
 
-## Visão de Governança de TI e Desenvolvimento de Software
+# Visão de Governança de TI e Desenvolvimento de Software <a id="governanca"></a>
 
 | Nível | Model | Função |
 | ----- | ----- | ------ |
@@ -51,12 +60,12 @@ Ao adotar os princípios da agilidade, as organizações **modernizam as suas pr
 | **Técnico/Ágil** | **ADML/AML** - Modelagens e Execução | Modelagem Ágil de Dados (ADML) e Sistemas (AML) (Ferramentas/metodologias específicas que suportam o SDL e ALM/ADLM) |
 | **Técnico/Ágil** | **DevOps** - Modelagens e Execução | Práticas de entrega, automação, integração, deploy e operação contínua
 
-### SDLC - Software Development Life Cycle
+## SDLC - Software Development Life Cycle
 - O conceito de **SDLC existe há anos** e surge devido á crescente complexidade da gestão de projetos de desenvolvimento de software e à natureza inerente das entregas de software - que precisam de ser continuamente alteradas e atualizadas
 - SDLC foi projetado para **controlar projetos de desenvolvimento** e adicionar **previsibilidade**, com o objetivo de entregar maior valor.
 - Concebido para seguir uma abordagem mais **estruturada** e **incremental** - model em cascata/ modelo V
 
-### ADLM - Application Development and Lifecycle Management
+## ADLM - Application Development and Lifecycle Management
 - Define especificamente como a gestão da parte do "desenvolvimento" da vida de um aplicativo e no qual elementos-chave são incluídos, como:
     - Definição e gestão de requisitos de software
     - Gestão de configuração e mudança de software
@@ -67,7 +76,7 @@ Ao adotar os princípios da agilidade, as organizações **modernizam as suas pr
 - Metodologias ágeis como o Scrum ou Kanban são frameworks de implementação do SDLC, e o ADLM é a gestão do ciclo de vida do software quando as metodologias ágeis são implementadas
 - Com o ADLM, as metodologias ágeis têm precedência e, como resultado, atividades como gestão de configuração e mudanças de software e gestão de defeitos desempenharem um papel mais vital no desenvolvimento de software. O método ágil dá maior ênfase à capacidade não apenas de gerenciar mudanças de software, mas também adotá-las.
 
-### EAP (EAPT) - Enterprise Agile Planning (Tools)
+## EAP (EAPT) - Enterprise Agile Planning (Tools)
 - Expande o conceito de ADLM, que vai do uso do Agile no nível de equipa/projeto para a implementação da filosofia Agile em escala, a fim de alcançar o desenvolvimento Agile de nível empresarial com o objetivo de gerar maior valor para toda a empresa e não apenas para a equipa.
 - Auxilia na gestão do ciclo de vida do desenvolvimento quando metodologias como Agile e outras são implementadas para gerenciar o desenvolvimento de software ágil em escala empresarial, utilizando recursos-chave como:
     - Gestão de Portfólio de Projetos
@@ -77,17 +86,17 @@ Ao adotar os princípios da agilidade, as organizações **modernizam as suas pr
     - Gestão de Lançamentos
 - EAP é a gestão do ciclo de vida do desenvolvimento, quando metodologias ágeis em escala são implementadas numa organização
 
-### DevOps
+## DevOps
 - DevOps visa preencher a lacuna entre a criação, a implementação e o uso do software.
 - Atividades como integração e implementação contínua (CI/CD) e gestão de lançamentos são consideradas parte de DevOps.
 - A ideia por trás de DevOps é entregar valor. DevOps coloca o valor do esforço de desenvolvimento nas mãos daqueles que podem fazer o melhor uso dele, em vez de optimizar inerentemente o processo de desenvolvimento. DevOps é agnóstico em relação à metodologia de desenvolvimento utilizada.
 
-### ALM - Application Development and Lifecycle Management
+## ALM - Application Development and Lifecycle Management
 - ALM abrange tudo, desde o nascimento ou concepção de uma aplicação até ao fim da sua vida.
 - SDLC, ADLM, EAP e DevOps são todos parte e subconjunto do ALM, onde SDLC, ADLM e EAP concentram-se na gestão do lado do desenvolvimento, enquanto o DevOps concentra-se na gestão da segunda metade do ciclo de vida: lançamento, monitoramento e manutenção.
 - ALM concentra-se mais em colaboração multifuncional, rastreabilidade e conformidade do ciclo de vida, reutilização avançada de ativos e gestão de variantes, riscos e segurança de aplicações.
 
-### Etapas no ciclo de vida de uma aplicação
+## Etapas no ciclo de vida de uma aplicação
 As etapas no ciclo de vida de uma aplicação são:
 1. Especificação de requisitos
     - Envolve reunir e documentar os requisitos para o aplicativo. Inclui identificar as necessidades dos clientes finais, tal como identificar quaisquer requisitos funcionais e não funcionais.
@@ -100,7 +109,7 @@ As etapas no ciclo de vida de uma aplicação são:
 5. Manutenção
     - Envolve suporte e atualizações contínuas para garantir que a aplicação continua a responder às necessidades dos clientes finais.
 
-## VCS (Version Control System)
+# VCS (Version Control System) <a id="vcs"></a>
 **Sistemas de controlo de versão** têm como finalidade gerenciar versões de um documento/artefato.
 
 **Tipos de VCS**:
@@ -114,7 +123,7 @@ As etapas no ciclo de vida de uma aplicação são:
     - As áreas de trabalho podem comunicar-se entre si.
     - Recomendados para equipas com muitos desenvolvedores e que se encontram em locais diferentes.
 
-### Git - Sistema de controle de versão
+## Git - Sistema de controle de versão
 - Trabalha com snapshots dos ficheiros no projeto.
 - Tudo é verificado com CHECK-SUM com SHA-1.
 - Quase todas as operações no Git são locais. Pode-se trabalhar offline sem problemas.
@@ -127,7 +136,7 @@ O Git tem 4 estados principais em que os ficheiros podem estar:
 
 ![image](Imagens/git_file_lifecicle.png)
 
-#### Git Flow
+### Git Flow
 
 **Git flow** é um modelo de fluxo de trabalho para o Git, não uma funcionalidade em si.
 É uma estratégia para gerenciar branches de forma organizada, com o objetivo de facilitar o desenvolvimento colaborativo e lançamentos frequentes de software.
@@ -141,7 +150,7 @@ Define um conjunto de branches com papéis específicos e um fluxo de trabalho p
 
 ![image](Imagens/git_flow.png)
 
-#### GitHub Flow
+### GitHub Flow
 
 **GitHub Flow** é uma alternativa mais simples ao GitFlow, ideal para equipas pequenas, pois não precisam de gerenciar várias versões.
 Este modelo não tem ramificações de versão. Começa na main, os devs criam branches, que são depois merged de volta à main. A ramificação de recursos é excluída.
@@ -161,7 +170,7 @@ A ideia principal é manter o código mestre num estado constante de implantaç�
 
 ![image](./Imagens/github_flow.png)
 
-#### GitLab Flow
+### GitLab Flow
 
 O **GitLab Flow** é ótimo quando se deseja manter vários ambientes e quando se prefere ter um **ambiente de testes** separado do ambiente de produção.
 Sempre que o branch principal estiver pronto para ser deployed, é possivel dar merge novamente no branch de produção e liberá-lo.
@@ -170,7 +179,7 @@ Enquanto o GitHub Flow pressupõe que se possa dar deploy na produção sempre q
 
 ![image](./Imagens/gitlab_flow.png)
 
-#### Tabela comparativa
+### Tabela comparativa
 
 | Característica | Git Flow | GitHub Flow | GitLab Flow |
 | -------------- | -------- | ----------- | ----------- |
@@ -187,7 +196,7 @@ Enquanto o GitHub Flow pressupõe que se possa dar deploy na produção sempre q
 | Desvantagens | Muito ramo e burocracia em projetos simples | Pouco controle em projetos complexos | Requer configuração adequada de CI/CD |
 | Ideal para | Projetos com versões bem definidas | Startups, aplicações web com CI/CD | Projetos com múltiplos ambientes e DevOps |
 
-#### Ramificação do Git - Branches
+### Ramificação do Git - Branches
 
 ![image](./Imagens/branches.png)
 
@@ -198,7 +207,7 @@ Enquanto o GitHub Flow pressupõe que se possa dar deploy na produção sempre q
 - O branch **'master'** não é um branch especial. É igual a qualquer outro branch. A única razão pela qual quase todos os repositórios têm um é porque o comando **git init** cria-o por padrão.
 - O Git sabe em que branch nós estamos atualmente através de um ponteiro especial chamado **HEAD**.
 
-##### Merge
+#### Merge
 - Junta os commits de um branch noutro.
 - **Fast-forward** é um tipo especial de merge que **não cria um novo commit de merge**. Ele simplesmente "avança" o ponteiro da branch atual para o commit da outra branch, caso a branch atual esteja "atrás" e não tenha commits divergentes.
 
@@ -211,7 +220,7 @@ Enquanto o GitHub Flow pressupõe que se possa dar deploy na produção sempre q
  
 ![image](./Imagens/merge.png)
  
-##### Rebase
+#### Rebase
 - Replica os commits de um branch para o atual.
 - "Reescreve" o histórico de commits.
 - Pode causar problemas em branches públicas ou partilhadas!
@@ -225,7 +234,7 @@ Enquanto o GitHub Flow pressupõe que se possa dar deploy na produção sempre q
  
 ![image](./Imagens/rebase.png)
 
-##### Conflitos
+#### Conflitos
 
 Conflitos acontecem quando mais que uma pessoa alterou o **mesmo** pedaço de um ficheiro em **branches diferentes**.
 Ao tentar fazer um merge com git merge, o git interrompe o processo e mostra uma mensagem. O ficheiro fica assim após o conflito:
@@ -239,7 +248,7 @@ linha da branch feature
 
 Para resolver, edita-se o ficheiro **manualmente**, escolhendo qual versão manter (ou juntar as 2), e depois remover-se os marcadores.
 
-#### Comandos GIT
+### Comandos GIT
 
 - **git init** - Inicializa um repositório git
 - **git status** - Visualizar o estado dos ficheiros do repositório
@@ -254,14 +263,14 @@ Para resolver, edita-se o ficheiro **manualmente**, escolhendo qual versão mant
 - **git reset --hard "hash"** - Retorna tudo como estava antes do commit
 - **git blame "ficheiro"** - Exibe quem modificou cada linha de um ficheiro, incluindo data e commit
 
-##### Repositório remoto
+#### Repositório remoto
 - **git remote add <nome> <url>** - Associa o repositório local ao remoto.
 - **git clone <url>** - Cria uma cópia completa do repositório remoto. Cria também a ligação com o repositório remoto.
 - **git push** - Envia os ficheiros do repositório local para o repositório remoto.
 - **git fetch origin** - Atualiza o repositório local com as informações mais recentes do repositório remoto, sem alterar o código ou branches locais.
 - **git pull origin** - Atualiza todos os dados do repositório ou do branch em que se está a trabalhar.
 
-##### Branches
+#### Branches
 
 - **git branch -a** - Exibe os branches existentes (inclusive remotos).
 - **git branch "nome"** - Cria o branch "nome".
@@ -271,15 +280,15 @@ Para resolver, edita-se o ficheiro **manualmente**, escolhendo qual versão mant
 - **git rebase <base>** - Replica os commits da branch <base> para o atual.
 - **git branch -d <branch>** - Apaga o branch localmente.
 
-##### Tagging
+#### Tagging
 
 - **git tag** - Lista as tags existentes.
 - **git tag <tag> [<commit>]** - Cria a tag <tag> para o último commit ou para o commit <commit>.
 - **git tag -l <tag>** - Procura pela tag <tag>.
 
-## Metodologias Ágeis de Gestão de Projetos
+# Metodologias Ágeis de Gestão de Projetos <a id="agil"></a>
 
-### Quadro Kanban
+## Quadro Kanban
 
 Kanban é uma ferramenta de gestão visual que controla fluxos de trabalho com cartões e colunas num quadro.
 - Amplamente utilizado para implementar o Desenvolvimento Ágil de Software.
@@ -289,14 +298,14 @@ Kanban é uma ferramenta de gestão visual que controla fluxos de trabalho com c
 Conforme as **atividades são executadas**, os **cartões são movidos de coluna em coluna**, permitindo a equipa **acompanhar o progresso** de um projeto ou processo para **identificar a capacidade** de novas demandas.
 O principal objetivo é **facilitar o progresso de um fluxo de trabalho ou processo**, permitindo que todos os utilizadores e partes interessadas possam acompanhar de forma fácil o status de atividades e projetos.
 
-#### Funcionamento
+### Funcionamento
 
 O Kanban funciona a partir de 3 elementos principais: **Cartão**, **Coluna** e **Quadro**, que compõe um fluxo de trabalho ou uma cadeia produtiva.
 Com estes 3 elementos, a utilização do Kanban consiste basicamente em mover os cartões conforme o **status** vai alterando, dando um panorama do que está **pendente** e do que já foi **concluído**.
 Um ponto importante é o caráter limitante do sistema, porque uma linha produtiva pode ter uma demanda muito maior do que a capacidade de produzir.
 Só serão adicionadas as atividades que a equipa comporta, sendo as novas demandas inseridas conforme as entregas são realizadas.
 
-#### Vantagens
+### Vantagens
 - Menos burocracia - Não há necessidade de documentos formais de controle.
 - Aumenta a motivação dos colaboradores - Valoriza mais a função de cada um.
 - Reduz desperdícios e custos - Ocorre essa redução no deploy, na fabricação e também na redução de produtos no estoque.
@@ -309,13 +318,13 @@ Só serão adicionadas as atividades que a equipa comporta, sendo as novas deman
 
 ![image](./Imagens/kanban.png)
 
-### Scrum
+## Scrum
 Baseado em 3 pilares:
 1. **Transparência** - Os aspetos significativos do processo estejam visíveis para aqueles que são responsáveis pelo resultado. Garantir que todos partilham o mesmo entendimento sobre o que estão a ver.
 2. **Inspeção** - Os utilizadores do Scrum devem inspecionar frequentemente os artefactos e o progresso em direção ao objetivo do Sprint. Serve para detetar variações indesejadas ou problemas.
 3. **Adaptação** - O processo ou o material produzido deve ser ajustado o mais rápidamente possível para minimizar novos desvios.
 
-#### Equipa do Scrum
+### Equipa do Scrum
 - **Product Owner (PO)** - Representa o cliente. Define o que será feito (prioridades).
 - **Scrum Master (SM)**
     - Atua como um **facilitador e guardião do processo Scrum**.
@@ -329,7 +338,7 @@ Baseado em 3 pilares:
     - Responsável por transformar itens do backlog em **incrementos funcionais**.
     - **Pessoas que controem o produto (developers, designers...)**.
  
-#### Cerimónias
+### Cerimónias
 O ciclo de vida de um projeto de desenvolvimento é pontuado por um conjunto de reuniões, cada uma com um objetivo bem definido.
 
 | Cerimônia | Finalidade | Participantes | Duração sugerida |
@@ -340,7 +349,7 @@ O ciclo de vida de um projeto de desenvolvimento é pontuado por um conjunto de 
 | **Sprint Review** | Apresentar entregas e coletar feedback | Todo a equipa + stakeholders | 1h por semana de Sprint |
 | **Sprint Retrospective** | Melhorar o processo de trabalho | PO, SM, Dev Team | 1h30 a 3h (geralmente) |
 
-#### Artefatos
+### Artefatos
 
 | Artefato | Responsável Principal | Descrição | Objetivo |
 | -------- | --------------------- | --------- | -------- |
@@ -348,14 +357,14 @@ O ciclo de vida de um projeto de desenvolvimento é pontuado por um conjunto de 
 | **Sprint Backlog** | Dev Team | Subconjunto do Product Backlog **selecionado para a Sprint atual**. | Planear e organizar o trabalho da Sprint. |
 | **Increment** | Dev Team | **Soma dos itens "Done"** da sprint atual com os já entregues anteriormente | Fornecer valor tangível e utilizável ao final de cada Sprint. |
 
-#### Artefatos adicionais (Não oficiais do Scrum Guide)
+### Artefatos adicionais (Não oficiais do Scrum Guide)
 | Artefato Extra | Descrição | Objetivo |
 | -------------- | --------- | -------- |
 | **Definition of Done (DoD)** | Critérios que um item precisa atender para ser considerado "pronto" | Garantir qualidade e alinhamento nas entregas. |
 | **Burndown Chart** | Gráfico que mostra o **trabalho restante ao longo do tempo** da Sprint. | Monitorar o progresso da equipa. |
 | **Impediment Log** | Lista de impedimentos que bloqueiam ou atrapalham a equipa. | Acompanhar e remover obstáculos com apoio do SM. |
 
-#### Processo SCRUM
+### Processo SCRUM
 
 ![image](./Imagens/scrum.png)
 
