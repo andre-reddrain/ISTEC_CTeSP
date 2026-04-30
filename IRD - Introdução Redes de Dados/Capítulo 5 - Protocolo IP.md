@@ -129,20 +129,126 @@ Objetivo adicional -> Facilitar gestão de atribuição de endereços em redes I
 - Não deve ser usado se Cliente disponibilizar serviços públicos (ex. Web Server)
 - Necessário atualização de servidor DNS com novos endereços ->+ complexidade
     - Mais apropriado usar endereços IP estáticos
+ 
+## 5.9 - Protocolos "auxiliares" de IP/Gestão
 
-### 5.9.1 - Protocolos "auxiliares" de IP/Gestão: ICMP
-Protocolos "auxiliares" de IP
-- Funcionam na camada 3 com funcionalidades adicionais às do IP
-- Protocolo **ICMP (Internet Control Message Protocol)**
-    - Protocolo de controlo e testes
-        - Gestão da rede
-        - Teste de acessibilidade de destinos (redes ou terminais)
-        - Transporte de alterações de tabelas de routing
-    - Utiliza IP para envio de mensagens
-    - Ex: **Ping**
-- Protocolo **ARP (Address Resolution Protocolo)**
-    - Utilizado para obter endereço Camada 2 (MAC) a partir de endereço IP => MAC Address é necessário para switches conseguirem encaminhar mensagens entre terminais da mesma LAN
-    - Exemplo de funcionamento de protocolo ARP
-        1. Terminal que necessita de saber endereço MAC de um outro terminal, com quer comunicar, envia mensagem ARP request contendo o IP desse terminal em difusão para toda a rede
-        2. Switch/Router recebe e reenvia ARP request em difusão para todos os terminais da rede e aguarda ARP reply apenas do terminal do IP, para reencaminhar ARP reply apenas para terminal requisitante
-        3. Enquanto estiver ligado, o terminal mantem tabela/cache ARP com todos os pares IP/MAC dos elementos com o qual comunicou -> Objetivo: apenas ser necessário resolver 1x endereço IP/MAC
+Funcionam na camada 3 com funcionalidades adicionais às do IP
+
+### 5.9.1 - Protocolo ICMP (Internet Control Message Protocol)
+
+- Protocolo de controlo e testes
+    - Gestão da rede
+    - Teste de acessibilidade de destinos (redes ou terminais)
+    - Transporte de alterações de tabelas de routing
+- Utiliza IP para envio de mensagens
+- Ex: **Ping**
+ 
+### 5.9.2 - Protocolo ARP (Address Resolution Protocolo)
+
+- Utilizado para obter endereço Camada 2 (MAC) a partir de endereço IP => MAC Address é necessário para switches conseguirem encaminhar mensagens entre terminais da mesma LAN
+- Exemplo de funcionamento de protocolo ARP
+    1. Terminal que necessita de saber endereço MAC de um outro terminal, com quer comunicar, envia mensagem ARP request contendo o IP desse terminal em difusão para toda a rede
+    2. Switch/Router recebe e reenvia ARP request em difusão para todos os terminais da rede e aguarda ARP reply apenas do terminal do IP, para reencaminhar ARP reply apenas para terminal requisitante
+    3. Enquanto estiver ligado, o terminal mantem tabela/cache ARP com todos os pares IP/MAC dos elementos com o qual comunicou -> Objetivo: apenas ser necessário resolver 1x endereço IP/MAC
+ 
+### 5.9.3 - Protocolo DNS (Domain Name System)
+
+- Possibilita que recursos ligados à rede possam ser identificados por um nome (além do ip) -> + fácil gestão de nomes para utilizadores.
+    - Conversão de endereços lógicos (strings ASCII), mais compreensíveis para os utilizadores, em endereços númericos (binários)
+    - Para se iniciar comunicação, nomes têm que ser convertidos em endereços IP via consulta de servidores DNS responsáveis por Domínios.
+    - **Domínio**: BD distribuída c\ nomes definidos de forma hierárquica.
+        - **Vantagem**: Possibilitar gerir todo o espaço de nomeação sem necessitar de BD centralizada - solução impossível para toda a internet.
+            - Descentralização e autonomia seguem "filosofia" da internet
+        - **Tipos de Domínios de topo (TLD: Top Level Domain)**:
+            - Genéricos/entidades (EUA): *com, edu, gov, int, mil, net, org*
+                - Geridos por ICANN c\ 13 servidores DNS TLD
+            - Países/geográficos: 2 caracteres que identificam país: *pt, es*)
+                - Geridos por entidades nacionais.
+                - Domínio ".pt" é gerido por "DNS.pt" da FCCN.
+        - **Zona**: Subconjunto de um domínio, gerido por um servidor DNS próprio.
+        - **Domínios de 2º Nível**
+            - Geridos por organizações (empresas).
+            - Geralmente sub-dividem o seu domínio em sub-domínios de acordo c\ estrutura organizacional ou distribuição geográfica.
+        - **Cache DNS**
+            - Memória onde servidores DNS (e terminais de utilizadores) guardam temporáriamente os registos dos últimos pares nomes/ip traduzidos:
+                - Pares nome/ip que não pertencem ao seu domínio e que, por isso, servidor teve que interrogar outros DNSs.
+                - **Objetivo**: Maior rapidez, redução de tráfego e custos para rede.
+            - Informação em cache: *NonAuthorative* (não responsabilidade do servidor).
+            - Tempo de validade de informação em cache é determinada por TTL em segundos especificado pelo Servidor Primário.
+    - Servidor DNS de Domínio conhece mapeamento nome/enderenço IP de:
+        - Todos os recursos da sua rede
+        - Se recurso destino não pertencer a Domínio, Servidor DNS deve saber encaminhar query para DNS de Domínio do recurso.
+
+### 5.9.4 - Protocolo MPLS (MultiProtocol Label Switching)
+
+- **Objetivo**: disponibilizar mecanismos de garantia de QoS em redes IP.
+- Dois mecanismos de garantia de QoS:
+    1. Caminho escolhido em função de prioridade de QoS do fluxo de dados a transportar - pacotes da mesma aplicação fazem o mesmo caminho definido c\ base em label (protocolo de serviço c\ conexão)
+    2. Processamento de pacotes em routers em função de prioridade de QoS dos seus dados - valor colocado em campo de cabeçalho MPLS
+- Mapea cabeçalho IP em cabeçalho mais simples de comprimento fixo:
+    - Routing com base em labels -> mais simples e rápido do que IP (não necessita de consultar tabelas de routing com IP)
+    - Labels: campo de cabeçalho que define caminho c\ base em classe QoS
+        - Corresponde a endereço de encaminhamento
+        - Atribuídas no início da comunicação para definição de caminho de pacotes
+    - MultilProtocol - independente de protocolos de C2 - Tecnologia rede
+    - Dois tipos de routers:
+        - **LER (Label Edge Router)**: routers na periferia da rede MPLS
+            - Interface c\ redes IP
+            - Maior complexidade/"intelegência" do que LSR
+        - **LSR (Label Switching Router)**: routers no interior (core) da rede MPLS
+            - Encaminha pacotes c\ base em Labels - mais rápido do que endereços IP
+         
+### 5.9.5 - Protocolo Diffserv
+
+- Diferença para MPLS: uso de cabeçalho IP e campo Type Of Service (TOS)
+    - Maior granularidade na classificação do QoS dos pacotes (6 bits) em função dos seus dados.
+    - Possibilidade de condicionar/modelar tráfego na entrada da rede:
+        - Modelar e/ou eliminar tráfego menos prioritário para reduzir de risco de congestão na rede que poderá condicionar funcionamento de Diffserv.
+- **Objetivos**:
+    - Classificar e diferenciar os pacotes IP em função de requisito de QoS:
+        - Maior complexidade/inteligência na periferia da rede - marcação de pacotes
+        - Maior simplicidade no interior da rede - processar pacotes em função de marcação de prioridade previamente feita na periferia.
+    - Apenas disponibilizar diferenciação de serviços dentro de domínio de rede:
+        - Conseguir diferenciação de tráfego - possibilitar melhor qualidade de transporte para aplicações mais prioritárias.
+- **Edge router**:
+    - Classifica e marca os pacotes em função dos requisitos de QoS.
+    - Condiciona/modela o perfil de ritmo de pacotes, em função de características de tráfego da aplicação
+- **Core router**:
+    - Armazenamento e escalonamento para encaminhamento de pacotes com base na marcação de prioridade feita nos edge routers.
+    - Manter um **PHB (Per-Hop Behavior)** - manter o perfil de tráfego definido nos edge routers ao longo dos saltos de transmissão de pacotes entre cada router.
+    - Não é necessário manter informação de estado de ligações.
+- Disponibiliza as seguintes funcionalidades na periferia:
+    - Classificador: Identifica requisitos de QoS (prioridade) de pacotes (e respetiva aplicação) c\ base em informação contida no cabeçalho de pacotes IP.
+    - Marcador: Marcar/colorir os pacotes em função da sua classificação - Redefine campos TOS como DSCP.
+    - Condicionador (TCA: Traffic Conditioning Agreement):
+        - Faz verificação de características de tráfego de entrada
+            - Verifica se tráfego está em conformidade com esperado/negociado
+            - Reporta conformidade a elementos com funções:
+                - *Shaper* - Se necessário reduzir e estabilizar ritmo de transmissão
+                - *Dropper* - Se necessário eliminar pacotes menos prioritários (policiamento)
+- **Interoperabilidade MPLS/Diffserv**:
+    - 3 bits + significativos de DSCP copiados para campo EXP de MPLS
+    - Diffserv com maior granularidade (*DSCP: 6 bits*) do que MPLS (*EXP: 3 bits*)
+        - Diffserv mais usado na periferia da rede para diferenciar tráfego.
+        - MPLS mais usado no core da rede para acelerar transporte de tráfego.
+     
+### 5.9.6 - IPSec (IP Security)
+- Autenticação e Encriptação na camada de rede - Invisível para Aplicações e Utilizadores
+- **Principais características**:
+    - Estabelecimento de associações de segurança entre as entidades comunicantes.
+    - Suporte de funcionalidades de segurança via cabeçalhos de extensão:
+        - **AH - Autenthication Header** - Garante autenticidade e integridade de pacotes IP c\ base em MAC (Message Authentication Code) - Checksum criptográfico de Dados (não garante confidencialidade)
+        - **ESP - Encapsulation Security Payload** - Garante confidencialidade e integridade de pacotes IP
+        - Cabeçalhos transportam informação de controlo das funcionalidades
+    - Suporte de 2 modos de funcionamento:
+        - Transporte: Proteção de Dados do utilizador (Payload). Utilizado em comunicação extremo-a-extremo
+        - Túnel: Proteção de todo o pacote. Pacote é tratado como dados de um novo pacote c\ um novo cabeçalho.
+    - Possibilidade de usar protocolo IP Payload Compression para compressão de dados.
+ 
+241 a 242
+246
+248
+252
+256 a 258
+260 a 261
+265
