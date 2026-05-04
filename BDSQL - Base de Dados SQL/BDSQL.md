@@ -250,7 +250,7 @@ SELECT * FROM tabela LIMIT 3;
     ON Utilizadores.ID = Encomendas.ID;
     ```
 
-    (Todo Imagem Inner Join [https://www.w3schools.com/sql/sql_join_inner.asp])
+    ![](./Imagens/inner_join.png)
 
 - **LEFT OUTER JOIN**
     - As linhas da tabela da esquerda e as linhas correspondentes da tabela da direita.
@@ -262,9 +262,7 @@ SELECT * FROM tabela LIMIT 3;
     ON Utilizadores.ID = Encomendas.ID 
     ```
     
-    ![](https://www.w3schools.com/sql/img_left_join.png "Left Outer Join")
-
-    (TODO Passar imagem localmente)
+    ![](./Imagens/left_join.png)
       
 - **RIGHT OUTER JOIN**
     - Oposto do **LEFT OUTER JOIN**.
@@ -278,7 +276,7 @@ SELECT * FROM tabela LIMIT 3;
     ON Utilizadores.ID = Encomendas.ID;
     ```
 
-    (TODO Imagem Right Join [https://www.w3schools.com/sql/sql_join_right.asp])
+    ![](./Imagens/right_join.png)
   
 - **FULL OUTER JOIN**
     - Combina os resultados do **LEFT** e **RIGHT OUTER JOIN**.
@@ -292,7 +290,8 @@ SELECT * FROM tabela LIMIT 3;
     ON Utilizadores.ID = Encomendas.ID;
     ```
  
-    (TODO Imagem Full Join [https://www.w3schools.com/sql/sql_join_full.asp])
+    ![](./Imagens/full_outer_join.png)
+
 - **CROSS JOIN**
     - Combina cada linha de uma tabela com cada linha da outra tabela, criando todas as combinações possíveis. CUIDADO!
     - Se existir 10 registo na tabela1, e 20 na tabela2, o cross join retorna $10 * 20 = 200$ registos.
